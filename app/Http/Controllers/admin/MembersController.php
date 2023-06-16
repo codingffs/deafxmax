@@ -5,10 +5,11 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Members;
+use App\Models\Kyc;
 use DataTables;
 use Hash;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Session;
 class MembersController extends Controller
 {
 
@@ -21,6 +22,7 @@ class MembersController extends Controller
                 }
                 else{
                     $User = User::where('parent_id',auth()->user()->id)->orderBy('created_at','desc')->get();
+
                 }
                 return DataTables::of($User)
                         ->addIndexColumn()
@@ -28,6 +30,9 @@ class MembersController extends Controller
                             $btn = "";
                             $btn .= '<a href="'. route('members.edit', $row->id) .'" class="table-action-btn edit btn btn-primary m-1" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>';
                             $btn .= '<a href="javascript:void(0)" data-url="'. route('members.destroy', $row->id) .'" class="table-action-btn btn btn-danger m-1 delete_btn" data-id="'. $row->id .'"><i class="fa fa-trash" aria-hidden="true"></i></a>';
+                            if(auth()->user()->role_id == 1){
+                                $btn .= '<a href="'. route('view_data', $row->id) .'" class="table-action-btn btn btn-info m-1 emp_view"><i class="fas fa-eye"></i></a>';
+                            }
                             return $btn;
                         })
                         ->make(true);
@@ -78,7 +83,7 @@ class MembersController extends Controller
         }
     }
         public function edit(string $id)
-    {           
+    {
         $User = User::find($id);
         return view('admin.members.edit',compact('User'));
     }
@@ -117,5 +122,21 @@ class MembersController extends Controller
                return response()->json(["status" => 0]);
            }
     }
-    
+
+    public function view_data($id)
+    {
+         $user = User::find($id);
+         $kyc = Kyc::where('user_id',$id)->get();
+         return view('admin.members.view_data',compact('user','kyc'));
+    }
+    public function kyc_approve($id)
+    {
+        $kyc = Kyc::find($id);
+        $kyc->flag = 1; //Approve
+        Session::flash('success', 'Kyc hase been approved Successfully !');
+        $kyc->save();
+       return response()->json(['status'=> 1]);
+    }
+
+
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\ConsultantController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\MembersController;
+use App\Http\Controllers\admin\KycController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,10 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('setting_unique_name_update',[SettingController::class,"setting_unique_name_update"])->name('setting_unique_name_update');
 
         Route::resource('members',MembersController::class);
+        Route::get('view_data/{id?}', [MembersController::class, 'view_data'])->name('view_data');
+        Route::get('kyc_approve/{id?}', [MembersController::class, 'kyc_approve'])->name('kyc_approve');
+
+        Route::resource('kyc',KycController::class);
 
 
 

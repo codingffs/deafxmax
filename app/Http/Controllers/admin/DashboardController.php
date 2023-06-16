@@ -8,11 +8,13 @@ use App\Models\User;
 use App\Models\State;
 use Hash;
 use Auth;
+use App\Models\Kyc;
 
 class DashboardController extends Controller
 {
     public function index(){
-        return view('admin.dashboard.index');
+        $kyc = Kyc::first();
+        return view('admin.dashboard.index',compact('kyc'));
     }
 
     public function profile_edit(){
@@ -96,4 +98,5 @@ class DashboardController extends Controller
          return view('admin.profile.view-account',compact('user','State'));
         // return response()->json(['html' => $html]);
     }
+
 }

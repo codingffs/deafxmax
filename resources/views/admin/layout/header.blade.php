@@ -119,6 +119,10 @@
               <a class="dropdown-item" href="{{ route('change_password') }}"><i class="fas fa-key mr-2"></i>Change Password</a>
               @if(auth()->user()->role_id == 1)
                 <a class="dropdown-item" href="#"><i class="fas fa-user-check mr-2"></i>Complete Kyc</a>
+                @else
+                @if(getKycFlag() == 1)
+                <a class="dropdown-item" href="{{ route('kyc.create') }}"><i class="fas fa-user-check mr-2"></i>Kyc Create</a>
+                @endif
               @endif
               <a class="dropdown-item" href="{{ route('logout') }}"><i class="fas fa-power-off mr-2"></i>Logout</a>
             </div>
@@ -128,5 +132,5 @@
     </nav>
   </div>
 
-  
+
 
