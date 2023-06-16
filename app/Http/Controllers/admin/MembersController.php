@@ -94,7 +94,9 @@ class MembersController extends Controller
         ]);
         try{
             $User = User::find($id);
-            $User->parent_id = auth()->user()->id;
+            if(auth()->user()->role_id == 2){
+                $User->parent_id = auth()->user()->id;
+            }
             $User->name = $request->name;
             $User->surname = $request->surname;
             $User->mobile_no = $request->mobile_no;
