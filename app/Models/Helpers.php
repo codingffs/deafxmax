@@ -1,5 +1,6 @@
 <?php
 use App\Models\Setting;
+use App\Models\Kyc;
 
 if(! function_exists('routeActive')){
 	function routeActive($routeName)
@@ -16,5 +17,18 @@ if(! function_exists('getlogo')){
 		    return asset('admin_images/setting').'/'.$Setting->value;
         }
         return null;
+	}
+}
+if(! function_exists('getKycFlag')){
+	function getKycFlag()
+	{
+        $kyc = Kyc::where('user_id',auth()->user()->id)->where('flag',1)->first();
+        if($kyc != null)
+        {
+            return '0';
+        }
+        else{
+            return '1';
+        }
 	}
 }
