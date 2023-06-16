@@ -15,9 +15,9 @@ class KycController extends Controller
 
     public function create()
     {
-        // if(getKycFlag() == 0){
-        //     return redirect()->route('dashboard')->with("error", "Please complete your KYC first.");
-        // }
+        if(getKycFlag() == 0){
+            return back()->with(['error' => 'Unauthorized Access.']);
+        }
         return view('admin.kyc.create');
     }
     public function store(Request $request)
