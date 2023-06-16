@@ -20,9 +20,9 @@ use App\Http\Controllers\admin\KycController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::group(['prefix' => 'admin'], function(){
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
