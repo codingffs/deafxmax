@@ -85,10 +85,15 @@ class DashboardController extends Controller
             );
             Auth::user()->update($user);
             return redirect()->back()->with("success", "Password changed successfully.");
-
         } catch (\Throwable $th) {
             return redirect()->back()->with('error',$th->getMessage());
         }
-
+    }
+    public function view_account()
+    {
+        $user = User::find(auth()->user()->id);
+        $State =  State::get();
+         return view('admin.profile.view-account',compact('user','State'));
+        // return response()->json(['html' => $html]);
     }
 }

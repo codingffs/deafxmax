@@ -40,12 +40,12 @@
                      @enderror
                     @if ($Setting->type == 'File')
                         <div class="custom-file mb-2 custom_file_main">
-                            <input type="file" class="custom-file-input" name="image" id="image">
-                            <label class="custom-file-label" for="customFile">Profile Image</label>
+                            <label class="custom-file" for="customFile">Profile Image</label>
+                            <input type="file" class="form-control" name="image" id="image">
                         </div>
                         <div id="v_image_preview">
                             @if(isset($Setting->value) && $Setting->value != "")
-                                <a href="{{ $Setting->value }}" target="_blank"><div class="m-r-10 mt-2"><img src="{{ asset('admin_images/setting/'.$Setting->value) }}" alt="user" width="40"/></div></a>
+                                <a href="{{ $Setting->value }}" target="_blank"><div class="m-r-10 mt-2"><img src="{{ asset('admin_images/setting/'.$Setting->value) }}" alt="user" width="80"/></div></a>
                             @endif
                         </div>
                         @error('value')
@@ -68,7 +68,7 @@
                     @endif
                     <br>
                     <button type="submit" class="btn btn-primary mt-2">Submit</button>
-                    <a href="{{ route('setting.index') }}" class="btn btn-secondary mt-2">Cancel</a>
+                    <a href="{{ route('members.index') }}" class="btn btn-secondary mt-2">Cancel</a>
                   </form>
                 </div>
               </div>

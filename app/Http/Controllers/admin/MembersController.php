@@ -11,12 +11,17 @@ use Illuminate\Http\Request;
 
 class MembersController extends Controller
 {
+
     public function index(Request $request)
     {
         try {
             if ($request->ajax()) {
-                // $Members = Members::where('user_id',auth()->user()->id)->orderBy('created_at','desc')->get();
-                $User = User::where('parent_id',auth()->user()->id)->orderBy('created_at','desc')->get();
+                if(auth()->user()->role_id == 1){
+                    $User = User::where('parent_id',null)->orderBy('created_at','desc')->get();
+                }
+                else{
+                    $User = User::where('parent_id',auth()->user()->id)->orderBy('created_at','desc')->get();
+                }
                 return DataTables::of($User)
                         ->addIndexColumn()
                         ->addColumn('action',function($row){
@@ -44,20 +49,27 @@ class MembersController extends Controller
         $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'mobile' => 'required',
+            'mobile_no' => 'required',
             'email' => 'required',
             'pancard_no' => 'required',
             'bank_act_no' => 'required',
         ]);
         try{
             $User = new User();
-            $User->parent_id = auth()->user()->id;
+            if(auth()->user()->role_id == 2){
+                $User->parent_id = auth()->user()->id;
+            }
+            else{
+                $password = 123456;
+                $User->password = Hash::make($password);
+            }
             $User->name = $request->name;
             $User->surname = $request->surname;
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
             $User->pancard_no = $request->pancard_no;
             $User->bank_act_no = $request->bank_act_no;
+            $User->role_id = 2;
             $User->save();
             // dd($User);
             return redirect()->route('members.index')->with('success','Members created successfully');
@@ -65,31 +77,32 @@ class MembersController extends Controller
             return redirect()->back()->with('error',$th->getMessage());
         }
     }
-    public function edit(string $id)
+        public function edit(string $id)
     {           
-        $Members = Members::find($id);
-        return view('admin.members.edit',compact('Members'));
+        $User = User::find($id);
+        return view('admin.members.edit',compact('User'));
     }
     public function update(Request $request, string $id)
     {
         $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'mobile' => 'required',
+            'mobile_no' => 'required',
             'email' => 'required',
             'pancard_no' => 'required',
             'bank_act_no' => 'required',
         ]);
         try{
-            $Members = Members::find($id);
-            $Members->user_id = auth()->user()->id;
-            $Members->name = $request->name;
-            $Members->surname = $request->surname;
-            $Members->mobile = $request->mobile_no;
-            $Members->email = $request->email;
-            $Members->pancard_no = $request->pancard_no;
-            $Members->bank_act_no = $request->bank_act_no;
-            $Members->save();
+            $User = User::find($id);
+            $User->parent_id = auth()->user()->id;
+            $User->name = $request->name;
+            $User->surname = $request->surname;
+            $User->mobile_no = $request->mobile_no;
+            $User->email = $request->email;
+            $User->pancard_no = $request->pancard_no;
+            $User->bank_act_no = $request->bank_act_no;
+            $User->role_id = 2;
+            $User->save();
             return redirect()->route('members.index')->with('success','Members updated successfully');
         }catch(\Throwable $th){
             return redirect()->back()->with('error',$th->getMessage());
@@ -97,7 +110,7 @@ class MembersController extends Controller
     }
     public function destroy(string $id)
     {
-           if(Members::whereId($id)->delete()){
+           if(User::whereId($id)->delete()){
                return response()->json(["status" => 1]);
            }
            else{

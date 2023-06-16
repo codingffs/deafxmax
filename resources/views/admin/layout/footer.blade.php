@@ -2,8 +2,8 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-          {{ date('Y') }} © Influence - Designed and Developed by<a href="https://themeforest.net/user/jitu/portfolio"
-            target="_blank" class="ml-1">Jituchuahan</a>.
+          {{ date('Y') }} © DeafxMax - Designed and Developed by<a href="https://shaktiwebsolutions.com"
+            target="_blank" class="ml-1">shaktiwebsolutions</a>.
         </div>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
           <div class="text-md-right footer-links d-none d-sm-block">

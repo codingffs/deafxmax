@@ -32,6 +32,7 @@ Route::group(['prefix' => 'admin'], function(){
     Route::group(['middleware' => ['auth']], function(){
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('profile-edit', [DashboardController::class, 'profile_edit'])->name('profile_edit');
+        Route::get('view_account', [DashboardController::class, 'view_account'])->name('view_account');
         Route::post('profile-update/{id}', [DashboardController::class, 'profile_update'])->name('profile_update');
         Route::get('change-password', [DashboardController::class, 'change_password'])->name('change_password');
         Route::post('change-password-post', [DashboardController::class, 'change_password_post'])->name('change_password_post');

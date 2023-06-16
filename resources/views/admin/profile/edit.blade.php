@@ -73,13 +73,12 @@
                           <input id="city" type="text" name="city" class="form-control" placeholder="City" value="{{ old('city',$user->city) }}">
                     </div>
                     <div class="custom-file mb-2">
-                        <input type="file" class="custom-file-input" name="image" id="image">
-                        <label class="custom-file-label" for="customFile">Profile Image</label>
+                        <label class="custom-file" for="customFile">Profile Image</label>
+                        <input type="file" class="form-control" name="image" id="image">
                     </div>
-                    <div class="m-r-10 mt-2"><img src="{{ $user->image }}" alt="user" class="rounded-circle" width="80"  /></div>
-                    <br>
+                    <div class="m-r-10 mt-3"><img src="{{ $user->image }}" alt="user" class="rounded-circle" width="80"/></div>
                     <button type="submit" class="btn btn-primary mt-2">Submit</button>
-                    <a href="{{ route('consultant.index') }}" class="btn btn-secondary mt-2">Cancel</a>
+                    <a href="{{ route('members.index') }}" class="btn btn-secondary mt-2">Cancel</a>
                   </form>
                 </div>
               </div>

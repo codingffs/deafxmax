@@ -26,13 +26,13 @@
               <div class="card mb-5 shadow-sm">
                 <h5 class="card-header">Edit Members</h5>
                 <div class="card-body">
-                  <form method="post" action="{{ route('members.update', $Members->id) }}" id="update_member" enctype="multipart/form-data">
+                  <form method="post" action="{{ route('members.update', $User->id) }}" id="update_member" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
-                    <input type="hidden" name="id" id="id" value="{{ $Members->id }}"/>
+                    <input type="hidden" name="id" id="id" value="{{ $User->id }}"/>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-						 <input type="text" name="name" id="name" class="form-control" placeholder="Name*" value="{{ old('name',$Members->name) }}" required/>
+						 <input type="text" name="name" id="name" class="form-control" placeholder="Name*" value="{{ old('name',$User->name) }}" required/>
 
                     </div>
                     @error('name')
@@ -40,14 +40,14 @@
                      @enderror
                      <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-address-book"></i></span></div>
-						 <input type="text" name="surname" id="surname" class="form-control" placeholder="Surname*" value="{{ old('surname',$Members->surname) }}" required/>
+						 <input type="text" name="surname" id="surname" class="form-control" placeholder="Surname*" value="{{ old('surname',$User->surname) }}" required/>
                     </div>
                     @error('surname')
                         <p class="text-danger">{{ $message }}</p>
                      @enderror
                      <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-envelope"></i></span></div>
-                        <input id="email" type="email" name="email" placeholder="Email*" class="form-control" value="{{ old('email',$Members->email) }}" autocomplete="off" required>
+                        <input id="email" type="email" name="email" placeholder="Email*" class="form-control" value="{{ old('email',$User->email) }}" autocomplete="off" required>
                     </div>
                     <div id="current_email_error" class="error"></div>
                     @error('email')
@@ -55,21 +55,21 @@
                     @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
-                        <input id="mobile_no" type="text" name="mobile_no" class="form-control" placeholder="Mobile Number*" pattern="[0-9]+" maxlength="10" minlength="10" value="{{ old('mobile_no',$Members->mobile_no) }}" required>
+                        <input id="mobile_no" type="text" name="mobile_no" class="form-control" placeholder="Mobile Number*" pattern="[0-9]+" maxlength="10" minlength="10" value="{{ old('mobile_no',$User->mobile_no) }}" required>
                     </div>
-                    @error('mobile')
+                    @error('mobile_no')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-id-card-o"></i></span></div>
-                          <input id="pancard_no" type="number" name="pancard_no" class="form-control" placeholder="Pan Card Number" value="{{ old('pancard_no',$Members->pancard_no) }}">
+                          <input id="pancard_no" type="number" name="pancard_no" class="form-control" placeholder="Pan Card Number" value="{{ old('pancard_no',$User->pancard_no) }}">
                     </div>
                     @error('pancard_no')
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-bank"></i></span></div>
-                          <input id="bank_act_no" type="number" name="bank_act_no" class="form-control" placeholder="Bank Acount Number" value="{{ old('bank_act_no',$Members->bank_act_no) }}">
+                          <input id="bank_act_no" type="number" name="bank_act_no" class="form-control" placeholder="Bank Acount Number" value="{{ old('bank_act_no',$User->bank_act_no) }}">
                     </div>
                     @error('bank_act_no')
                     <p class="text-danger">{{ $message }}</p>

@@ -1,6 +1,6 @@
 <div class="dashboard-header">
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-      <a class="navbar-brand" href="../index-2.html"><img src="{{ getlogo('logo') != null ? getlogo('logo') : url('admin/assets/images/logo.png')}}" alt="" width="155px" height="34px"></a>
+      <a class="navbar-brand" href="../index-2.html"><img src="{{ getlogo('logo') != null ? getlogo('logo') : url('admin/assets/images/logo1.png')}}" alt="" width="155px" height="34px"></a>
       <div class="ml-auto" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto navbar-right-top flex-row ">
           <li class="nav-item d-none d-lg-block">
@@ -113,8 +113,11 @@
                 <h5 class="mb-0 text-white nav-user-name">{{ auth()->user()->name }}</h5>
                 <span class="status"></span><span>Available</span>
               </div>
-              <a class="dropdown-item" href="{{ route('profile_edit') }}"><i class="fas fa-user mr-2"></i>Update Profile</a>
+              <a class="dropdown-item" href="{{ route('view_account') }}"><i class="fas fa-user mr-2"></i>My Acount</a>
+              <a class="dropdown-item" href="{{ route('profile_edit') }}"><i class="fas fa-user-edit mr-2"></i>Update Profile</a>
+              <a class="dropdown-item" href="#"><i class="fas fa-university mr-2"></i>My Bank Details</a>
               <a class="dropdown-item" href="{{ route('change_password') }}"><i class="fas fa-key mr-2"></i>Change Password</a>
+              <a class="dropdown-item" href="#"><i class="fas fa-user-check mr-2"></i>Complete Kyc</a>
               <a class="dropdown-item" href="{{ route('logout') }}"><i class="fas fa-power-off mr-2"></i>Logout</a>
             </div>
           </li>
@@ -122,3 +125,6 @@
       </div>
     </nav>
   </div>
+
+  
+
