@@ -53,8 +53,7 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label" for="state">State : </label>
                         <div class="col-sm-4">
-                            {{-- {{ isset($addemployee->designation_data->name)?$addemployee->designation_data->name:'-' }} --}}
-                            <label class="col-form-label" for="state">{{auth()->user()->state}}</label>
+                            <label class="col-form-label" for="state">{{ isset(Auth::user()->State_Detail->name)?Auth::user()->State_Detail->name:'-' }}</label>
                         </div>
                         <label class="col-sm-2 col-form-label" for="city">City :</label>
                         <div class="col-sm-4">
@@ -64,8 +63,6 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label" for="state">Profile Image : </label>
                         <div class="col-sm-4">
-                            {{-- {{ isset($addemployee->designation_data->name)?$addemployee->designation_data->name:'-' }} --}}
-                            {{-- <label class="col-form-label" for="state">{{auth()->user()->image}}</label> --}}
                             <img class="img-radius img-fluid wid-50 rounded-circle" src="{{ Auth::user()->image }}" id="image" alt="User image">
                         </div>
                     </div>    

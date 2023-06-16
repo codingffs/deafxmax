@@ -72,4 +72,5 @@ class User extends Authenticatable
     public function State_Detail(){
         return $this->hasOne(State::class, 'id', 'state');
     }
+    
 }

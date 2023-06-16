@@ -117,7 +117,9 @@
               <a class="dropdown-item" href="{{ route('profile_edit') }}"><i class="fas fa-user-edit mr-2"></i>Update Profile</a>
               <a class="dropdown-item" href="#"><i class="fas fa-university mr-2"></i>My Bank Details</a>
               <a class="dropdown-item" href="{{ route('change_password') }}"><i class="fas fa-key mr-2"></i>Change Password</a>
-              <a class="dropdown-item" href="#"><i class="fas fa-user-check mr-2"></i>Complete Kyc</a>
+              @if(auth()->user()->role_id == 1)
+                <a class="dropdown-item" href="#"><i class="fas fa-user-check mr-2"></i>Complete Kyc</a>
+              @endif
               <a class="dropdown-item" href="{{ route('logout') }}"><i class="fas fa-power-off mr-2"></i>Logout</a>
             </div>
           </li>
