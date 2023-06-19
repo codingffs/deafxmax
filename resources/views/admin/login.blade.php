@@ -8,7 +8,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="{{ url('admin/assets/images/favicon.ico') }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ getlogo('favicon') != null ? getlogo('favicon') : url('admin/assets/images/favicon.ico')}}" type="image/x-icon">
 
   <!-- Libs CSS -->
   @includeIf('admin.layout.css')
@@ -23,7 +23,7 @@
     <div class="splash-container">
       <div class="card shadow-sm">
         <div class="card-header text-center">
-          <a href="../index-2.html"><img class="logo-img" src="{{ url('admin/assets/images/logo.png') }}" alt="logo"></a><span
+          <a href="../index-2.html"><img class="logo-img" src="{{ getlogo('logo') != null ? getlogo('logo') : url('admin/assets/images/logo1.png')}}" width="100%" alt="logo"></a><span
             class="splash-description">Please enter your user information.</span></div>
         <div class="card-body">
             @error('error')
