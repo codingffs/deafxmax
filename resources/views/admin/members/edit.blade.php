@@ -39,13 +39,6 @@
                         <p class="text-danger">{{ $message }}</p>
                      @enderror
                      <div class="input-group mb-2">
-                        <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-address-book"></i></span></div>
-						 <input type="text" name="surname" id="surname" class="form-control" placeholder="Surname*" value="{{ old('surname',$User->surname) }}" required/>
-                    </div>
-                    @error('surname')
-                        <p class="text-danger">{{ $message }}</p>
-                     @enderror
-                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-envelope"></i></span></div>
                         <input id="email" type="email" name="email" placeholder="Email*" class="form-control" value="{{ old('email',$User->email) }}" autocomplete="off" required>
                     </div>
