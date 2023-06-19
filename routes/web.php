@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\ConsultantController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\MembersController;
 use App\Http\Controllers\admin\KycController;
+use App\Http\Controllers\admin\BankController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,8 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('change-password', [DashboardController::class, 'change_password'])->name('change_password');
         Route::post('change-password-post', [DashboardController::class, 'change_password_post'])->name('change_password_post');
         Route::get('current_auth_password', [DashboardController::class, 'current_auth_password'])->name('current_auth_password');
+        Route::get('bank_details',[DashboardController::class,"bank_details"])->name('bank_details');
+        Route::post('bank_details_update',[DashboardController::class,"bank_details_update"])->name('bank_details_update');
 
         Route::resource('consultant',ConsultantController::class);
         Route::get('unique_user_email', [ConsultantController::class, 'unique_user_email'])->name('unique_user_email');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BankDetails;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\State;
@@ -98,5 +99,34 @@ class DashboardController extends Controller
          return view('admin.profile.view-account',compact('user','State'));
         // return response()->json(['html' => $html]);
     }
+
+        public function bank_details() {
+            $bank_details = BankDetails::where('user_id',auth()->user()->id)->first();
+            return view('admin.profile.bank_details',compact('bank_details'));
+      }
+
+    public function bank_details_update(Request $request) {
+        $request->validate([
+            'bank_name'=>'required',
+            'account_no'=>'required',
+            'ifsc_code'=>'required',
+            'branch_name'=>'required',
+        ]);
+        $bank_details = array(
+            "bank_name" =>$request->bank_name,
+            "account_no" => $request->account_no,
+            "ifsc_code" => $request->ifsc_code,
+            "branch_name" => $request->branch_name,
+            "user_id" => auth()->user()->id,
+        );
+        if($request->bank_details_id != null){
+            BankDetails::whereId($request->bank_details_id)->update($bank_details);
+        }
+        else{
+            BankDetails::create($bank_details);
+        }
+     return redirect()->route("dashboard")->with("success", "Bank Details Updated Successfully.");
+        }
+
 
 }

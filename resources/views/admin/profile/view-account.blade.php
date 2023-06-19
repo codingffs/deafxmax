@@ -65,7 +65,7 @@
                         <div class="col-sm-4">
                             <img class="img-radius img-fluid wid-50 rounded-circle" src="{{ Auth::user()->image }}" id="image" alt="User image">
                         </div>
-                    </div>    
+                    </div>
                 </div>
               </div>
             </div>
