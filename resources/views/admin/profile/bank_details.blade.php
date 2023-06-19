@@ -60,14 +60,14 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                     <div class="input-group mb-2">
-                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-code"></i></span></div>
                         <input id="ifsc_code" type="text" name="ifsc_code" class="form-control" placeholder="IFSC Code*" pattern="[0-9]+" maxlength="10" minlength="0" value="{{old('ifsc_code',isset($bank_details->ifsc_code) ? $bank_details->ifsc_code:'' ) }}"required>
                     </div>
                     @error('ifsc_code')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                     <div class="input-group mb-2">
-                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-bank"></i></span></div>
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-building"></i></span></div>
                           <input id="branch_name" type="text" name="branch_name" class="form-control" placeholder="Branch Name*" value="{{old('branch_name',isset($bank_details->branch_name)? $bank_details->branch_name:'') }}" required>
                     </div>
                     @error('branch_name')
