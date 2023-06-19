@@ -24,45 +24,45 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
                 <h5 class="card-header">View Profile</h5>
                 <div class="card-body">
                     @csrf
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="name">Name :</label>
-                        <div class="col-sm-4">
+                        <label class="col-sm-2 col-5 col-form-label" for="name">Name :</label>
+                        <div class="col-sm-4 col-7">
                             <label class="col-form-label" for="name">{{auth()->user()->name}}</label>
                         </div>
 
-                        <label class="col-sm-2 col-form-label" for="email">Email :</label>
-                        <div class="col-sm-4">
+                        <label class="col-sm-2 col-5 col-form-label" for="email">Email :</label>
+                        <div class="col-sm-4 col-7">
                             <label class="col-form-label" for="name">{{auth()->user()->email}}</label>
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="mobile_no">Mobile No. : </label>
-                        <div class="col-sm-4">
+                        <label class="col-sm-2 col-5 col-form-label" for="mobile_no">Mobile No. : </label>
+                        <div class="col-sm-4 col-7">
                             <label class="col-form-label" for="mobile_no">{{auth()->user()->mobile_no}}</label>
                         </div>
-                        <label class="col-sm-2 col-form-label" for="address">Address :</label>
-                        <div class="col-sm-4">
+                        <label class="col-sm-2 col-5 col-form-label" for="address">Address :</label>
+                        <div class="col-sm-4 col-7">
                             <label class="col-form-label" for="address">{{auth()->user()->address}}</label>
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="state">State : </label>
-                        <div class="col-sm-4">
+                        <label class="col-sm-2 col-5 col-form-label" for="state">State : </label>
+                        <div class="col-sm-4 col-7">
                             <label class="col-form-label" for="state">{{ isset(Auth::user()->State_Detail->name)?Auth::user()->State_Detail->name:'-' }}</label>
                         </div>
-                        <label class="col-sm-2 col-form-label" for="city">City :</label>
-                        <div class="col-sm-4">
+                        <label class="col-sm-2 col-5 col-form-label" for="city">City :</label>
+                        <div class="col-sm-4 col-7">
                             <label class="col-form-label" for="city">{{auth()->user()->city}}</label>
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="state">Profile Image : </label>
-                        <div class="col-sm-4">
+                        <label class="col-sm-2 col-5 col-form-label" for="state">Profile Image : </label>
+                        <div class="col-sm-4 col-7">
                             <img class="img-radius img-fluid wid-50 rounded-circle" src="{{ Auth::user()->image }}" id="image" alt="User image">
                         </div>
                     </div>

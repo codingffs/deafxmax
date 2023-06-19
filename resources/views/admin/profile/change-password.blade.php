@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
                 <h5 class="card-header">Change Password</h5>
                 <div class="card-body">

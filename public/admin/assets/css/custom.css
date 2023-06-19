@@ -76,7 +76,7 @@
     display: -webkit-box;
 }
 .input_select2 .select2-container{
-    width:96%!important;
+    width:95%!important;
 }
 .hidden{
     display: none;
@@ -93,3 +93,28 @@
 .approve_btn {
     font-size: 19px;
 }
+@media (max-width:575px) {
+.footer {
+text-align: center;
+}
+.input_select2 .select2-container {
+  width: 91% !important;
+}
+.dashboard-content {
+  padding-top: 40px;
+}
+}
+@media (max-width:480px) {
+  .input_select2 .select2-container {
+    width: 86% !important;
+  }
+  .btn {
+    font-size: 12px;
+  }
+}
+@media (max-width:375px) {
+  .input_select2 .select2-container {
+    width: 85% !important;
+  }
+}
+
