@@ -53,7 +53,6 @@ class MembersController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'surname' => 'required',
             'mobile_no' => 'required',
             'email' => 'required',
             'pancard_no' => 'required',
@@ -71,7 +70,6 @@ class MembersController extends Controller
                 $User->password = Hash::make($password);
             }
             $User->name = $request->name;
-            $User->surname = $request->surname;
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
             $User->pancard_no = $request->pancard_no;
@@ -95,7 +93,6 @@ class MembersController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'surname' => 'required',
             'mobile_no' => 'required',
             'email' => 'required',
             'pancard_no' => 'required',
@@ -109,7 +106,6 @@ class MembersController extends Controller
                 $User->parent_id = auth()->user()->id;
             }
             $User->name = $request->name;
-            $User->surname = $request->surname;
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
             $User->pancard_no = $request->pancard_no;

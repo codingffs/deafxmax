@@ -39,7 +39,7 @@ class WithdrawController extends Controller
                 "user_id" => auth()->user()->id,
                 "amount" => $request->amount,
                 "flag" => 1,
-                "message" => auth()->user()->name.' '.'has requested for withdraw' . ' ' . $request->amount .' '. 'Amount/-',
+                "message" => auth()->user()->name.' '.'has requested for withdraw' . ' ' . $request->amount .'/- '. 'Amount',
             );
             $Withdraw = Withdraw::create($Withdraw);
             return redirect()->route("withdraw.index")->with("success", "Withdraw created Successfully.");

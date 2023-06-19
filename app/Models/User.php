@@ -30,7 +30,6 @@ class User extends Authenticatable
         "status",
         "city",
         "parent_id",
-        "surname",
         "pancard_no",
         "bank_act_no",
         "profit_income",

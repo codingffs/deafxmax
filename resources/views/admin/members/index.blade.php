@@ -35,7 +35,6 @@
                   <thead>
                     <tr>
                         <th class="rounded-0">Name</th>
-                        <th class="rounded-0">Surname</th>
                         <th class="rounded-0">mobile</th>
                         <th class="rounded-0">Action</th>
                     </tr>
@@ -70,10 +69,6 @@
                         {
                             data: 'name',
                             name: 'name'
-                        },
-                        {
-                            data: 'surname',
-                            name: 'surname'
                         },
                         {
                             data: 'mobile_no',
