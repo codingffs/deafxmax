@@ -114,7 +114,7 @@
                 <span class="status"></span><span>Available</span>
               </div>
               <a class="dropdown-item" href="{{ route('view_account') }}"><i class="fas fa-user mr-2"></i>My Acount</a>
-              <a class="dropdown-item" href="{{ route('profile_edit') }}"><i class="fas fa-user-edit mr-2"></i>Update Profile</a>
+              <a class="dropdown-item" href="{{ route('profile_edit') }}"><i class="fas fa-user-edit mr-2"></i>Edit Profile</a>
               @if(auth()->user()->role_id == 2)
               <a class="dropdown-item" href="{{ route('bank_details') }}"><i class="fas fa-university mr-2"></i>My Bank Details</a>
               @endif

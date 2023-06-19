@@ -8,7 +8,7 @@ use App\Http\Controllers\admin\ConsultantController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\MembersController;
 use App\Http\Controllers\admin\KycController;
-use App\Http\Controllers\admin\BankController;
+use App\Http\Controllers\admin\DepositController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +55,8 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('kyc_approve/{id?}', [MembersController::class, 'kyc_approve'])->name('kyc_approve');
 
         Route::resource('kyc',KycController::class);
+
+        Route::resource('depositdetails',DepositController::class);
 
 
 

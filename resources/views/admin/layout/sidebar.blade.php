@@ -31,6 +31,11 @@
                 <i class="fa fa-users"></i>Members
               </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ routeActive('depositdetails.index') }}{{ routeActive('depositdetails.create') }}" href="{{ route('depositdetails.index') }}" aria-expanded="false">
+                  <i class="fa fa-users"></i>Deposit Details
+                </a>
+              </li>
             {{-- @endif --}}
           </ul>
         </div>
