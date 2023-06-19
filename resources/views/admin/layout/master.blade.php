@@ -11,7 +11,7 @@
   @includeIf('admin.layout.css')
   @yield('admin_css')
   {{-- <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon"> --}}
-  <title>Influencer Dashboard - Influence Bootstrap Admin Dashboard Template</title>
+  <title>DeafxMax Best Health Insurance India Admin Dashboard</title>
 </head>
 
 <body>
