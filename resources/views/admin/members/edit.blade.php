@@ -33,7 +33,6 @@
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
 						 <input type="text" name="name" id="name" class="form-control" placeholder="Name*" value="{{ old('name',$User->name) }}" required/>
-
                     </div>
                     @error('name')
                         <p class="text-danger">{{ $message }}</p>
