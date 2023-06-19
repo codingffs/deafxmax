@@ -39,21 +39,21 @@
                         @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
-                        <input id="act_number" type="text" name="act_number" class="form-control" placeholder="Account Number*" pattern="[0-9]+" maxlength="16" minlength="16" value="{{ old('act_number') }}" required>
+                        <input id="act_number" type="text" name="act_number" class="form-control" placeholder="Account Number*" pattern="[0-9]+" maxlength="16" minlength="0" value="{{ old('act_number') }}" required>
                     </div>
                     @error('act_number')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-id-card-o"></i></span></div>
-                          <input id="pancard_number" type="text" name="pancard_number" class="form-control" placeholder="Pan Card Number*" pattern="[0-9]+" maxlength="10" minlength="10" value="{{ old('pancard_number') }}" required>
+                          <input id="pancard_number" type="text" name="pancard_number" class="form-control" placeholder="Pan Card Number*" pattern="[0-9]+" maxlength="10" minlength="0" value="{{ old('pancard_number') }}" required>
                     </div>
                     @error('pancard_number')
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
-                        <input id="ifsc_code" type="text" name="ifsc_code" class="form-control" placeholder="IFSC Code*" pattern="[0-9]+" maxlength="10" minlength="10" value="{{ old('ifsc_code') }}" required>
+                        <input id="ifsc_code" type="text" name="ifsc_code" class="form-control" placeholder="IFSC Code*" pattern="[0-9]+" maxlength="10" minlength="0" value="{{ old('ifsc_code') }}" required>
                     </div>
                     @error('ifsc_code')
                         <p class="text-danger">{{ $message }}</p>

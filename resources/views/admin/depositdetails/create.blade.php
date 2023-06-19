@@ -33,14 +33,14 @@
                     @csrf
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                        <input id="bank_acc_no" type="text" class="form-control" name="bank_acc_no" placeholder="Bank Account Number*" value="{{ old('bank_acc_no') }}" pattern="[0-9]+" maxlength="16" minlength="16" required>
+                        <input id="bank_acc_no" type="text" class="form-control" name="bank_acc_no" placeholder="Bank Account Number*" value="{{ old('bank_acc_no') }}" pattern="[0-9]+" maxlength="16" minlength="0" required>
                     </div>
                     @error('bank_acc_no')
                         <p class="text-danger">{{ $message }}</p>
                      @enderror
                      <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-address-book"></i></span></div>
-                        <input id="amount" type="text" class="form-control" name="amount" placeholder="Amount*" value="{{ old('amount') }}" pattern="[0-9]+" maxlength="20" minlength="20" required>
+                        <input id="amount" type="text" class="form-control" name="amount" placeholder="Amount*" value="{{ old('amount') }}" pattern="[0-9]+" maxlength="20" minlength="0" required>
                     </div>
                     @error('amount')
                         <p class="text-danger">{{ $message }}</p>

@@ -1,6 +1,7 @@
 <?php
 use App\Models\Setting;
 use App\Models\Kyc;
+use App\Models\User;
 
 if(! function_exists('routeActive')){
 	function routeActive($routeName)
@@ -32,3 +33,8 @@ if(! function_exists('getKycFlag')){
         }
 	}
 }
+function get_profit_income_count(){
+    $count = User::where('id',auth()->user()->id)->sum('profit_income');
+    return $count;
+}
+

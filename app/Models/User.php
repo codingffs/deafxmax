@@ -33,8 +33,8 @@ class User extends Authenticatable
         "surname",
         "pancard_no",
         "bank_act_no",
-
-
+        "profit_income",
+        "team_income",
     ];
 
     /**

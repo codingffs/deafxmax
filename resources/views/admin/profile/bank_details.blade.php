@@ -54,14 +54,14 @@
                         @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
-                        <input id="account_no" type="text" name="account_no" class="form-control" placeholder="Account Number*" pattern="[0-9]+" maxlength="16" minlength="16"value="{{old('account_no',isset($bank_details->account_no)? $bank_details->account_no:'' ) }}" required>
+                        <input id="account_no" type="text" name="account_no" class="form-control" placeholder="Account Number*" pattern="[0-9]+" maxlength="16" minlength="0"value="{{old('account_no',isset($bank_details->account_no)? $bank_details->account_no:'' ) }}" required>
                     </div>
                     @error('account_no')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
-                        <input id="ifsc_code" type="text" name="ifsc_code" class="form-control" placeholder="IFSC Code*" pattern="[0-9]+" maxlength="10" minlength="10" value="{{old('ifsc_code',isset($bank_details->ifsc_code) ? $bank_details->ifsc_code:'' ) }}"required>
+                        <input id="ifsc_code" type="text" name="ifsc_code" class="form-control" placeholder="IFSC Code*" pattern="[0-9]+" maxlength="10" minlength="0" value="{{old('ifsc_code',isset($bank_details->ifsc_code) ? $bank_details->ifsc_code:'' ) }}"required>
                     </div>
                     @error('ifsc_code')
                         <p class="text-danger">{{ $message }}</p>

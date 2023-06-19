@@ -58,6 +58,8 @@ class MembersController extends Controller
             'email' => 'required',
             'pancard_no' => 'required',
             'bank_act_no' => 'required',
+            'profit_income' => 'required',
+            'team_income' => 'required',
         ]);
         try{
             $User = new User();
@@ -74,6 +76,8 @@ class MembersController extends Controller
             $User->email = $request->email;
             $User->pancard_no = $request->pancard_no;
             $User->bank_act_no = $request->bank_act_no;
+            $User->profit_income = $request->profit_income;
+            $User->team_income = $request->team_income;
             $User->role_id = 2;
             $User->save();
             // dd($User);
@@ -96,6 +100,8 @@ class MembersController extends Controller
             'email' => 'required',
             'pancard_no' => 'required',
             'bank_act_no' => 'required',
+            'profit_income' => 'required',
+            'team_income' => 'required',
         ]);
         try{
             $User = User::find($id);
@@ -108,6 +114,8 @@ class MembersController extends Controller
             $User->email = $request->email;
             $User->pancard_no = $request->pancard_no;
             $User->bank_act_no = $request->bank_act_no;
+            $User->profit_income = $request->profit_income;
+            $User->team_income = $request->team_income;
             $User->role_id = 2;
             $User->save();
             return redirect()->route('members.index')->with('success','Members updated successfully');
