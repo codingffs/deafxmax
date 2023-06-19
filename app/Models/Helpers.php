@@ -38,3 +38,8 @@ function get_profit_income_count(){
     return $count;
 }
 
+function get_team_income_count(){
+    $count = User::where('id',auth()->user()->id)->sum('team_income');
+    return $count;
+}
+

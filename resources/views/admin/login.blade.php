@@ -12,7 +12,7 @@
 
   <!-- Libs CSS -->
   @includeIf('admin.layout.css')
-  <title>Login - Influence Bootstrap Admin Dashboard Template</title>
+  <title>Login</title>
 </head>
 
 <body class="bg-light">

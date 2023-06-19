@@ -135,7 +135,7 @@
                     @endif
                   </div>
                   <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
-                    <i class="fa fa-eye fa-fw fa-sm text-info font-24"></i>
+                    <i class="fas fa-hand-holding-usd fa-fw fa-sm text-info font-24"></i>
                   </div>
                 </div>
               </div>
@@ -150,11 +150,16 @@
               <div class="card  mb-5 shadow-sm">
                 <div class="card-body">
                   <div class="d-inline-block">
-                    <h5 class="text-muted mb-3">Total Followers</h5>
-                    <h2 class="mb-0"> 24,763</h2>
+                    @if (auth()->user()->role_id == 2)
+                    <h5 class="text-muted mb-3">Team Income</h5>
+                    <h2 class="mb-0">{{ get_team_income_count() }}</h2>
+                    @else
+                    <h5 class="text-muted mb-3">Total Views</h5>
+                    <h2 class="mb-0">10,28,056</h2>
+                    @endif
                   </div>
                   <div class="float-right icon-shape icon-xl rounded-circle  bg-primary-light mt-1">
-                    <i class="fa fa-user fa-fw fa-sm text-primary font-24"></i>
+                    <i class="fa fa-group fa-fw fa-sm text-primary font-24"></i>
                   </div>
                 </div>
               </div>

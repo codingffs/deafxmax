@@ -33,10 +33,23 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ routeActive('depositdetails.index') }}{{ routeActive('depositdetails.create') }}" href="{{ route('depositdetails.index') }}" aria-expanded="false">
-                  <i class="fa fa-users"></i>Deposit Details
+                    <i class="fas fa-hand-holding-usd"></i>Deposit Details
                 </a>
               </li>
-            {{-- @endif --}}
+              @if(auth()->user()->role_id == 2)
+              <li class="nav-item">
+                <a class="nav-link {{ routeActive('withdraw.index') }}{{ routeActive('withdraw.create') }}" href="{{ route('withdraw.index') }}" aria-expanded="false">
+                    <i class="fa fa-money"></i>WithDraw Details
+                </a>
+              </li>
+            @endif
+            @if(auth()->user()->role_id == 1)
+              <li class="nav-item">
+                <a class="nav-link {{ routeActive('notification') }}" href="{{ route('notification') }}" aria-expanded="false">
+                    <i class="fas fa-bell"></i>Notification
+                </a>
+              </li>
+            @endif
           </ul>
         </div>
       </nav>

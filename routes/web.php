@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\MembersController;
 use App\Http\Controllers\admin\KycController;
 use App\Http\Controllers\admin\DepositController;
+use App\Http\Controllers\admin\WithdrawController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +58,10 @@ Route::group(['prefix' => 'admin'], function(){
         Route::resource('kyc',KycController::class);
 
         Route::resource('depositdetails',DepositController::class);
+
+        Route::resource('withdraw',WithdrawController::class);
+        Route::get('notification', [WithdrawController::class, 'notification'])->name('notification');
+        Route::get('approve/{id?}', [WithdrawController::class, 'approve'])->name('approve');
 
 
 
