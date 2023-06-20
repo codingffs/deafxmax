@@ -93,6 +93,18 @@
 .approve_btn {
     font-size: 19px;
 }
+.login-img {
+  position: absolute;
+    object-fit: cover;
+    overflow: hidden;
+    background-size: cover;
+    height: 700px;
+}
+@media (max-width:767px) {
+  .login-img {
+    height: 600px;
+  }
+}
 @media (max-width:575px) {
 .footer {
 text-align: center;

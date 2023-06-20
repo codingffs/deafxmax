@@ -19,6 +19,7 @@
   <!-- ============================================================== -->
   <!-- login page  -->
   <!-- ============================================================== -->
+  <img class="login-img" src="{{url('admin_images/login/login-image.jpg')}}" width="100%" alt="login_img">
   <div class="min-vh-100 d-flex align-items-center">
     <div class="splash-container">
       <div class="card shadow-sm">
