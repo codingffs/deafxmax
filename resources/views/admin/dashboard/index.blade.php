@@ -10,7 +10,7 @@
           <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
               <div class="page-header">
-                <h2 class="mb-2">Infulencer Dashboard </h2>
+                <h2 class="mb-2">Dashboard </h2>
                 <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet
                   vestibulum mi. Morbi lobortis pulvinar quam.</p>
                 <div class="page-breadcrumb">
@@ -170,7 +170,7 @@
             <!-- ============================================================== -->
             <!-- partnerships   -->
             <!-- ============================================================== -->
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            {{-- <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
                 <div class="card-body">
                   <div class="d-inline-block">
@@ -182,14 +182,14 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
             <!-- ============================================================== -->
             <!-- end partnerships   -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
             <!-- total earned   -->
             <!-- ============================================================== -->
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            {{-- <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
                 <div class="card-body">
                   <div class="d-inline-block">
@@ -201,7 +201,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
             <!-- ============================================================== -->
             <!-- end total earned   -->
             <!-- ============================================================== -->
