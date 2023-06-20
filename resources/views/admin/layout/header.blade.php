@@ -115,16 +115,9 @@
               </div>
               <a class="dropdown-item" href="{{ route('view_account') }}"><i class="fas fa-user mr-2"></i>My Acount</a>
               <a class="dropdown-item" href="{{ route('profile_edit') }}"><i class="fas fa-user-edit mr-2"></i>Edit Profile</a>
-              @if(auth()->user()->role_id == 2)
-              <a class="dropdown-item" href="{{ route('bank_details') }}"><i class="fas fa-university mr-2"></i>My Bank Details</a>
-              @endif
               <a class="dropdown-item" href="{{ route('change_password') }}"><i class="fas fa-key mr-2"></i>Change Password</a>
               @if(auth()->user()->role_id == 1)
                 <a class="dropdown-item" href="#"><i class="fas fa-user-check mr-2"></i>Complete Kyc</a>
-                @else
-                @if(getKycFlag() == 1)
-                <a class="dropdown-item" href="{{ route('kyc.create') }}"><i class="fas fa-user-check mr-2"></i>Kyc Create</a>
-                @endif
               @endif
               <a class="dropdown-item" href="{{ route('logout') }}"><i class="fas fa-power-off mr-2"></i>Logout</a>
             </div>
