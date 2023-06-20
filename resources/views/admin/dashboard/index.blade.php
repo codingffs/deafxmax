@@ -124,14 +124,14 @@
             <!-- ============================================================== -->
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
-                <div class="card-body">
+                <div class="card-body bg_gradiant1">
                   <div class="d-inline-block">
                     @if (auth()->user()->role_id == 2)
                     <h5 class="text-muted mb-3">Profit Sherring Income</h5>
                     <h2 class="mb-0">{{ get_profit_income_count() }}</h2>
                     @else
-                    <h5 class="text-muted mb-3">Total Views</h5>
-                    <h2 class="mb-0">10,28,056</h2>
+                    <h5 class="text-white mb-3">Total Views</h5>
+                    <h2 class="mb-0 text-white">10,28,056</h2>
                     @endif
                   </div>
                   <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
@@ -148,14 +148,14 @@
             <!-- ============================================================== -->
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="card  mb-5 shadow-sm">
-                <div class="card-body">
+                <div class="card-body bg_gradiant2">
                   <div class="d-inline-block">
                     @if (auth()->user()->role_id == 2)
-                    <h5 class="text-muted mb-3">Team Income</h5>
+                    <h5 class="text-white mb-3">Team Income</h5>
                     <h2 class="mb-0">{{ get_team_income_count() }}</h2>
                     @else
-                    <h5 class="text-muted mb-3">Total Views</h5>
-                    <h2 class="mb-0">10,28,056</h2>
+                    <h5 class="text-white mb-3">Total Views</h5>
+                    <h2 class="mb-0 text-white">10,28,056</h2>
                     @endif
                   </div>
                   <div class="float-right icon-shape icon-xl rounded-circle  bg-primary-light mt-1">
@@ -174,8 +174,8 @@
               <div class="card mb-5 shadow-sm">
                 <div class="card-body">
                   <div class="d-inline-block">
-                    <h5 class="text-muted mb-3">Partnerships</h5>
-                    <h2 class="mb-0">14</h2>
+                    <h5 class="text-white mb-3">Partnerships</h5>
+                    <h2 class="mb-0 text-white">14</h2>
                   </div>
                   <div class="float-right icon-shape icon-xl rounded-circle  bg-secondary-light mt-1">
                     <i class="fa fa-handshake fa-fw fa-sm text-secondary font-24"></i>
