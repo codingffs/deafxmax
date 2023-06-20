@@ -33,6 +33,9 @@ class MembersController extends Controller
                             if(auth()->user()->role_id == 1){
                                 $btn .= '<a href="'. route('view_data', $row->id) .'" class="table-action-btn btn btn-info m-1 emp_view"><i class="fas fa-eye"></i></a>';
                             }
+                            if(auth()->user()->role_id == 2){
+                                $btn .= '<a href="'. route('view_member_data', $row->id) .'" class="table-action-btn btn btn-info m-1 emp_view"><i class="fas fa-eye"></i></a>';
+                            }
                             return $btn;
                         })
                         ->make(true);
@@ -134,6 +137,13 @@ class MembersController extends Controller
          $user = User::find($id);
          $kyc = Kyc::where('user_id',$id)->get();
          return view('admin.members.view_data',compact('user','kyc'));
+    }
+
+    public function view_member_data($id)
+    {
+         $user_data = User::find($id);
+         $kyc = User::where('id',$id)->get();
+         return view('admin.members.member_view_data',compact('user_data','kyc'));
     }
     public function kyc_approve($id)
     {

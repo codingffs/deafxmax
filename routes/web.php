@@ -53,6 +53,7 @@ Route::group(['prefix' => 'admin'], function(){
 
         Route::resource('members',MembersController::class);
         Route::get('view_data/{id?}', [MembersController::class, 'view_data'])->name('view_data');
+        Route::get('view_member_data/{id?}', [MembersController::class, 'view_member_data'])->name('view_member_data');
         Route::get('kyc_approve/{id?}', [MembersController::class, 'kyc_approve'])->name('kyc_approve');
 
         Route::resource('kyc',KycController::class);
@@ -62,8 +63,6 @@ Route::group(['prefix' => 'admin'], function(){
         Route::resource('withdraw',WithdrawController::class);
         Route::get('notification', [WithdrawController::class, 'notification'])->name('notification');
         Route::get('approve/{id?}', [WithdrawController::class, 'approve'])->name('approve');
-
-
 
     });
 });

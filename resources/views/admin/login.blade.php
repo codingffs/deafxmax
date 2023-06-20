@@ -55,9 +55,9 @@
         <div class="card-footer bg-white p-0  ">
           {{-- <div class="card-footer-item card-footer-item-bordered border-right d-inline-block  ">
             <a href="sign-up.html" class="footer-link">Create An Account</a></div> --}}
-          {{-- <div class="card-footer-item card-footer-item-bordered d-inline-block "> --}}
-            {{-- <a href="{{ route('forgot_password') }}" class="footer-link">Forgot Password</a> --}}
-          {{-- </div> --}}
+          <div class="card-footer-item card-footer-item-bordered d-inline-block ">
+            <a href="{{ route('forgot_password') }}" class="footer-link">Forgot Password</a>
+           </div>
         </div>
       </div>
     </div>
