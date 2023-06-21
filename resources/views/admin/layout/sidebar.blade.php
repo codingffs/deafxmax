@@ -60,6 +60,11 @@
                     <i class="fas fa-bell"></i>Notification
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" aria-expanded="false">
+                    <i class="fas fa-user-check mr-2"></i>Complete Kyc
+                </a>
+              </li>
             @endif
             <li class="nav-item">
                 <a class="nav-link " href="{{ route('logout') }}" aria-expanded="false">
