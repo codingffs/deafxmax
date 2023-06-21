@@ -61,6 +61,11 @@
                 </a>
               </li>
             @endif
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('logout') }}" aria-expanded="false">
+                    <i class="fas fa-power-off mr-2"></i>Logout
+                </a>
+              </li>
           </ul>
         </div>
       </nav>

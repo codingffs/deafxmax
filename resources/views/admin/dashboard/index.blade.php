@@ -122,13 +122,13 @@
             <!-- ============================================================== -->
             <!-- total views   -->
             <!-- ============================================================== -->
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
                 <div class="card-body bg_gradiant1">
                   <div class="d-inline-block">
                     @if (auth()->user()->role_id == 2)
-                    <h5 class="text-muted mb-3">Profit Sherring Income</h5>
-                    <h2 class="mb-0">{{ get_profit_income_count() }}</h2>
+                    <h5 class="text-white mb-3">Profit Sherring Income</h5>
+                    <h2 class="mb-0 text-white">{{ get_profit_income_count() }}</h2>
                     @else
                     <h5 class="text-white mb-3">Total Views</h5>
                     <h2 class="mb-0 text-white">10,28,056</h2>
@@ -146,13 +146,13 @@
             <!-- ============================================================== -->
             <!-- total followers   -->
             <!-- ============================================================== -->
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="card  mb-5 shadow-sm">
                 <div class="card-body bg_gradiant2">
                   <div class="d-inline-block">
                     @if (auth()->user()->role_id == 2)
                     <h5 class="text-white mb-3">Team Income</h5>
-                    <h2 class="mb-0">{{ get_team_income_count() }}</h2>
+                    <h2 class="mb-0 text-white">{{ get_team_income_count() }}</h2>
                     @else
                     <h5 class="text-white mb-3">Total Views</h5>
                     <h2 class="mb-0 text-white">10,28,056</h2>
