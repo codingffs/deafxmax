@@ -38,9 +38,9 @@
             <button type="submit" class="btn btn-block btn-primary btn-x">Reset Password</button>
           </form>
         </div>
-        <div class="card-footer text-center">
+        {{-- <div class="card-footer text-center">
           <span>Don't have an account? <a href="3">Sign Up</a></span>
-        </div>
+        </div> --}}
       </div>
     </div>
   </div>
