@@ -14,6 +14,7 @@ class Withdraw extends Model
         'amount',
         'flag',
         'message',
+        'status',
     ];
 
     public function user_data()

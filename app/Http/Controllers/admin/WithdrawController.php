@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Withdraw;
 use DataTables;
-
+use Illuminate\Support\Facades\Session;
 
 class WithdrawController extends Controller
 {
@@ -18,6 +18,16 @@ class WithdrawController extends Controller
             }
             return DataTables::of($Withdraw)
                ->addIndexColumn()
+                ->addColumn('status', function($row){
+                    if($row->status == 0){
+                         $btn = "";
+                        $btn .= 'Pending';
+                    }
+                    else{
+                        $btn = 'Approve';
+                    }
+                    return $btn;
+                })
                   ->make(true);
                 }
 
@@ -32,6 +42,7 @@ class WithdrawController extends Controller
     {
         $request->validate([
             'amount' => 'required',
+            'withdraw_type' => 'required',
         ]);
 
             $Withdraw = array(
@@ -56,7 +67,7 @@ class WithdrawController extends Controller
     public function approve($id)
     {
         $Withdraw = Withdraw::find($id);
-        $Withdraw->flag = 2; //Approve
+        $Withdraw->status = 1; //Approve
         Session::flash('success', 'Withdraw hase been approved Successfully !');
         $Withdraw->save();
        return response()->json(['status'=> 1]);

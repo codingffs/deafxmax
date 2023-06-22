@@ -39,6 +39,7 @@
                         @if (auth()->user()->role_id ==2)
                         <th class="rounded-0">WithDraw</th>
                         <th class="rounded-0">Amount</th>
+                        <th class="rounded-0">Action</th>
                         @endif
                     </tr>
                   </thead>
@@ -77,6 +78,10 @@
                         {
                             data: 'amount',
                             name: 'amount'
+                        },
+                        {
+                            data: 'status',
+                            name: 'status'
                         },
                         @endif
                     ],

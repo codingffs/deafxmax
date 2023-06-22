@@ -54,6 +54,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::resource('members',MembersController::class);
         Route::get('view_data/{id?}', [MembersController::class, 'view_data'])->name('view_data');
         Route::get('view_member_data/{id?}', [MembersController::class, 'view_member_data'])->name('view_member_data');
+        Route::get('view_parent_data/{id?}', [MembersController::class, 'view_parent_data'])->name('view_parent_data');
         Route::get('kyc_approve/{id?}', [MembersController::class, 'kyc_approve'])->name('kyc_approve');
 
         Route::resource('kyc',KycController::class);

@@ -34,6 +34,9 @@ class User extends Authenticatable
         "bank_act_no",
         "profit_income",
         "team_income",
+        "member_code",
+        "principal_amount",
+        "referal_code",
     ];
 
     /**

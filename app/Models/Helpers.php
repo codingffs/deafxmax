@@ -43,3 +43,8 @@ function get_team_income_count(){
     return $count;
 }
 
+function get_principal_amount_count(){
+    $count = User::where('id',auth()->user()->id)->sum('principal_amount');
+    return $count;
+}
+

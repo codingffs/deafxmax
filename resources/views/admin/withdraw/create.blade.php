@@ -33,7 +33,7 @@
                     @csrf
                     <div class="input-group mb-2 input_select2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-building"></i></span></div>
-                        <select class="form-control select2 sub_category" id="input-select" name="withdraw_type">
+                        <select class="form-control select2 sub_category" id="input-select" name="withdraw_type" required>
                             <option selected disabled>-- Select Withdraw --</option>
                             <option>Principle</option>
                             <option>Profit</option>

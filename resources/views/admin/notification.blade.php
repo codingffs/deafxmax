@@ -48,9 +48,13 @@
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $data->user_data->name }}</td>
                                         <td>{{ $data->message }}</td>
+                                        @if($data->status == 0)
                                         <td>
                                             <a data-href="{{ route('approve',$data->id) }}"class="table-action-btn edit btn btn-white m-1 approve_btn"><i class="fas fa-check-circle f-w-600 f-16 m-r-20 text-success "></i></a>
                                         </td>
+                                        @else
+                                        <td></td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -93,7 +97,7 @@
                               success: function(data) {
                                 console.log(data);
                                   if (data.status == 1) {
-                                  window.location.href = "{{ route('members.index') }}";
+                                  window.location.href = "{{ route('dashboard') }}";
                                   }
                                   else{
                                       return false;

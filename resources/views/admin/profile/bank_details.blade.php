@@ -10,7 +10,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header" id="top">
                     @if(isset($bank_details) && $bank_details != null)
-                    <h2 class="pageheader-title">Edit Bank Details</h2>
+                    <h2 class="pageheader-title">Update Bank Details</h2>
                     @else
                     <h2 class="pageheader-title">Create Bank Details</h2>
                     @endif
@@ -20,7 +20,7 @@
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}" class="breadcrumb-link">Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}" class="breadcrumb-link">Bank Details</a></li>
                         @if(isset($bank_details) && $bank_details != null)
-                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Edit Bank Details</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Update Bank Details</a></li>
                         @else
                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">CreateBank Details</a></li>
                         @endif
@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
               <div class="card mb-5 shadow-sm">
-                <h5 class="card-header">{{ isset($bank_details) && $bank_details != null ? 'Edit Bank Details' : 'Create Bank Details' }}</h5>
+                <h5 class="card-header">{{ isset($bank_details) && $bank_details != null ? 'Update Bank Details' : 'Create Bank Details' }}</h5>
                 <div class="card-body">
                     @if(isset($bank_details) && $bank_details != null)
                     <form method="post" action="{{ route('bank_details_update') }}" id="bank_details_form" enctype="multipart/form-data">

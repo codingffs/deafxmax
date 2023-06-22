@@ -32,6 +32,7 @@ class MembersController extends Controller
                             $btn .= '<a href="javascript:void(0)" data-url="'. route('members.destroy', $row->id) .'" class="table-action-btn btn btn-danger m-1 delete_btn" data-id="'. $row->id .'"><i class="fa fa-trash" aria-hidden="true"></i></a>';
                             if(auth()->user()->role_id == 1){
                                 $btn .= '<a href="'. route('view_data', $row->id) .'" class="table-action-btn btn btn-info m-1 emp_view"><i class="fas fa-eye"></i></a>';
+                                $btn .= '<a href="'. route('view_parent_data', $row->id) .'" class="table-action-btn btn btn-primary m-1 emp_view"><i class="fas fa-eye"></i></a>';
                             }
                             if(auth()->user()->role_id == 2){
                                 $btn .= '<a href="'. route('view_member_data', $row->id) .'" class="table-action-btn btn btn-info m-1 emp_view"><i class="fas fa-eye"></i></a>';
@@ -62,6 +63,9 @@ class MembersController extends Controller
             'bank_act_no' => 'required',
             'profit_income' => 'required',
             'team_income' => 'required',
+            'member_code' => 'required',
+            'principal_amount' => 'required',
+            'referal_code' => 'required',
         ]);
         try{
             $User = new User();
@@ -79,6 +83,9 @@ class MembersController extends Controller
             $User->bank_act_no = $request->bank_act_no;
             $User->profit_income = $request->profit_income;
             $User->team_income = $request->team_income;
+            $User->member_code = $request->member_code;
+            $User->principal_amount = $request->principal_amount;
+            $User->referal_code = $request->referal_code;
             $User->role_id = 2;
             $User->save();
             // dd($User);
@@ -102,6 +109,9 @@ class MembersController extends Controller
             'bank_act_no' => 'required',
             'profit_income' => 'required',
             'team_income' => 'required',
+            'member_code' => 'required',
+            'principal_amount' => 'required',
+            'referal_code' => 'required',
         ]);
         try{
             $User = User::find($id);
@@ -115,6 +125,9 @@ class MembersController extends Controller
             $User->bank_act_no = $request->bank_act_no;
             $User->profit_income = $request->profit_income;
             $User->team_income = $request->team_income;
+            $User->member_code = $request->member_code;
+            $User->principal_amount = $request->principal_amount;
+            $User->referal_code = $request->referal_code;
             $User->role_id = 2;
             $User->save();
             return redirect()->route('members.index')->with('success','Members updated successfully');
@@ -152,6 +165,12 @@ class MembersController extends Controller
         Session::flash('success', 'Kyc hase been approved Successfully !');
         $kyc->save();
        return response()->json(['status'=> 1]);
+    }
+
+    public function view_parent_data($id)
+    {
+        $kyc = User::where('parent_id',$id)->get();
+         return view('admin.members.parent_data',compact('kyc'));
     }
 
 

@@ -16,7 +16,7 @@
                 <div class="page-breadcrumb">
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                      <li class="breadcrumb-item"><a href="{{ route('dashboard') }}" class="breadcrumb-link">Dashboard</a></li>
                       <li class="breadcrumb-item active" aria-current="page">Influencer Dashboard</li>
                     </ol>
                   </nav>
@@ -122,7 +122,7 @@
             <!-- ============================================================== -->
             <!-- total views   -->
             <!-- ============================================================== -->
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
                 <div class="card-body bg_gradiant1">
                   <div class="d-inline-block">
@@ -146,7 +146,7 @@
             <!-- ============================================================== -->
             <!-- total followers   -->
             <!-- ============================================================== -->
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="card  mb-5 shadow-sm">
                 <div class="card-body bg_gradiant2">
                   <div class="d-inline-block">
@@ -164,6 +164,24 @@
                 </div>
               </div>
             </div>
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="card mb-5 shadow-sm">
+                  <div class="card-body bg_gradiant1">
+                    <div class="d-inline-block">
+                      @if (auth()->user()->role_id == 2)
+                      <h5 class="text-white mb-3">Principal Amount</h5>
+                      <h2 class="mb-0 text-white">{{ get_principal_amount_count() }}</h2>
+                      @else
+                      <h5 class="text-white mb-3">Total Views</h5>
+                      <h2 class="mb-0 text-white">10,28,056</h2>
+                      @endif
+                    </div>
+                    <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
+                      <i class="fas fa-inr fa-fw fa-sm text-info font-24"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
             <!-- ============================================================== -->
             <!-- end total followers   -->
             <!-- ============================================================== -->

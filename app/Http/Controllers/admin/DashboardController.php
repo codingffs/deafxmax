@@ -125,7 +125,7 @@ class DashboardController extends Controller
         else{
             BankDetails::create($bank_details);
         }
-     return redirect()->route("dashboard")->with("success", "Bank Details Updated Successfully.");
+     return redirect()->back()->with("success", "Bank Details Updated Successfully.");
         }
 
 

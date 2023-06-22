@@ -35,7 +35,9 @@
                   <thead>
                     <tr>
                         <th class="rounded-0">Name</th>
-                        <th class="rounded-0">mobile</th>
+                        <th class="rounded-0">Mobile</th>
+                        <th class="rounded-0">Email</th>
+                        <th class="rounded-0">Member Code</th>
                         <th class="rounded-0">Action</th>
                     </tr>
                   </thead>
@@ -73,6 +75,14 @@
                         {
                             data: 'mobile_no',
                             name: 'mobile_no'
+                        },
+                        {
+                            data: 'email',
+                            name: 'email'
+                        },
+                        {
+                            data: 'member_code',
+                            name: 'member_code'
                         },
                         {
                             data: 'action',
