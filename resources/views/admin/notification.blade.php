@@ -97,7 +97,7 @@
                               success: function(data) {
                                 console.log(data);
                                   if (data.status == 1) {
-                                  window.location.href = "{{ route('dashboard') }}";
+                                  window.location.href = "{{ route('notification') }}";
                                   }
                                   else{
                                       return false;
