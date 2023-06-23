@@ -1,3 +1,3 @@
 <h1>New User Registration</h1>
-<p>Email: {{ $register->email }}</p>
-<p>Password: {{ $register->password }}</p>
+<p>Email: {{ $User->email }}</p>
+<p>Password: {{ $password }}</p>

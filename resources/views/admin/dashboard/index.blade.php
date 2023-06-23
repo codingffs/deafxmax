@@ -152,7 +152,7 @@
                   <div class="d-inline-block">
                     @if (auth()->user()->role_id == 2)
                     <h5 class="text-white mb-3">Team Income</h5>
-                    <h2 class="mb-0 text-white">{{ get_team_income_count() }}</h2>
+                    <h2 class="mb-0 text-white">${{ get_team_income_count() }}</h2>
                     @else
                     <h5 class="text-white mb-3">Total Views</h5>
                     <h2 class="mb-0 text-white">10,28,056</h2>
