@@ -93,7 +93,7 @@ class MembersController extends Controller
             $register = array(
                 "email" => $request->email,
                 "role_id" => 2,
-                "password" =>Hash::make($request->password),
+                "password" =>'123456',
             );
             $register = User::create($register);
             Mail::send('email.registermail', ['register' => $register], function($message) use ($request){
