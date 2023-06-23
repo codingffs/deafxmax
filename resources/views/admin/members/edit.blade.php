@@ -32,7 +32,7 @@
                     <input type="hidden" name="id" id="id" value="{{ $User->id }}"/>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-						 <input type="text" name="name" id="name" class="form-control" placeholder="Name*" value="{{ old('name',$User->name) }}" required/>
+						 <input type="text" name="name" id="name" class="form-control" placeholder="Name*" maxlength="50" minlength="0" value="{{ old('name',$User->name) }}" required/>
                     </div>
                     @error('name')
                         <p class="text-danger">{{ $message }}</p>
@@ -47,7 +47,7 @@
                     @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
-                        <input id="mobile_no" type="text" name="mobile_no" class="form-control" placeholder="Mobile Number*" pattern="[0-9]+" maxlength="10" minlength="10" value="{{ old('mobile_no',$User->mobile_no) }}" required>
+                        <input id="mobile_no" type="text" name="mobile_no" class="form-control" placeholder="Mobile Number*" pattern="[0-9]+" maxlength="10" minlength="0" value="{{ old('mobile_no',$User->mobile_no) }}" required>
                     </div>
                     @error('mobile_no')
                         <p class="text-danger">{{ $message }}</p>
@@ -68,14 +68,14 @@
                     @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-id-card-o"></i></span></div>
-                          <input id="pancard_no" type="text" name="pancard_no" class="form-control" placeholder="Pan Card Number" value="{{ old('pancard_no',$User->pancard_no) }}">
+                          <input id="pancard_no" type="text" name="pancard_no" class="form-control" placeholder="Pan Card Number" maxlength="10" minlength="0" value="{{ old('pancard_no',$User->pancard_no) }}">
                     </div>
                     @error('pancard_no')
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-bank"></i></span></div>
-                          <input id="bank_act_no" type="text" name="bank_act_no" class="form-control" placeholder="Bank Acount Number" value="{{ old('bank_act_no',$User->bank_act_no) }}">
+                          <input id="bank_act_no" type="text" name="bank_act_no" class="form-control" placeholder="Bank Acount Number" maxlength="16" minlength="0" value="{{ old('bank_act_no',$User->bank_act_no) }}">
                     </div>
                     @error('bank_act_no')
                     <p class="text-danger">{{ $message }}</p>
