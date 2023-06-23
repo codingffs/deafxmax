@@ -23,7 +23,7 @@ class SettingController extends Controller
                         ->editcolumn('value', function($row){
                             if($row->type == "File")
                             {
-                                return '<div class="m-r-10"><img src=" '.asset('/admin_images/setting/' . $row->value).'" alt="user" width="80" class="rounded-circle"  /></div>';
+                                return '<div class="m-r-10"><img src=" '.asset('/admin_images/setting/' . $row->value).'" alt="user" width="80" class="#"  /></div>';
                             }
                             else{
                                 return $row->value;
@@ -114,24 +114,24 @@ class SettingController extends Controller
             $setting = array(
                 "name" => $request->name,
             );
-            if($setting_data->type == "File"){
-                if(isset($request->image) && !empty($request->image)){
-                    if(isset($setting_data->value) && $setting_data->value != ""){
-                        $name_image = str_replace(url('admin_images/setting').'/', '', $setting_data->value);
-                        $image_path = public_path('admin_images/setting').'/'.$name_image;
-                        if(file_exists($image_path)){
-                            unlink($image_path);
-                        }
-                    }
-                    // $value = rand(0000,9999).$request->value->getclientoriginalname();
-                    $value = rand(0000,9999) . time().'.'.$request->image->extension();
-                    $request->image->move(public_path('admin_images/setting/'),$value);
-                    $setting['value'] = $value;
-                }
-        }
-        else{
-            $setting['value'] = $request->value;
-            }
+        //     if($setting_data->type == "File"){
+        //         if(isset($request->image) && !empty($request->image)){
+        //             if(isset($setting_data->value) && $setting_data->value != ""){
+        //                 $name_image = str_replace(url('admin_images/setting').'/', '', $setting_data->value);
+        //                 $image_path = public_path('admin_images/setting').'/'.$name_image;
+        //                 if(file_exists($image_path)){
+        //                     unlink($image_path);
+        //                 }
+        //             }
+        //             // $value = rand(0000,9999).$request->value->getclientoriginalname();
+        //             $value = rand(0000,9999) . time().'.'.$request->image->extension();
+        //             $request->image->move(public_path('admin_images/setting/'),$value);
+        //             $setting['value'] = $value;
+        //         }
+        // }
+        // else{
+        //     $setting['value'] = $request->value;
+        //     }
             Setting::whereId($id)->update($setting);
             return redirect()->route("setting.index")->with("success", "Setting Updated Successfully.");
         } catch (\Throwable $th) {
@@ -197,4 +197,3 @@ class SettingController extends Controller
         }
     }
 }
-    
