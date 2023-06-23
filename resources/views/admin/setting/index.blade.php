@@ -23,11 +23,11 @@
                 <div class="col-md-4 d-flex  align-items-center"><h5>Setting
                     </h5>
                 </div>
-                <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <div class="csv-button float-right">
                         <a href="{{route('setting.create')}}" class="btn btn-primary mb-2">Add Setting</a>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="card-body">
               <div class="table-responsive">

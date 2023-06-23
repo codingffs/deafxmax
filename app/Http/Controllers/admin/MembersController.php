@@ -10,6 +10,8 @@ use DataTables;
 use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
+
 class MembersController extends Controller
 {
 
@@ -87,8 +89,18 @@ class MembersController extends Controller
             $User->principal_amount = $request->principal_amount;
             $User->referal_code = $request->referal_code;
             $User->role_id = 2;
+
+            $register = array(
+                "email" => $request->email,
+                "role_id" => 2,
+                "password" =>Hash::make($request->password),
+            );
+            $register = User::create($register);
+            Mail::send('email.registermail', ['register' => $register], function($message) use ($request){
+                $message->to($request->email);
+                $message->subject('New User Register');
+            });
             $User->save();
-            // dd($User);
             return redirect()->route('members.index')->with('success','Members created successfully');
         }catch(\Throwable $th){
             return redirect()->back()->with('error',$th->getMessage());

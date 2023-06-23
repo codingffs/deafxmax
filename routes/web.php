@@ -28,9 +28,9 @@ use App\Http\Controllers\admin\WithdrawController;
 Route::group(['prefix' => 'admin'], function(){
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('forgot-password', [HomeController::class, 'forgot_password'])->name('forgot_password');
-
     Route::post('login_submit', [LoginController::class, 'login_submit'])->name('login_submit');
+
+    Route::get('forgot-password', [HomeController::class, 'forgot_password'])->name('forgot_password');
 
     Route::group(['middleware' => ['auth']], function(){
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -57,6 +57,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('view_parent_data/{id?}', [MembersController::class, 'view_parent_data'])->name('view_parent_data');
         Route::get('kyc_approve/{id?}', [MembersController::class, 'kyc_approve'])->name('kyc_approve');
 
+
         Route::resource('kyc',KycController::class);
 
         Route::resource('depositdetails',DepositController::class);
@@ -64,6 +65,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::resource('withdraw',WithdrawController::class);
         Route::get('notification', [WithdrawController::class, 'notification'])->name('notification');
         Route::get('approve/{id?}', [WithdrawController::class, 'approve'])->name('approve');
+
 
     });
 });
