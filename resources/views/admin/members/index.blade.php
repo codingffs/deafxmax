@@ -40,7 +40,9 @@
                         <th class="rounded-0">Mobile</th>
                         <th class="rounded-0">Email</th>
                         <th class="rounded-0">Member Code</th>
+                        @if(auth()->user()->role_id == 1)
                         <th class="rounded-0">Action</th>
+                        @endif
                     </tr>
                   </thead>
                 </table>
@@ -71,8 +73,8 @@
                     ajax: "{{ route('members.index') }}",
                     columns: [
                         {
-                            data: 'name',
-                            name: 'name'
+                            data: 'label_name',
+                            name: 'label_name'
                         },
                         {
                             data: 'mobile_no',
@@ -86,12 +88,14 @@
                             data: 'member_code',
                             name: 'member_code'
                         },
+                        @if(auth()->user()->role_id == 1)
                         {
                             data: 'action',
                             name: 'action',
                             orderable: false,
                             searchable: false
                         },
+                        @endif
                     ],
                     order:[],
                 });
@@ -126,6 +130,8 @@
                                       table.draw();
                                       toastr_success("Members Deleted Successfully!");
                                   } else {
+                                    console.log("called");
+
                                     toastr_error("Some Thing Went Wrong!");
                                       return false;
                                   }

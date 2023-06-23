@@ -30,13 +30,21 @@
                     @csrf
                     @method('PATCH')
                     <input type="hidden" name="id" id="id" value="{{ $User->id }}"/>
+                    {{-- <div class="col-sm-15">
+                        <div class="form-group fill">
+                            <label class="floating-label" for="value">Member</label>
+                            <select name="name" id="name" class="form-control select_box">
+                                <option selected disabled>Choose a Member:</option>
+                                @foreach($User_data as $User1)
+                                <option value="{{ $User1->id }}">{{ $User1->label_name }} </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div> --}}
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-						 <input type="text" name="name" id="name" class="form-control" placeholder="Name*" maxlength="50" minlength="0" value="{{ old('name',$User->name) }}" required/>
+                        <input id="label_name" type="text" class="form-control" name="label_name" placeholder="Name" value="{{ old('label_name',$User->label_name) }}">
                     </div>
-                        @error('name')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
                      <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-envelope"></i></span></div>
                         <input id="email" type="email" name="email" placeholder="Email*" class="form-control" value="{{ old('email',$User->email) }}" autocomplete="off" required>
@@ -119,31 +127,31 @@
                 error.insertAfter( element.parent("div"));
             },
             rules: {
-					name:{
-						required: true,
-						remote: {
-							type: 'get',
-							url: "{{ route('setting_unique_name_update') }}",
-							data: {
-                                'id': function() {
-									return $('#id').val();
-								},
-								'name': function () {
-									return $("#name").val();
-								}
-							},
-							dataFilter: function(data) {
-								var json = JSON.parse(data);
-                                console.log(json.status == 1);
-								if (json.status == 1) {
-									return "\"" + json.message + "\"";
-								}
-								else {
-									return 'true';
-								}
-							}
-						}
-					},
+					// name:{
+					// 	required: true,
+					// 	remote: {
+					// 		type: 'get',
+					// 		url: "{{ route('setting_unique_name_update') }}",
+					// 		data: {
+                    //             'id': function() {
+					// 				return $('#id').val();
+					// 			},
+					// 			'name': function () {
+					// 				return $("#name").val();
+					// 			}
+					// 		},
+					// 		dataFilter: function(data) {
+					// 			var json = JSON.parse(data);
+                    //             console.log(json.status == 1);
+					// 			if (json.status == 1) {
+					// 				return "\"" + json.message + "\"";
+					// 			}
+					// 			else {
+					// 				return 'true';
+					// 			}
+					// 		}
+					// 	}
+					// },
             }
         });
         $("#mobile").keypress(function (e) {

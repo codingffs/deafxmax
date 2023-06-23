@@ -46,7 +46,7 @@
                                 @foreach($Withdraw as $data)
                                     <tr>
                                         <td>{{ $i++ }}</td>
-                                        <td>{{ $data->user_data->name }}</td>
+                                        <td>{{ isset($data->user_data->name)?$data->user_data->name:'-' }}</td>
                                         <td>{{ $data->message }}</td>
                                         @if($data->status == 0)
                                         <td>

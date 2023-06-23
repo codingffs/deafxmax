@@ -50,6 +50,10 @@ class MembersController extends Controller
         }
     }
 
+    public function show($id){
+        //
+    }
+
     public function create()
     {
         $User = User::where('parent_id',null)->orderBy('created_at','desc')->get();
@@ -79,6 +83,7 @@ class MembersController extends Controller
                 $User->password = Hash::make($password);
             }
             $User->name = $request->name;
+            $User->label_name = $request->label_name;
             $User->parent_id = $request->name;
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
@@ -119,12 +124,14 @@ class MembersController extends Controller
             'principal_amount' => 'required',
             'referal_code' => 'required',
         ]);
-        try{
+
             $User = User::find($id);
-            if(auth()->user()->role_id == 2){
-                $User->parent_id = auth()->user()->id;
-            }
+            // if(auth()->user()->role_id == 2){
+            //     $User->parent_id = auth()->user()->id;
+            // }
             $User->name = $request->name;
+            $User->label_name = $request->label_name;
+            // $User->parent_id = $request->name;
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
             $User->pancard_no = $request->pancard_no;
@@ -136,21 +143,34 @@ class MembersController extends Controller
             $User->referal_code = $request->referal_code;
             $User->role_id = 2;
             $User->save();
-            return redirect()->route('members.index')->with('success','Members updated successfully');
-        }catch(\Throwable $th){
-            return redirect()->back()->with('error',$th->getMessage());
+            if($User->parent_id == null ){
+
+                return redirect()->route('members.index')->with('success','Members updated successfully');
+            }
+            else{
+                return redirect()->route('view_parent_data',$User->parent_id)->with('success',' Parent Members updated successfully');
+
+            }
+    }
+    public function destroy($id)
+    {
+        $User = User::find($id);
+        $parent_id = isset($User->parent_id) ? $User->parent_id : null;
+        if ($User->parent_id == null) {
+            User::where('parent_id', $id)->delete();
+            $User->delete();
+            return response()->json(["status" => 1]);
+        } else {
+            $User->delete();
+            return response()->json(["status" => 0,"parent_id" => $parent_id]);
         }
     }
-    public function destroy(string $id)
-    {
-           if(User::whereId($id)->delete()){
-               return response()->json(["status" => 1]);
-           }
-           else{
-               return response()->json(["status" => 0]);
-           }
-    }
 
+    public function members_destroy($id){
+        $User = User::find($id);
+        $User->delete();
+        return response()->json(["status" => 0]);
+    }
     public function view_data($id)
     {
          $user = User::find($id);

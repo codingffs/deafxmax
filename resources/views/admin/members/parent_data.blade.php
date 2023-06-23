@@ -39,21 +39,32 @@
                               <th>Team Income</th>
                               <th>Pancard Number</th>
                               <th>Bank Account Number</th>
+                              <th>Actions</th>
                               <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                          @foreach($kyc as $User)
-                              <tr>
-                                  <td>{{$User->name}}</td>
-                                  <td>{{$User->email}}</td>
-                                  <td>{{$User->mobile_no}}</td>
-                                  <td>{{$User->profit_income}}</td>
-                                  <td>{{$User->team_income}}</td>
-                                  <td>{{$User->pancard_no}}</td>
-                                  <td>{{$User->bank_act_no}}</td>
-                              </tr>
-                          @endforeach
+                            @if($kyc != '[]')
+                                @foreach($kyc as $User)
+                                    <tr>
+                                        <td>{{$User->label_name}}</td>
+                                        <td>{{$User->email}}</td>
+                                        <td>{{$User->mobile_no}}</td>
+                                        <td>{{$User->profit_income}}</td>
+                                        <td>{{$User->team_income}}</td>
+                                        <td>{{$User->pancard_no}}</td>
+                                        <td>{{$User->bank_act_no}}</td>
+                                        <td>
+                                            <a href="{{ route('members.edit',$User->id) }}" data-id="{{ $User->id}}" class="table-action-btn edit btn btn-primary m-1" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                            <a href="javascript:void(0)" data-url="{{ route('members_destroy',$User->id) }}" class="table-action-btn btn btn-danger m-1 delete_btn" data-id="{{ $User->id}}   "><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="8" class="text-center">No Data Found</td>
+                                    <tr>
+                                @endif
                       </tbody>
                   </table>
                 </div>
@@ -104,6 +115,37 @@
                 }
             });
         });
+        $(document).on('click', ".delete_btn", function(event) {
+                  swal.fire({
+                      title: 'Are you sure?',
+                      text: "You won't be able to revert this!",
+                      icon: 'warning',
+                      showCancelButton: true,
+                      confirmButtonClass: "btn btn-danger",
+                      cancelButtonClass: "btn btn-primary",
+                      confirmButtonText: 'Yes, delete it!',
+                      inputValidator: (value) => {
+                          if (!value) {
+                              return 'You need to write something!'
+                          }
+                      }
+                  }).then((result) => {
+                      if (result.isConfirmed) {
+                          var url = $(this).attr('data-url');
+                          var token = '<?php echo csrf_token(); ?>';
+                          $.ajax({
+                              type: 'GET',
+                              url: url,
+                              success: function(data) {
+                                if(data.status == 1){
+                                    windoow.location.reload();
+                                    toastr_success(" Parent Member Deleted Successfully");
+                                }
+                              }
+                          });
+                      }
+                    });
+                });
       });
 </script>
 @endsection
