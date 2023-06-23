@@ -36,23 +36,23 @@
                     </div>
                     <div id="current_password_error" class="error mb-2">
                     </div>
-                    @error('current_password')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
+                        @error('current_password')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
                         <input id="new_password" type="password" name="new_password" placeholder="New Password" class="form-control"  required>
                     </div>
-                    @error('new_password')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
+                        @error('new_password')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-unlock"></i></span></div>
                         <input id="confirm_password" type="password" name="confirm_password" class="form-control" placeholder="Confirm Password"  required>
                     </div>
-                    @error('confirm_password')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
+                        @error('confirm_password')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     <div class="col-xl-2">
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <a href="{{ route('dashboard') }}" class="btn btn-secondary">Cancel</a>

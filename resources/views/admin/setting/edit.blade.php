@@ -33,11 +33,10 @@
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
 						 <input type="text" name="name" id="name" class="form-control" placeholder="Name" value="{{ old('name',$Setting->name) }}" required/>
-
                     </div>
-                    @error('name')
-                        <p class="text-danger">{{ $message }}</p>
-                     @enderror
+                        @error('name')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     @if ($Setting->type == 'File')
                         <div class="custom-file mb-2 custom_file_main">
                             <label class="custom-file" for="customFile">Profile Image</label>
@@ -48,23 +47,22 @@
                                 <a href="{{ $Setting->value }}" target="_blank"><div class="m-r-10 mt-2"><img src="{{ asset('admin_images/setting/'.$Setting->value) }}" alt="user" width="80"/></div></a>
                             @endif
                         </div>
-                        @error('value')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
+                            @error('value')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                     @endif
-                    @error('email')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
-
+                            @error('email')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                     @if ($Setting->type == 'Text')
-                    <div class="col-md-6 mb-3">
+                      <div class="col-md-6 mb-3">
                         <label for="name" class="form-label">Value<span class="text-danger">*</span></label>
                         <input type="text" id="value" class="form-control" name="value" placeholder="Value"
                                  value="{{ old('value', $Setting->type == 'Text' ? $Setting->value : '') }}" required />
-                        @error('value')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
-                    </div>
+                            @error('value')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                       </div>
                     @endif
                     <br>
                     <button type="submit" class="btn btn-primary mt-2">Submit</button>

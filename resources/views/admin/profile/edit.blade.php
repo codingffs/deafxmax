@@ -34,31 +34,31 @@
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
                         <input id="name" type="text" class="form-control" name="name" placeholder="Name*" maxlength="50" minlength="0" value="{{ old('name',$user->name) }}" required>
                     </div>
-                    @error('name')
-                        <p class="text-danger">{{ $message }}</p>
-                     @enderror
+                        @error('name')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-envelope"></i></span></div>
                         <input id="email" type="email" name="email" placeholder="Email*" class="form-control" value="{{ old('email',$user->email) }}" autocomplete="off" required>
                     </div>
                     <div id="current_email_error" class="error"></div>
-                    @error('email')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
+                        @error('email')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
                         <input id="mobile_no" type="number" name="mobile_no" class="form-control" placeholder="Mobile Number*" maxlength="10" minlength="0" value="{{ old('mobile_no',$user->mobile_no) }}" required>
                     </div>
-                    @error('mobile_no')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
+                        @error('mobile_no')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-address-book"></i></span></div>
                         <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Address*"  name="address" rows="3" required>{{ $user->address }}</textarea>
                     </div>
-                    @error('address')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
+                        @error('address')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     <div class="input-group mb-2 input_select2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-building"></i></span></div>
                         <select class="form-control select2" id="input-select" name="state" required>

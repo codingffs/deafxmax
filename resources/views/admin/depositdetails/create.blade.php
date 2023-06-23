@@ -35,34 +35,35 @@
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-bank"></i></span></div>
                         <input id="bank_acc_no" type="text" class="form-control" name="bank_acc_no" placeholder="Bank Account Number*" value="{{ old('bank_acc_no') }}" pattern="[0-9]+" maxlength="16" minlength="0" required>
                     </div>
-                    @error('bank_acc_no')
-                        <p class="text-danger">{{ $message }}</p>
-                     @enderror
+                            @error('bank_acc_no')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                      <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-inr"></i></span></div>
                         <input id="amount" type="text" class="form-control" name="amount" placeholder="Amount*" value="{{ old('amount') }}" pattern="[0-9]+" maxlength="20" minlength="0" required>
                     </div>
-                    @error('amount')
-                        <p class="text-danger">{{ $message }}</p>
-                     @enderror
+                            @error('amount')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-hand-holding-usd"></i></span></div>
                         <input id="deposit_type" type="text" name="deposit_type" placeholder="Deposit Type*" class="form-control" maxlength="50" minlength="0" value="{{ old('deposit_type') }}" autocomplete="off" required>
                     </div>
-                    @error('deposit_type')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
+                            @error('deposit_type')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                     <div class="col-12">
                         <label for="customFile">Image<span class="error"></span></label>
                         <div class="input-group mb-2">
                             <input type="file" class="form-control" name="image" id="image">
                         </div>
-                       </div>
+                    </div>
                     <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     <a href="{{ route('depositdetails.index') }}" class="btn btn-secondary mt-2">Cancel</a>
                     <br>
                     <br>
-                    <a href="#"><img class="logo-img" src="{{ asset('admin_images/setting/43251687502568.jpg') }}" width=300px alt="logo"></a>
+                    <a href="#"><img class="logo-img"style="margin-left: 23px;"src="{{ asset('admin_images/setting/qr.jpg') }}" width=300px alt="logo"></a>
+                    <a href="#"><img class="logo-img" style="margin-left: 551px;" src="{{ asset('admin_images/setting/Capturegdht.jpg') }}" width=300px alt="logo"></a>
                   </form>
                 </div>
               </div>

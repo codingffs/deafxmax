@@ -27,23 +27,23 @@
           <a href="../index-2.html"><img class="logo-img" src="{{ getlogo('logo') != null ? getlogo('logo') : url('admin/assets/images/logo1.png')}}" width="100%" alt="logo"></a><span
             class="splash-description">Please enter your user information.</span></div>
         <div class="card-body">
-            @error('error')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+                @error('error')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
           <form action="{{ route('login_submit') }}" method="post" id="login_form">
             @csrf
             <div class="form-group mb-2">
               <input class="form-control" id="username" type="email" name="email" placeholder="Username" autocomplete="off" required>
             </div>
-            @error('email')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+                @error('email')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             <div class="form-group mb-2">
               <input class="form-control" id="password" type="password" name="password" placeholder="Password" required>
             </div>
-            @error('password')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+                @error('password')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             <div class="form-group">
               <label class="custom-control custom-checkbox">
                 <input class="custom-control-input" type="checkbox" name="remember"><span class="custom-control-label">Remember

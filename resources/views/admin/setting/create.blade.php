@@ -35,9 +35,9 @@
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
                         <input id="name" type="text" class="form-control" name="name" placeholder="Name*" value="{{ old('name') }}" required>
                     </div>
-                    @error('name')
-                        <p class="text-danger">{{ $message }}</p>
-                     @enderror
+                        @error('name')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     <div class="input-group mb-2 input_select2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-address-book"></i></span></div>
                         <select name="type" id="type" class="form-control select2" required>
@@ -46,9 +46,9 @@
                         </select>
                     </div>
                     <div id="current_email_error" class="error"></div>
-                    @error('email')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
+                        @error('email')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     <div class="input-group mb-2 custom_text_main" id="custom_text_main">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-file"></i></span></div>
                         <input type="text" class="form-control inputBar" name="value" id="value" value="{{ old('value') }}" required></textarea>
@@ -57,9 +57,9 @@
                         <input type="file" class="custom-file-input" name="image" id="image" required>
                         <label class="custom-file-label" for="customFile">Profile Image</label>
                     </div>
-                    @error('value')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
+                        @error('value')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     <br>
                     <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     <a href="{{ route('setting.index') }}" class="btn btn-secondary mt-2">Cancel</a>
