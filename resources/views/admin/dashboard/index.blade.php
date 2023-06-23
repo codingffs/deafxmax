@@ -17,7 +17,7 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="{{ route('dashboard') }}" class="breadcrumb-link">Dashboard</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Influencer Dashboard</li>
+                      {{-- <li class="breadcrumb-item active" aria-current="page">Influencer Dashboard</li> --}}
                     </ol>
                   </nav>
                 </div>
@@ -127,7 +127,7 @@
                 <div class="card-body bg_gradiant1">
                   <div class="d-inline-block">
                     @if (auth()->user()->role_id == 2)
-                    <h5 class="text-white mb-3">Profit Sherring Income</h5>
+                    <h5 class="text-white mb-3">Profit Sharing Income</h5>
                     <h2 class="mb-0 text-white">{{ get_profit_income_count() }}</h2>
                     @else
                     <h5 class="text-white mb-3">Total Views</h5>

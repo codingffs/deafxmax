@@ -57,7 +57,7 @@
             @if(auth()->user()->role_id == 1)
               <li class="nav-item">
                 <a class="nav-link {{ routeActive('notification') }}" href="{{ route('notification') }}" aria-expanded="false">
-                    <i class="fas fa-bell"></i>Notification
+                    <i class="fas fa-eye"></i> View WithDraw
                 </a>
               </li>
               <li class="nav-item">

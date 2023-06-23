@@ -32,7 +32,7 @@
                     @csrf
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-bank"></i></span></div>
-                          <input id="bank_name" type="text"  class="form-control" name="bank_name" placeholder="Bank Name*" value="{{ old('bank_name') }}" required>
+                          <input id="bank_name" type="text"  class="form-control" name="bank_name" placeholder="Bank Name*" maxlength="50" minlength="0" value="{{ old('bank_name') }}" required>
                     </div>
                         @error('bank_name')
                            <p class="text-danger">{{ $message }}</p>
@@ -60,7 +60,7 @@
                     @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-bank"></i></span></div>
-                          <input id="name_of_holder" type="text" name="name_of_holder" class="form-control" placeholder="Name Of Holder*" value="{{ old('name_of_holder') }}" required>
+                          <input id="name_of_holder" type="text" name="name_of_holder" class="form-control" placeholder="Name Of Holder*" value="{{ old('name_of_holder') }}"maxlength="50" minlength="0" required>
                     </div>
                     @error('name_of_holder')
                     <p class="text-danger">{{ $message }}</p>

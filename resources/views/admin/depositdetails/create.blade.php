@@ -47,7 +47,7 @@
                      @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-hand-holding-usd"></i></span></div>
-                        <input id="deposit_type" type="text" name="deposit_type" placeholder="Deposit Type*" class="form-control" value="{{ old('deposit_type') }}" autocomplete="off" required>
+                        <input id="deposit_type" type="text" name="deposit_type" placeholder="Deposit Type*" class="form-control" maxlength="50" minlength="0" value="{{ old('deposit_type') }}" autocomplete="off" required>
                     </div>
                     @error('deposit_type')
                         <p class="text-danger">{{ $message }}</p>

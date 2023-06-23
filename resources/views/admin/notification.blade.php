@@ -15,7 +15,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}" class="breadcrumb-link">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Withdraw</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">View Withdraw</a></li>
                         </ol>
                     </nav>
                     </div>

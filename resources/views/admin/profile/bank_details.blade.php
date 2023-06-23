@@ -47,7 +47,7 @@
                     @endif
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-bank"></i></span></div>
-                          <input id="bank_name" type="text"  class="form-control" name="bank_name" placeholder="Bank Name*" value="{{old('bank_name',isset($bank_details->bank_name)? $bank_details->bank_name:'') }}" required>
+                          <input id="bank_name" type="text"  class="form-control" name="bank_name" placeholder="Bank Name*" maxlength="50" minlength="0" value="{{old('bank_name',isset($bank_details->bank_name)? $bank_details->bank_name:'') }}" required>
                     </div>
                         @error('bank_name')
                            <p class="text-danger">{{ $message }}</p>
@@ -68,7 +68,7 @@
                     @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-building"></i></span></div>
-                          <input id="branch_name" type="text" name="branch_name" class="form-control" placeholder="Branch Name*" value="{{old('branch_name',isset($bank_details->branch_name)? $bank_details->branch_name:'') }}" required>
+                          <input id="branch_name" type="text" name="branch_name" class="form-control" placeholder="Branch Name*" maxlength="50" minlength="0" value="{{old('branch_name',isset($bank_details->branch_name)? $bank_details->branch_name:'') }}" required>
                     </div>
                     @error('branch_name')
                     <p class="text-danger">{{ $message }}</p>

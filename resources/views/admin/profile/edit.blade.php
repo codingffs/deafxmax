@@ -32,7 +32,7 @@
                     @csrf
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                        <input id="name" type="text" class="form-control" name="name" placeholder="Name*" value="{{ old('name',$user->name) }}" required>
+                        <input id="name" type="text" class="form-control" name="name" placeholder="Name*" maxlength="50" minlength="0" value="{{ old('name',$user->name) }}" required>
                     </div>
                     @error('name')
                         <p class="text-danger">{{ $message }}</p>
@@ -47,7 +47,7 @@
                     @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
-                        <input id="mobile_no" type="number" name="mobile_no" class="form-control" placeholder="Mobile Number*" value="{{ old('mobile_no',$user->mobile_no) }}" required>
+                        <input id="mobile_no" type="number" name="mobile_no" class="form-control" placeholder="Mobile Number*" maxlength="10" minlength="0" value="{{ old('mobile_no',$user->mobile_no) }}" required>
                     </div>
                     @error('mobile_no')
                         <p class="text-danger">{{ $message }}</p>
