@@ -52,13 +52,13 @@ class MembersController extends Controller
 
     public function create()
     {
-        return view('admin.members.create');
+        $User = User::where('parent_id',null)->orderBy('created_at','desc')->get();
+        return view('admin.members.create',compact('User'));
     }
     #store members
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
             'mobile_no' => 'required',
             'email' => 'required',
             'pancard_no' => 'required',
@@ -79,6 +79,7 @@ class MembersController extends Controller
                 $User->password = Hash::make($password);
             }
             $User->name = $request->name;
+            $User->parent_id = $request->name;
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
             $User->pancard_no = $request->pancard_no;
@@ -108,7 +109,6 @@ class MembersController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required',
             'mobile_no' => 'required',
             'email' => 'required',
             'pancard_no' => 'required',

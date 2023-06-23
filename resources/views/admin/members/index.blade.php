@@ -24,9 +24,11 @@
                     </h5>
                 </div>
                 <div class="col-md-4">
+                    @if(auth()->user()->role_id == 1)
                     <div class="csv-button float-right">
                         <a href="{{route('members.create')}}" class="btn btn-primary mb-2">Add Members</a>
                     </div>
+                    @endif
                 </div>
             </div>
             <div class="card-body">

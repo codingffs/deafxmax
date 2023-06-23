@@ -58,9 +58,11 @@
                             <input type="file" class="form-control" name="image" id="image">
                         </div>
                        </div>
-                    <br>
                     <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     <a href="{{ route('depositdetails.index') }}" class="btn btn-secondary mt-2">Cancel</a>
+                    <br>
+                    <br>
+                    <a href="#"><img class="logo-img" src="{{ asset('admin_images/setting/43251687502568.jpg') }}" width=100px alt="logo"></a>
                   </form>
                 </div>
               </div>

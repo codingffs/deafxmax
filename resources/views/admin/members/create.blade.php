@@ -31,13 +31,24 @@
                 <div class="card-body">
                   <form method="post" action="{{ route('members.store') }}" id="add_members" enctype="multipart/form-data">
                     @csrf
-                    <div class="input-group mb-2">
+                    <div class="col-sm-15">
+                        <div class="form-group fill">
+                            <label class="floating-label" for="value">Member</label>
+                            <select name="name" id="name" class="form-control select_box">
+                                <option selected disabled>Choose a Member:</option>
+                                @foreach($User as $User1)
+                                <option value="{{ $User1->id }}">{{ $User1->name }} </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    {{-- <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
                         <input id="name" type="text" class="form-control" name="name" placeholder="Name*" value="{{ old('name') }}" required>
-                    </div>
-                    @error('name')
+                    </div> --}}
+                    {{-- @error('name')
                         <p class="text-danger">{{ $message }}</p>
-                     @enderror
+                     @enderror --}}
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-envelope"></i></span></div>
                         <input id="email" type="email" name="email" placeholder="Email*" class="form-control" value="{{ old('email') }}" autocomplete="off" required>
