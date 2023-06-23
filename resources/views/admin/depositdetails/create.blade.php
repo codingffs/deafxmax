@@ -62,7 +62,7 @@
                     <a href="{{ route('depositdetails.index') }}" class="btn btn-secondary mt-2">Cancel</a>
                     <br>
                     <br>
-                    <a href="#"><img class="logo-img" src="{{ asset('admin_images/setting/43251687502568.jpg') }}" width=100px alt="logo"></a>
+                    <a href="#"><img class="logo-img" src="{{ asset('admin_images/setting/43251687502568.jpg') }}" width=300px alt="logo"></a>
                   </form>
                 </div>
               </div>
