@@ -73,7 +73,7 @@ class MembersController extends Controller
             'principal_amount' => 'required',
             'referal_code' => 'required',
         ]);
-        try{
+
             $User = new User();
             if(auth()->user()->role_id == 2){
                 $User->parent_id = auth()->user()->id;
@@ -101,10 +101,15 @@ class MembersController extends Controller
                 $message->subject('New User Register');
             });
             $User->save();
-            return redirect()->route('members.index')->with('success','Members created successfully');
-        }catch(\Throwable $th){
-            return redirect()->back()->with('error',$th->getMessage());
-        }
+            if($User->parent_id == null ){
+
+                return redirect()->route('members.index')->with('success','Members create successfully');
+            }
+            else{
+                return redirect()->route('view_parent_data',$User->parent_id)->with('success',' Parent Members create successfully');
+
+            }
+
     }
         public function edit(string $id)
     {

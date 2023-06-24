@@ -137,8 +137,8 @@
                               type: 'GET',
                               url: url,
                               success: function(data) {
-                                if(data.status == 1){
-                                    windoow.location.reload();
+                                if(data.status == 0){
+                                    window.location.reload();
                                     toastr_success(" Parent Member Deleted Successfully");
                                 }
                               }

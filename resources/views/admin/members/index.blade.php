@@ -130,8 +130,6 @@
                                       table.draw();
                                       toastr_success("Members Deleted Successfully!");
                                   } else {
-                                    console.log("called");
-
                                     toastr_error("Some Thing Went Wrong!");
                                       return false;
                                   }
