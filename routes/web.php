@@ -52,6 +52,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('setting_unique_name_update',[SettingController::class,"setting_unique_name_update"])->name('setting_unique_name_update');
 
         Route::resource('members',MembersController::class);
+        Route::get('members_destroy/{id?}', [MembersController::class, 'members_destroy'])->name('members_destroy');
         Route::get('view_data/{id?}', [MembersController::class, 'view_data'])->name('view_data');
         Route::get('view_member_data/{id?}', [MembersController::class, 'view_member_data'])->name('view_member_data');
         Route::get('view_parent_data/{id?}', [MembersController::class, 'view_parent_data'])->name('view_parent_data');

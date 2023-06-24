@@ -25,12 +25,19 @@
               </a>
             </li>
             @endif
-            {{-- @if(auth()->user()->role_id == 2) --}}
+            @if(auth()->user()->role_id == 2)
             <li class="nav-item">
               <a class="nav-link {{ routeActive('members.index') }}{{ routeActive('members.create') }}{{ routeActive('members.edit') }}{{ routeActive('members.destroy') }}" href="{{ route('members.index') }}" aria-expanded="false">
-                <i class="fa fa-users"></i>Members
+                <i class="fa fa-users"></i>Members List
               </a>
             </li>
+            @else
+            <li class="nav-item">
+                <a class="nav-link {{ routeActive('members.index') }}{{ routeActive('members.create') }}{{ routeActive('members.edit') }}{{ routeActive('members.destroy') }}" href="{{ route('members.index') }}" aria-expanded="false">
+                  <i class="fa fa-users"></i>Members
+                </a>
+              </li>
+            @endif
             <li class="nav-item">
                 <a class="nav-link {{ routeActive('depositdetails.index') }}{{ routeActive('depositdetails.create') }}" href="{{ route('depositdetails.index') }}" aria-expanded="false">
                     <i class="fas fa-hand-holding-usd"></i>Deposit Details

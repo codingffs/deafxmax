@@ -37,6 +37,8 @@ class User extends Authenticatable
         "member_code",
         "principal_amount",
         "referal_code",
+        "label_name",
+
     ];
 
     /**

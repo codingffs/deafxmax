@@ -34,7 +34,7 @@ class MembersController extends Controller
                             $btn .= '<a href="javascript:void(0)" data-url="'. route('members.destroy', $row->id) .'" class="table-action-btn btn btn-danger m-1 delete_btn" data-id="'. $row->id .'"><i class="fa fa-trash" aria-hidden="true"></i></a>';
                             if(auth()->user()->role_id == 1){
                                 $btn .= '<a href="'. route('view_data', $row->id) .'" class="table-action-btn btn btn-info m-1 emp_view"><i class="fas fa-eye"></i></a>';
-                                $btn .= '<a href="'. route('view_parent_data', $row->id) .'" class="table-action-btn btn btn-warning m-1 emp_view"><i class="fas fa-eye"></i></a>';
+                                $btn .= '<a href="'. route('view_parent_data', $row->id) .'" class="table-action-btn btn btn-success m-1 emp_view"><i class="fa fa-users"></i></a>';
                             }
                             if(auth()->user()->role_id == 2){
                                 $btn .= '<a href="'. route('view_member_data', $row->id) .'" class="table-action-btn btn btn-info m-1 emp_view"><i class="fas fa-eye"></i></a>';
@@ -48,6 +48,10 @@ class MembersController extends Controller
         } catch (\Throwable $th) {
             return redirect()->back()->with('error',$th->getMessage());
         }
+    }
+
+    public function show($id){
+        //
     }
 
     public function create()
@@ -79,6 +83,7 @@ class MembersController extends Controller
                 $User->password = Hash::make($password);
             }
             $User->name = $request->name;
+            $User->label_name = $request->label_name;
             $User->parent_id = $request->name;
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
@@ -119,12 +124,14 @@ class MembersController extends Controller
             'principal_amount' => 'required',
             'referal_code' => 'required',
         ]);
-        try{
+
             $User = User::find($id);
-            if(auth()->user()->role_id == 2){
-                $User->parent_id = auth()->user()->id;
-            }
+            // if(auth()->user()->role_id == 2){
+            //     $User->parent_id = auth()->user()->id;
+            // }
             $User->name = $request->name;
+            $User->label_name = $request->label_name;
+            // $User->parent_id = $request->name;
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
             $User->pancard_no = $request->pancard_no;
@@ -136,21 +143,34 @@ class MembersController extends Controller
             $User->referal_code = $request->referal_code;
             $User->role_id = 2;
             $User->save();
-            return redirect()->route('members.index')->with('success','Members updated successfully');
-        }catch(\Throwable $th){
-            return redirect()->back()->with('error',$th->getMessage());
+            if($User->parent_id == null ){
+
+                return redirect()->route('members.index')->with('success','Members updated successfully');
+            }
+            else{
+                return redirect()->route('view_parent_data',$User->parent_id)->with('success',' Parent Members updated successfully');
+
+            }
+    }
+    public function destroy($id)
+    {
+        $User = User::find($id);
+        $parent_id = isset($User->parent_id) ? $User->parent_id : null;
+        if ($User->parent_id == null) {
+            User::where('parent_id', $id)->delete();
+            $User->delete();
+            return response()->json(["status" => 1]);
+        } else {
+            $User->delete();
+            return response()->json(["status" => 0,"parent_id" => $parent_id]);
         }
     }
-    public function destroy(string $id)
-    {
-           if(User::whereId($id)->delete()){
-               return response()->json(["status" => 1]);
-           }
-           else{
-               return response()->json(["status" => 0]);
-           }
-    }
 
+    public function members_destroy($id){
+        $User = User::find($id);
+        $User->delete();
+        return response()->json(["status" => 0]);
+    }
     public function view_data($id)
     {
          $user = User::find($id);

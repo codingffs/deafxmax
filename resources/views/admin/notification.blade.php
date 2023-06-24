@@ -43,10 +43,11 @@
                                     <?php
                                       $i = 1;
                                     ?>
+                            @if($Withdraw != '[]')
                                 @foreach($Withdraw as $data)
                                     <tr>
                                         <td>{{ $i++ }}</td>
-                                        <td>{{ $data->user_data->name }}</td>
+                                        <td>{{ isset($data->user_data->name)?$data->user_data->name:'-' }}</td>
                                         <td>{{ $data->message }}</td>
                                         @if($data->status == 0)
                                         <td>
@@ -57,6 +58,11 @@
                                         @endif
                                     </tr>
                                 @endforeach
+                                @else
+                                <tr>
+                                    <td colspan="8" class="text-center">No Data Found</td>
+                                <tr>
+                               @endif
                                 </tbody>
                             </table>
                         </div>

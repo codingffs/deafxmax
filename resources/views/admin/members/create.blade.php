@@ -37,18 +37,15 @@
                             <select name="name" id="name" class="form-control select_box">
                                 <option selected disabled>Choose a Member:</option>
                                 @foreach($User as $User1)
-                                <option value="{{ $User1->id }}">{{ $User1->name }} </option>
+                                <option value="{{ $User1->id }}">{{ $User1->label_name }} </option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
-                    {{-- <div class="input-group mb-2">
+                    <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                        <input id="name" type="text" class="form-control" name="name" placeholder="Name*" value="{{ old('name') }}" required>
-                    </div> --}}
-                    {{-- @error('name')
-                        <p class="text-danger">{{ $message }}</p>
-                     @enderror --}}
+                        <input id="label_name" type="text" class="form-control" name="label_name" placeholder="Name" value="{{ old('label_name') }}">
+                    </div>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-envelope"></i></span></div>
                         <input id="email" type="email" name="email" placeholder="Email*" class="form-control" value="{{ old('email') }}" autocomplete="off" required>
