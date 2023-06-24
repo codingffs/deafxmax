@@ -53,11 +53,14 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                     <div class="col-12">
-                        <label for="customFile">Image<span class="error"></span></label>
+                        <label for="customFile">Image*<span class="error"></span></label>
                         <div class="input-group mb-2">
-                            <input type="file" class="form-control" name="image" id="image">
+                            <input type="file" class="form-control" name="image" id="image"required>
                         </div>
                     </div>
+                    @error('image')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                     <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     <a href="{{ route('depositdetails.index') }}" class="btn btn-secondary mt-2">Cancel</a>
                     <br>
