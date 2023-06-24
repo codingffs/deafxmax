@@ -43,6 +43,7 @@
                                     <?php
                                       $i = 1;
                                     ?>
+                            @if($Withdraw != '[]')
                                 @foreach($Withdraw as $data)
                                     <tr>
                                         <td>{{ $i++ }}</td>
@@ -57,6 +58,11 @@
                                         @endif
                                     </tr>
                                 @endforeach
+                                @else
+                                <tr>
+                                    <td colspan="8" class="text-center">No Data Found</td>
+                                <tr>
+                               @endif
                                 </tbody>
                             </table>
                         </div>

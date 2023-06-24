@@ -43,6 +43,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                     @if($kyc != '[]')
                           @foreach($kyc as $User)
                               <tr>
                                   <td>{{$User->bank_name}}</td>
@@ -61,6 +62,11 @@
                                 </td>
                               </tr>
                           @endforeach
+                          @else
+                          <tr>
+                              <td colspan="8" class="text-center">No Data Found</td>
+                          <tr>
+                         @endif
                       </tbody>
                   </table>
                 </div>

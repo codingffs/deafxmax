@@ -34,7 +34,7 @@ class MembersController extends Controller
                             $btn .= '<a href="javascript:void(0)" data-url="'. route('members.destroy', $row->id) .'" class="table-action-btn btn btn-danger m-1 delete_btn" data-id="'. $row->id .'"><i class="fa fa-trash" aria-hidden="true"></i></a>';
                             if(auth()->user()->role_id == 1){
                                 $btn .= '<a href="'. route('view_data', $row->id) .'" class="table-action-btn btn btn-info m-1 emp_view"><i class="fas fa-eye"></i></a>';
-                                $btn .= '<a href="'. route('view_parent_data', $row->id) .'" class="table-action-btn btn btn-warning m-1 emp_view"><i class="fas fa-eye"></i></a>';
+                                $btn .= '<a href="'. route('view_parent_data', $row->id) .'" class="table-action-btn btn btn-success m-1 emp_view"><i class="fa fa-users"></i></a>';
                             }
                             if(auth()->user()->role_id == 2){
                                 $btn .= '<a href="'. route('view_member_data', $row->id) .'" class="table-action-btn btn btn-info m-1 emp_view"><i class="fas fa-eye"></i></a>';
