@@ -41,7 +41,10 @@
                         <th class="rounded-0">Email</th>
                         <th class="rounded-0">Member Code</th>
                         @if(auth()->user()->role_id == 1)
+                        <th class="rounded-0">Created Date</th>
                         <th class="rounded-0">Action</th>
+                        @else
+                        <th class="rounded-0">Principal Amount</th>
                         @endif
                     </tr>
                   </thead>
@@ -90,12 +93,22 @@
                         },
                         @if(auth()->user()->role_id == 1)
                         {
+                            data: 'date',
+                            name: 'date'
+                        },
+                        {
                             data: 'action',
                             name: 'action',
                             orderable: false,
                             searchable: false
                         },
+                        @else
+                        {
+                            data: 'principal_amount',
+                            name: 'principal_amount'
+                        },
                         @endif
+
                     ],
                     order:[],
                 });

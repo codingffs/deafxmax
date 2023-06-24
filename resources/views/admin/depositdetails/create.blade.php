@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+            <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
                 <h5 class="card-header">Create Deposit</h5>
                 <div class="card-body">
@@ -62,9 +62,11 @@
                     <a href="{{ route('depositdetails.index') }}" class="btn btn-secondary mt-2">Cancel</a>
                     <br>
                     <br>
-                    <a href="#"><img class="logo-img"style="margin-left: 23px;"src="{{ asset('admin_images/setting/qr.jpg') }}" width=300px alt="logo"></a>
-                    <a href="#"><img class="logo-img" style="margin-left: 551px;" src="{{ asset('admin_images/setting/Capturegdht.jpg') }}" width=300px alt="logo"></a>
-                  </form>
+                    <div class="main_depositbtn d-flex align-items-center justify-content-between">
+                    <a href="#"><img class="logo-img" src="{{ asset('admin_images/setting/qr.jpg') }}" width=300px alt="logo"></a>
+                    <a href="#"><img class="logo-img" src="{{ asset('admin_images/setting/Capturegdht.jpg') }}" width=300px alt="logo"></a>
+                </div>
+                </form>
                 </div>
               </div>
             </div>
