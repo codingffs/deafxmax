@@ -39,6 +39,7 @@ class User extends Authenticatable
         "referal_code",
         "label_name",
         "date",
+        "date_member",
 
     ];
 

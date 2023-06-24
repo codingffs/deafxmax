@@ -96,6 +96,7 @@ class MembersController extends Controller
             $User->referal_code = $request->referal_code;
             $User->role_id = 2;
             $User->date = date('d-m-Y');
+            $User->date_member = date('d-m-Y');
             // $User = User::create($User);
             Mail::send('email.registermail', ['password' => $password,'User' => $User], function($message) use ($request){
                 $message->to($request->email);

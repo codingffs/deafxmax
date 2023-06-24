@@ -156,7 +156,7 @@
   }
 @media (max-width:767px) {
   .login-img {
-    height: 600px;
+    height: 100vh;
   }
 }
 @media (max-width:575px) {
