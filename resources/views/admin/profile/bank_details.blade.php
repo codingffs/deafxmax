@@ -42,7 +42,7 @@
                         @csrf
                         <input type="hidden" name="bank_details_id" id="bank_details_id" value="{{ $bank_details->id }}">
                     @else
-                    <form method="post" action="{{route('bank_details_update')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('bank_details_update')}}" enctype="multipart/form-data" id="bank_details_form">
                     @csrf
                     @endif
                     <div class="input-group mb-2">
@@ -86,7 +86,7 @@
 @section('admin_script')
 <script>
     $(document).ready(function() {
-        $('#add_members').validate({
+        $('#bank_details_form').validate({
             errorPlacement: function(error, element) {
                 if (element.attr("name") == "name") {
                     error.insertAfter( element.parent("div"));
