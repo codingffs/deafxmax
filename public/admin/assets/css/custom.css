@@ -138,8 +138,15 @@
     background: linear-gradient(to right, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26ffffff', endColorstr='#00ffffff',GradientType=1 );
 }
+.shadow-sm .card-header .col-md-4 {
+  padding: 0;
+}
 .emp_view.btn.btn-warning:hover {
     color: white;
+}
+.changepass_btn {
+  padding: 0;
+  margin-top: 15px;
 }
 @media (max-width:767px) {
   .login-img {
@@ -168,6 +175,13 @@ text-align: center;
 @media (max-width:375px) {
   .input_select2 .select2-container {
     width: 85% !important;
+  }
+}
+@media (max-width:767px) {
+  .view_parenttable {
+display: block;
+width: 100%;
+overflow-x: auto;
   }
 }
 

@@ -24,12 +24,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
                 <h5 class="card-header">View Parent Member</h5>
                 <div class="card-body">
                     @csrf
-                    <table id="datatable1"class="table table-hover mb-0">
+                    <table id="datatable1"class="view_parenttable table table-hover mb-0">
                         <thead>
                             <tr>
                               <th>Name</th>

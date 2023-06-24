@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
                 <h5 class="card-header">Create Members</h5>
                 <div class="card-body">
@@ -59,7 +59,7 @@
                         @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
-                        <input id="mobile_no" type="text" name="mobile_no" class="form-control" placeholder="Mobile Number*" pattern="[0-9]+" maxlength="10" minlength="10" value="{{ old('mobile_no') }}" required>
+                        <input id="mobile_no" type="number" name="mobile_no" class="form-control" placeholder="Mobile Number*" pattern="[0-9]+" maxlength="10" minlength="10" value="{{ old('mobile_no') }}" required>
                     </div>
                         @error('mobile_no')
                             <p class="text-danger">{{ $message }}</p>
