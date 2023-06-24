@@ -25,13 +25,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
                 <h5 class="card-header">Create Withdraw</h5>
                 <div class="card-body">
                   <form method="post" action="{{ route('withdraw.store') }}" id="add_members" enctype="multipart/form-data">
                     @csrf
-                    <div class="input-group mb-2 input_select2">
+                    <div class="input-group mb-2 input_select2 withdraw_select">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-building"></i></span></div>
                         <select class="form-control select2 sub_category" id="input-select" name="withdraw_type" required>
                             <option selected disabled>-- Select Withdraw --</option>

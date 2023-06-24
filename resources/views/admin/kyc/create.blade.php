@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
                 <h5 class="card-header">Create Kyc</h5>
                 <div class="card-body">
@@ -65,7 +65,7 @@
                         @error('name_of_holder')
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
-                    <div class="col-12">
+                    <div class="col-12 docu_kyc">
                         <label for="customFile">Document 1<span class="error"></span></label>
                         <div class="input-group mb-2">
                             <input type="file" class="form-control" name="document1" id="document1" required>
@@ -74,7 +74,7 @@
                         @error('document1')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
-                    <div class="col-12">
+                    <div class="col-12 docu_kyc">
                         <label for="customFile">Document 2<span class="error"></span></label>
                         <div class="input-group mb-2">
                             <input type="file" class="form-control" name="document2" id="document2" required>
