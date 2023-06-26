@@ -71,7 +71,6 @@ class MembersController extends Controller
             'team_income' => 'required',
             'member_code' => 'required',
             'principal_amount' => 'required',
-            'referal_code' => 'required',
         ]);
 
             $User = new User();
@@ -129,7 +128,6 @@ class MembersController extends Controller
             'team_income' => 'required',
             'member_code' => 'required',
             'principal_amount' => 'required',
-            'referal_code' => 'required',
         ]);
 
             $User = User::find($id);

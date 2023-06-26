@@ -1,18 +1,18 @@
 <div class="dashboard-header">
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-      <a class="navbar-brand" href="../index-2.html"><img src="{{ getlogo('logo') != null ? getlogo('logo') : url('admin/assets/images/logo1.png')}}" alt="" width="155px" height="34px"></a>
+      <a class="navbar-brand" href="../"><img src="{{ getlogo('logo') != null ? getlogo('logo') : url('admin/assets/images/logo1.png')}}" alt="" width="155px" height="34px"></a>
       <div class="ml-auto" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto navbar-right-top flex-row ">
-          <li class="nav-item d-none d-lg-block">
+          {{-- <li class="nav-item d-none d-lg-block">
             <div id="custom-search" class="top-search-bar">
               <input class="form-control" type="text" placeholder="Search..">
             </div>
-          </li>
-          <li class="nav-item dropdown notification order-4 ">
+          </li> --}}
+          {{-- <li class="nav-item dropdown notification order-4 ">
             <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span
-                class="indicator"></span></a>
-            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                class="indicator"></span></a> --}}
+            {{-- <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
               <li>
                 <div class="notification-title"> Notification</div>
                 <div class="notification-list">
@@ -63,9 +63,9 @@
               <li>
                 <div class="list-footer"> <a href="#">View all notifications</a></div>
               </li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown connection d-none d-md-block">
+            </ul> --}}
+          {{-- </li> --}}
+          {{-- <li class="nav-item dropdown connection d-none d-md-block">
             <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
             <ul class="dropdown-menu dropdown-menu-right connection-dropdown">
@@ -103,7 +103,7 @@
                 <div><a href="#">More</a></div>
               </li>
             </ul>
-          </li>
+          </li> --}}
           <li class="nav-item dropdown nav-user order-lg-4 ">
             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false"><img src="{{ auth()->user()->image }}" alt=""

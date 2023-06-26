@@ -18,13 +18,6 @@
                 <i class="fas fa-users"></i>Consultant
               </a>
             </li> --}}
-            @if(auth()->user()->role_id == 1)
-            <li class="nav-item">
-              <a class="nav-link {{ routeActive('setting.index') }}{{ routeActive('setting.create') }}{{ routeActive('setting.edit') }}" href="{{ route('setting.index') }}"  aria-expanded="false">
-                <i class="fa fa-cog"></i>Setting
-              </a>
-            </li>
-            @endif
             @if(auth()->user()->role_id == 2)
             <li class="nav-item">
               <a class="nav-link {{ routeActive('members.index') }}{{ routeActive('members.create') }}{{ routeActive('members.edit') }}{{ routeActive('members.destroy') }}" href="{{ route('members.index') }}" aria-expanded="false">
@@ -70,6 +63,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="#" aria-expanded="false">
                     <i class="fas fa-user-check mr-2"></i>Complete Kyc
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ routeActive('setting.index') }}{{ routeActive('setting.create') }}{{ routeActive('setting.edit') }}" href="{{ route('setting.index') }}"  aria-expanded="false">
+                  <i class="fa fa-cog"></i>Setting
                 </a>
               </li>
             @endif

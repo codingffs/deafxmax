@@ -22,9 +22,10 @@ use App\Http\Controllers\admin\WithdrawController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::group(['prefix' => 'admin'], function(){
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');

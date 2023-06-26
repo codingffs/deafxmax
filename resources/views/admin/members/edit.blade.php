@@ -98,9 +98,6 @@
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-code"></i></span></div>
                           <input id="referal_code" type="number" name="referal_code" class="form-control" placeholder="Referal Code" maxlength="20" minlength="0"value="{{ old('referal_code',$User->referal_code) }}">
                     </div>
-                        @error('referal_code')
-                        <p class="text-danger">{{ $message }}</p>
-                        @enderror
                     <br>
                     <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     <a href="{{ route('members.index') }}" class="btn btn-secondary mt-2">Cancel</a>

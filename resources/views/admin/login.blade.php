@@ -24,7 +24,7 @@
     <div class="splash-container">
       <div class="card shadow-sm">
         <div class="card-header text-center">
-          <a href="../index-2.html"><img class="logo-img" src="{{ getlogo('logo') != null ? getlogo('logo') : url('admin/assets/images/logo1.png')}}" width="100%" alt="logo"></a><span
+          <a href="../"><img class="logo-img" src="{{ getlogo('logo') != null ? getlogo('logo') : url('admin/assets/images/logo1.png')}}" width="100%" alt="logo"></a><span
             class="splash-description">Please enter your user information.</span></div>
         <div class="card-body">
                 @error('error')

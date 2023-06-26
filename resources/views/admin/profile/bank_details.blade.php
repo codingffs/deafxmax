@@ -61,7 +61,7 @@
                         @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-code"></i></span></div>
-                        <input id="ifsc_code" type="text" name="ifsc_code" class="form-control" placeholder="IFSC Code*" pattern="[0-9]+" maxlength="10" minlength="0" value="{{old('ifsc_code',isset($bank_details->ifsc_code) ? $bank_details->ifsc_code:'' ) }}"required>
+                        <input id="ifsc_code" type="text" name="ifsc_code" class="form-control" placeholder="IFSC Code*" pattern="[0-9]+" maxlength="11" minlength="0" value="{{old('ifsc_code',isset($bank_details->ifsc_code) ? $bank_details->ifsc_code:'' ) }}"required>
                     </div>
                         @error('ifsc_code')
                             <p class="text-danger">{{ $message }}</p>
