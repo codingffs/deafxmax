@@ -63,7 +63,7 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-5 col-form-label" for="state">Profile Image : </label>
                         <div class="col-sm-4 col-4">
-                            <img class="img-radius img-fluid wid-50 rounded-circle" src="{{ Auth::user()->image }}" id="image" alt="User image">
+                            <img height="70px" width="70px" class="img-radius img-fluid wid-50 rounded-circle" src="{{ Auth::user()->image }}" id="image" alt="User image">
                         </div>
                     </div>
                 </div>
