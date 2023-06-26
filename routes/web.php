@@ -30,7 +30,8 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
     Route::post('login_submit', [LoginController::class, 'login_submit'])->name('login_submit');
 
-    Route::get('forgot-password', [HomeController::class, 'forgot_password'])->name('forgot_password');
+    Route::get('forgetpassword', [HomeController::class, 'forgetpassword'])->name('forgetpassword');
+    Route::post('post-forgetpassword', [HomeController::class, 'postForgetpassword'])->name('forgetpassword.post');
 
     Route::group(['middleware' => ['auth']], function(){
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
