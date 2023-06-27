@@ -172,8 +172,8 @@
                       <h5 class="text-white mb-3">Principal Amount</h5>
                       <h2 class="mb-0 text-white">${{ get_principal_amount_count() }}</h2>
                       @else
-                      <h5 class="text-white mb-3">Total Views</h5>
-                      <h2 class="mb-0 text-white">10,28,056</h2>
+                      <h5 class="text-white mb-3">Principal Amount</h5>
+                      <h2 class="mb-0 text-white">{{ get_amount_count() }}</h2>
                       @endif
                     </div>
                     <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
