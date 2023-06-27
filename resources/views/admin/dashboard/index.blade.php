@@ -130,13 +130,19 @@
                     <h5 class="text-white mb-3">Profit Sharing Income</h5>
                     <h2 class="mb-0 text-white">${{ get_profit_income_count() }}</h2>
                     @else
-                    <h5 class="text-white mb-3">Total Views</h5>
-                    <h2 class="mb-0 text-white">10,28,056</h2>
+                    <h5 class="text-white mb-3">Total Members</h5>
+                    <h2 class="mb-0 text-white">{{ get_employe_count() }}</h2>
                     @endif
                   </div>
+                  @if (auth()->user()->role_id == 2)
                   <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
                     <i class="fas fa-hand-holding-usd fa-fw fa-sm text-info font-24"></i>
                   </div>
+                    @else
+                    <div class="float-right icon-shape icon-xl rounded-circle  bg-primary-light mt-1">
+                      <i class="fa fa-group fa-fw fa-sm text-primary font-24"></i>
+                    </div>
+                    @endif
                 </div>
               </div>
             </div>
@@ -154,27 +160,29 @@
                     <h5 class="text-white mb-3">Team Income</h5>
                     <h2 class="mb-0 text-white">${{ get_team_income_count() }}</h2>
                     @else
-                    <h5 class="text-white mb-3">Total Views</h5>
-                    <h2 class="mb-0 text-white">10,28,056</h2>
+                    <h5 class="text-white mb-3">Principal Amount</h5>
+                    <h2 class="mb-0 text-white">{{ get_amount_count() }}</h2>
                     @endif
                   </div>
+                  @if (auth()->user()->role_id == 2)
                   <div class="float-right icon-shape icon-xl rounded-circle  bg-primary-light mt-1">
                     <i class="fa fa-group fa-fw fa-sm text-primary font-24"></i>
                   </div>
+                  @else
+                  <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
+                    <i class="fas fa-hand-holding-usd fa-fw fa-sm text-info font-24"></i>
+                  </div>
+                  @endif
                 </div>
               </div>
             </div>
+            @if (auth()->user()->role_id == 2)
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card mb-5 shadow-sm">
                   <div class="card-body bg_gradiant1">
                     <div class="d-inline-block">
-                      @if (auth()->user()->role_id == 2)
                       <h5 class="text-white mb-3">Principal Amount</h5>
-                      <h2 class="mb-0 text-white">${{ get_principal_amount_count() }}</h2>
-                      @else
-                      <h5 class="text-white mb-3">Total Views</h5>
-                      <h2 class="mb-0 text-white">10,28,056</h2>
-                      @endif
+                      <h2 class="mb-0 text-white">{{ get_principal_amount_count() }}</h2>
                     </div>
                     <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
                       <i class="fas fa-inr fa-fw fa-sm text-info font-24"></i>
@@ -182,6 +190,7 @@
                   </div>
                 </div>
               </div>
+              @endif
             <!-- ============================================================== -->
             <!-- end total followers   -->
             <!-- ============================================================== -->
