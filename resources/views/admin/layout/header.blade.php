@@ -1,6 +1,6 @@
 <div class="dashboard-header">
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-      <a class="navbar-brand" href="../"><img src="{{ getlogo('logo') != null ? getlogo('logo') : url('admin/assets/images/logo1.png')}}" alt="" width="155px" height="34px"></a>
+      <a class="navbar-brand" href="https://deafxmax.co.in/index.php"><img src="{{ getlogo('logo') != null ? getlogo('logo') : url('admin/assets/images/logo1.png')}}" alt="" width="155px" height="34px"></a>
       <div class="ml-auto" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto navbar-right-top flex-row ">
           {{-- <li class="nav-item d-none d-lg-block">

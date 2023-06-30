@@ -110,7 +110,6 @@
 								<div class="">
 							  <a class="btn btn-third" href="{{ route('login') }}">LOGIN <i class="material-icons"></i>
 								</a>
-
 								</div>
 							<!--end logedin-->
 						</div>
@@ -121,9 +120,6 @@
 
 	</div>
 </header>
-
-
-
 
 <!-- End Header 02
 ================================================== -->

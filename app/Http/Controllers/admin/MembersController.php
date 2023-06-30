@@ -56,7 +56,7 @@ class MembersController extends Controller
 
     public function create()
     {
-        $User = User::where('parent_id',null)->orderBy('created_at','desc')->get();
+        $User = User::orderBy('created_at','desc')->get();
         return view('admin.members.create',compact('User'));
     }
     #store members
@@ -80,6 +80,7 @@ class MembersController extends Controller
             else{
                 $password = 123456;
                 $User->password = Hash::make($password);
+                $code = 'CODE00';
             }
             $User->name = $request->name;
             $User->label_name = $request->label_name;
@@ -97,6 +98,9 @@ class MembersController extends Controller
             $User->date = date('d-m-Y');
             $User->date_member = date('d-m-Y');
             // $User = User::create($User);
+            $User->save();
+            $User = User::find($User->id);
+            $User->code = $code.$User->id;
             Mail::send('email.registermail', ['password' => $password,'User' => $User], function($message) use ($request){
                 $message->to($request->email);
                 $message->subject('New User Register');

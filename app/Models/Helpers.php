@@ -47,8 +47,12 @@ function get_principal_amount_count(){
     $count = User::where('id',auth()->user()->id)->sum('principal_amount');
     return $count;
 }
+function get_employe_count(){
+    $count = User::where('role_id',2)->count();
+    return $count;
+}
+
 function get_amount_count(){
     $count = User::where('role_id',2)->sum('principal_amount');
     return $count;
 }
-
