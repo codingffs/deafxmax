@@ -80,7 +80,7 @@ class MembersController extends Controller
             else{
                 $password = 123456;
                 $User->password = Hash::make($password);
-                $code = 'CODE00';
+                $code = 'cd3007';
             }
             $User->name = $request->name;
             $User->label_name = $request->label_name;
