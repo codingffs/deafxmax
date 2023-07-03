@@ -31,6 +31,7 @@
                 <div class="card-body">
                   <form method="post" action="{{ route('members.store') }}" id="add_members" enctype="multipart/form-data">
                     @csrf
+                    @if(auth()->user()->role_id == 1)
                     <div class="col-sm-15">
                         <div class="form-group fill">
                             <label class="floating-label" for="value">Member</label>
@@ -42,6 +43,7 @@
                             </select>
                         </div>
                     </div>
+                    @endif
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
                         <input id="label_name" type="text" class="form-control" name="label_name" placeholder="Name*" value="{{ old('label_name') }}"required>

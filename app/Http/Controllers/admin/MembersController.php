@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\auth;
 use App\Models\User;
 use App\Models\Members;
 use App\Models\Kyc;
@@ -56,7 +57,7 @@ class MembersController extends Controller
 
     public function create()
     {
-        $User = User::orderBy('created_at','desc')->get();
+            $User = User::orderBy('created_at','desc')->get();
         return view('admin.members.create',compact('User'));
     }
     #store members
@@ -76,6 +77,9 @@ class MembersController extends Controller
             $User = new User();
             if(auth()->user()->role_id == 2){
                 $User->parent_id = auth()->user()->id;
+                $password = 123456;
+                $User->password = Hash::make($password);
+                $code = 'cd3007';
             }
             else{
                 $password = 123456;
@@ -84,7 +88,6 @@ class MembersController extends Controller
             }
             $User->name = $request->name;
             $User->label_name = $request->label_name;
-            $User->parent_id = $request->name;
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
             $User->pancard_no = $request->pancard_no;
@@ -164,15 +167,28 @@ class MembersController extends Controller
     public function destroy($id)
     {
         $User = User::find($id);
-        $parent_id = isset($User->parent_id) ? $User->parent_id : null;
-        if ($User->parent_id == null) {
-            User::where('parent_id', $id)->delete();
-            $User->delete();
-            return response()->json(["status" => 1]);
-        } else {
-            $User->delete();
-            return response()->json(["status" => 0,"parent_id" => $parent_id]);
-        }
+        // $parent_id = isset($User->parent_id) ? $User->parent_id : null;
+        // if ($User->parent_id == null) {
+            // return response()->json(["status" => 2]);
+        //     User::where('parent_id', $id)->delete();
+        //     $User->delete();
+        //     return response()->json(["status" => 1]);
+        // } else {
+        //     $User->delete();
+        //     return response()->json(["status" => 0,"parent_id" => $parent_id]);
+        // }
+        if(User::where('parent_id',$id)->exists()){
+            return response()->json(["status" => 2]);
+       }
+       else{
+
+           if(User::whereId($id)->delete()){
+               return response()->json(["status" => 1]);
+           }
+           else{
+               return response()->json(["status" => 0]);
+           }
+       }
     }
 
     public function members_destroy($id){
