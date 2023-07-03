@@ -122,7 +122,7 @@
             <!-- ============================================================== -->
             <!-- total views   -->
             <!-- ============================================================== -->
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
                 <div class="card-body bg_gradiant1">
                   <div class="d-inline-block">
@@ -152,7 +152,7 @@
             <!-- ============================================================== -->
             <!-- total followers   -->
             <!-- ============================================================== -->
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="card  mb-5 shadow-sm">
                 <div class="card-body bg_gradiant2">
                   <div class="d-inline-block">
@@ -177,7 +177,7 @@
               </div>
             </div>
             @if (auth()->user()->role_id == 2)
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card mb-5 shadow-sm">
                   <div class="card-body bg_gradiant1">
                     <div class="d-inline-block">
@@ -190,7 +190,20 @@
                   </div>
                 </div>
               </div>
-              @endif
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <div class="card  mb-5 shadow-sm">
+                      <div class="card-body bg_gradiant2">
+                          <div class="d-inline-block">
+                              <h5 class="text-white mb-3">My Direct</h5>
+                              <h2 class="mb-0 text-white">{{ get_mydirect_count() }}</h2>
+                            </div>
+                            <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
+                                <i class="fa fa-group fa-fw fa-sm text-primary font-24"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
             <!-- ============================================================== -->
             <!-- end total followers   -->
             <!-- ============================================================== -->
@@ -231,8 +244,24 @@
             </div> --}}
             <!-- ============================================================== -->
             <!-- end total earned   -->
-            <!-- ============================================================== -->
+            <!-- =
+                ============================================================= -->
           </div>
+          @if (auth()->user()->role_id == 2)
+          <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+              <div class="card mb-5 shadow-sm">
+                <div class="card-body bg_gradiant1">
+                  <div class="d-inline-block">
+                    <h5 class="text-white mb-3">My Team</h5>
+                    <h2 class="mb-0 text-white">{{ get_myteam_count() }}</h2>
+                  </div>
+                  <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
+                    <i class="fa fa-group fa-fw fa-sm text-primary font-24"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            @endif
           <!-- ============================================================== -->
           <!-- end widgets   -->
           <!-- ============================================================== -->

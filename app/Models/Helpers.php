@@ -56,3 +56,11 @@ function get_amount_count(){
     $count = User::where('role_id',2)->sum('principal_amount');
     return $count;
 }
+function get_mydirect_count(){
+    $count = User::where('parent_id',auth()->user()->id)->count();
+    return $count;
+}
+function get_myteam_count(){
+    $count = User::where('parent_id',auth()->user()->id)->count();
+    return $count;
+}
