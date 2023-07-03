@@ -52,6 +52,24 @@
         </div>
       </div>
     </div>
+    <div class="modal fade myblock" id="myModalView" role="dialog">
+        <div class="modal-dialog">
+        <!-- Modal content-->
+          <div class="modal-content">
+          <div class="booking_summary model-summary">
+          <div class="modal-header">
+          </div>
+          <div class="modal-body body-margin" id="employee-view"></div>
+          <div class="row mt-3 modal-margin">
+            <div class="col-lg-9 col-md-8" style="margin-left: 44px;"><img src="" width="400" height="400" id="image"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
    @endsection
 @section('admin_script')
          <script type="text/javascript">
@@ -97,7 +115,12 @@
                     ],
                     order:[],
                 });
-
+                $(document).on('click', ".img_display", function() {
+                var src = $(this).attr('src');
+                $('#image').attr('src',src);
+                $('#myModalView').modal('show');
+                });
             });
+
      </script>
 @endsection
