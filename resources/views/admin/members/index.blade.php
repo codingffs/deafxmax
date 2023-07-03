@@ -25,7 +25,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="csv-button float-right">
+                        @if(auth()->user()->role_id == 1)
                         <a href="{{route('members.create')}}" class="btn btn-primary mb-2">Add Members</a>
+                        @endif
                     </div>
                 </div>
             </div>
