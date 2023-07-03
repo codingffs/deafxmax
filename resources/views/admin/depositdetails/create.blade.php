@@ -62,7 +62,7 @@
                                 <p class="text-danger">{{ $message }}</p>
                     @enderror
                     <input type="checkbox" id="terms" name="terms">
-                    <label for="terms">I agree to the terms and conditions</label>
+                    <label for="terms" class="img_display">I agree to the terms and conditions</label>
                     <br>
                     <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     <a href="{{ route('depositdetails.index') }}" class="btn btn-secondary mt-2">Cancel</a>
@@ -78,6 +78,28 @@
             </div>
           </div>
     </div>
+    <div class="modal fade myblock" id="myModalView" role="dialog">
+        <div class="modal-dialog">
+        <!-- Modal content-->
+          <div class="modal-content">
+          <div class="booking_summary model-summary">
+          <div class="modal-header">
+            <h2>
+                TERMS & CONDITION
+            </h2>
+          </div>
+          <div class="modal-body body-margin" id="employee-view">
+              <h4>
+               I voluntarily Deafx Max . through this deposited in OCTAFX Forever Trading Pool a/c. I made the deposit on the condition that, I will not have any claim to own Deafxmax for profit and loss in trading.
+               </h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
 @endsection
 @section('admin_script')
 <script>
@@ -91,6 +113,10 @@
                 }
             },
         });
+        $(document).on('click', ".img_display", function() {
+                var src = $(this).attr('src');
+                $('#myModalView').modal('show');
+                });
     });
 </script>
 @endsection
