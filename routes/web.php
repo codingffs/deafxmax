@@ -26,12 +26,12 @@ use App\Http\Controllers\admin\WithdrawController;
 //     return view('index');
 // });
 
-// Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::get('/', [LoginController::class, 'index'])->name('login');
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::get('/member-login', [LoginController::class, 'index'])->name('login');
+Route::get('/admin/login', [LoginController::class, 'index'])->name('login');
+Route::get('/member/login', [LoginController::class, 'index'])->name('login');
 
-    // Route::get('login', [LoginController::class, 'index'])->name('login');
+    Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
     Route::post('login_submit', [LoginController::class, 'login_submit'])->name('login_submit');
 
