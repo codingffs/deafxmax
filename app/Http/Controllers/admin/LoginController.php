@@ -68,7 +68,8 @@ class LoginController extends Controller
     }
 
     public function logout(){
+        $pre_url= url()->previous();
         Auth::logout();
-        return view('admin.login');
+        return view('admin.login',compact('pre_url'));
     }
 }
