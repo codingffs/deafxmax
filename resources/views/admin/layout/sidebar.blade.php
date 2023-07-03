@@ -13,7 +13,6 @@
                 <i class="fa fa-fw fa-user-circle"></i>Dashboard
               </a>
             </li>
-            @if(auth()->user()->role_id == 2)
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-users"></i>Members</a>
                 <div id="submenu-2" class="collapse submenu">
@@ -28,13 +27,6 @@
                   </ul>
                 </div>
               </li>
-            @else
-            <li class="nav-item">
-                <a class="nav-link {{ routeActive('members.index') }}{{ routeActive('members.create') }}{{ routeActive('members.edit') }}{{ routeActive('members.destroy') }}" href="{{ route('members.index') }}" aria-expanded="false">
-                  <i class="fa fa-users"></i>Members
-                </a>
-              </li>
-            @endif
             <li class="nav-item">
                 <a class="nav-link {{ routeActive('depositdetails.index') }}{{ routeActive('depositdetails.create') }}" href="{{ route('depositdetails.index') }}" aria-expanded="false">
                     <i class="fas fa-hand-holding-usd"></i>Deposit Details

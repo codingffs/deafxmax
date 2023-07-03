@@ -21,7 +21,7 @@ class DepositController extends Controller
                 return DataTables::of($depositdetails)
                    ->addIndexColumn()
                    ->editcolumn('user_id', function($row){
-                    return isset($row->user_data->name)?$row->user_data->name:'';
+                    return isset($row->user_data->label_name)?$row->user_data->label_name:'';
                    })
                     ->editcolumn('image', function($row){
                         return '<div class="m-r-10"><img src="'.url('admin_images/deposit/'.$row->image).'" alt="user" width="80" class="rounded-circle" /></div>';
