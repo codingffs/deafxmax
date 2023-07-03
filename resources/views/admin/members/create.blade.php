@@ -66,6 +66,7 @@
                         @error('mobile_no')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
+                    @if(auth()->user()->role_id == 1)
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-money"></i></span></div>
                         <input id="profit_income" type="text" name="profit_income" class="form-control" placeholder="Profit Sharing Income*" pattern="[0-9]+" maxlength="20" minlength="0" value="{{ old('profit_income') }}" required>
@@ -80,6 +81,7 @@
                         @error('team_income')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
+                    @endif
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-id-card-o"></i></span></div>
                           <input id="pancard_no" type="text" name="pancard_no" class="form-control" placeholder="Pan Card Number*" maxlength="10" minlength="0" value="{{ old('pancard_no') }}" required>

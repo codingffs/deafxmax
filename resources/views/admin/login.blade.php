@@ -34,7 +34,11 @@
             @csrf
             <input class="form-control" id="role_id" type="hidden" name="role_id">
             <div class="form-group mb-2">
-              <input class="form-control" id="username" type="email" name="email" placeholder="Username" autocomplete="off" required>
+                @if(str_contains($pre_url,'admin/login'))
+                    <input class="form-control" id="username" type="email" name="email" placeholder=" Admin Username" autocomplete="off" required>
+                @else
+              <input class="form-control" id="username" type="email" name="email" placeholder="Member Username" autocomplete="off" required>
+                @endif
             </div>
                 @error('email')
                     <p class="text-danger">{{ $message }}</p>

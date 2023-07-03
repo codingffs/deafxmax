@@ -18,11 +18,13 @@
                 <div id="submenu-2" class="collapse submenu">
                   <ul class="nav flex-column">
                     <li class="nav-item">
+                        <a class="nav-link " href="{{ route('members.create') }}">Add Member</a>
+                      </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('members.index') }}" aria-expanded="false">Members List</a>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link " href="{{ route('members.create') }}">Add Member</a>
+                      <li class="nav-item">
+                        <a class="nav-link " href="{{ route('members.create') }}">Direct List</a>
                       </li>
                   </ul>
                 </div>
@@ -46,6 +48,11 @@
               <li class="nav-item">
                 <a class="nav-link " href="{{ route('kyc.create') }}" aria-expanded="false">
                     <i class="fas fa-user-check mr-2"></i>Kyc Create
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{{ route('kyc.create') }}" aria-expanded="false">
+                    <i class="fas fa-user-check mr-2"></i>Support
                 </a>
               </li>
               @endif

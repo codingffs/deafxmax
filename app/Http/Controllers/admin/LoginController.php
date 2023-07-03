@@ -30,7 +30,8 @@ class LoginController extends Controller
     }
 
     public function index(){
-        return view('admin.login');
+        $pre_url= url()->previous();
+        return view('admin.login',compact('pre_url'));
     }
 
     public function login_submit(Request $request){

@@ -60,7 +60,10 @@
                     </div>
                     @error('image')
                                 <p class="text-danger">{{ $message }}</p>
-                            @enderror
+                    @enderror
+                    <input type="checkbox" id="terms" name="terms">
+                    <label for="terms">I agree to the terms and conditions</label>
+                    <br>
                     <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     <a href="{{ route('depositdetails.index') }}" class="btn btn-secondary mt-2">Cancel</a>
                     <br>
