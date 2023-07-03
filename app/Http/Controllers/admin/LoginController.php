@@ -49,7 +49,7 @@ class LoginController extends Controller
                 setcookie('password',bcrypt($request->password),100);
             }
             $pre_url= url()->previous();
-            if(str_contains($pre_url,'admin/login')){
+            if(str_contains($pre_url,'login')){
                 $role_id = 1;
             }
             else{
