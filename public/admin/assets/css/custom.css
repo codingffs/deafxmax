@@ -190,6 +190,9 @@ text-align: center;
   .main_depositbtn a img.logo-img {
     width: 200px !important;
   }
+  .card {
+    height: 120px;
+  }
   .btn {
     font-size: 12px;
   }
