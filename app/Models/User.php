@@ -41,6 +41,7 @@ class User extends Authenticatable
         "date",
         "date_member",
         "code",
+        "auther_id",
 
     ];
 

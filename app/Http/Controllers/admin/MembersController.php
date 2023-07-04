@@ -24,7 +24,7 @@ class MembersController extends Controller
                     $User = User::where('parent_id',null)->orderBy('created_at','desc')->get();
                 }
                 else{
-                    $User = User::where('parent_id',auth()->user()->id)->orderBy('created_at','desc')->get();
+                    $User = User::where('parent_id',auth()->user()->id)->where('auther_id',auth()->user()->id)->orderBy('created_at','desc')->get();
 
                 }
                 return DataTables::of($User)
@@ -76,6 +76,7 @@ class MembersController extends Controller
 
             $User = new User();
             if(auth()->user()->role_id == 2){
+                $User->auther_id = null;
                 $User->parent_id = auth()->user()->id;
                 $password = 123456;
                 $User->password = Hash::make($password);
@@ -85,9 +86,12 @@ class MembersController extends Controller
                 $password = 123456;
                 $User->password = Hash::make($password);
                 $code = 'DEAFX15700';
+                $User->auther_id = 1;
+
             }
             $User->name = $request->name;
             $User->parent_id = $request->name;
+            $User->auther_id = $request->name;
             $User->label_name = $request->label_name;
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
@@ -225,7 +229,7 @@ class MembersController extends Controller
 
     public function direct_list_data()
     {
-        $kyc = User::where('parent_id',1)->get();
+        $kyc = User::where('auther_id',null)->where('parent_id',auth()->user()->id)->get();
          return view('admin.members.parent_data',compact('kyc'));
     }
 

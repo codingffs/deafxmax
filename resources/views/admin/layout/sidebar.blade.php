@@ -29,12 +29,12 @@
                     </li>
                     @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('direct_list_data') }}" aria-expanded="false">Members List</a>
+                        <a class="nav-link" href="{{ route('members.index') }}" aria-expanded="false">Members List</a>
                     </li>
                     @endif
                     @if(auth()->user()->role_id == 2)
                       <li class="nav-item">
-                        <a class="nav-link " href="{{ route('members.index') }}"> Members Direct List</a>
+                        <a class="nav-link " href="{{ route('direct_list_data') }}"> Members Direct List</a>
                       </li>
                       @endif
                   </ul>

@@ -64,3 +64,15 @@ function get_myteam_count(){
     $count = User::where('parent_id',auth()->user()->id)->count();
     return $count;
 }
+function get_member_code_count(){
+    $count = User::where('id',auth()->user()->id)->first();
+    $data = $count->code;
+    $data1 = $count->label_name;
+    $data3 = $data.'-'.$data1;
+    return $data3;
+}
+function get_date_of_join_count(){
+    $count = User::where('parent_id',null)->first();
+    $data = $count->date;
+    return $data;
+}
