@@ -2,6 +2,7 @@
 use App\Models\Setting;
 use App\Models\Kyc;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 if(! function_exists('routeActive')){
 	function routeActive($routeName)
@@ -68,8 +69,12 @@ function get_member_code_count(){
     $count = User::where('id',auth()->user()->id)->first();
     $data = $count->code;
     $data1 = $count->label_name;
-    $data3 = $data.'-'.$data1;
-    return $data3;
+    return $data;
+}
+function get_member_data_count(){
+    $count = User::where('id',auth()->user()->id)->first();
+    $data1 = $count->label_name;
+    return $data1;
 }
 function get_date_of_join_count(){
     $count = User::where('parent_id',null)->first();
