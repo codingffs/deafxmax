@@ -64,6 +64,7 @@ Route::get('/member/login', [LoginController::class, 'index'])->name('login');
         Route::get('view_member_data/{id?}', [MembersController::class, 'view_member_data'])->name('view_member_data');
         Route::get('view_parent_data/{id?}', [MembersController::class, 'view_parent_data'])->name('view_parent_data');
         Route::get('kyc_approve/{id?}', [MembersController::class, 'kyc_approve'])->name('kyc_approve');
+        Route::get('direct_list_data/{id?}', [MembersController::class, 'direct_list_data'])->name('direct_list_data');
 
         Route::resource('kyc',KycController::class);
 

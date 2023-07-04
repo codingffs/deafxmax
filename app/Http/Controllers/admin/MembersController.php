@@ -82,6 +82,7 @@ class MembersController extends Controller
                 $code = 'cd3007';
             }
             else{
+                $User->parent_id = 1;
                 $password = 123456;
                 $User->password = Hash::make($password);
                 $code = 'cd3007';
@@ -223,6 +224,13 @@ class MembersController extends Controller
         $kyc = User::where('parent_id',$id)->get();
          return view('admin.members.parent_data',compact('kyc'));
     }
+
+    public function direct_list_data()
+    {
+        $kyc = User::where('parent_id',1)->get();
+         return view('admin.members.parent_data',compact('kyc'));
+    }
+
 
 
 }
