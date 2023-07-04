@@ -76,8 +76,8 @@ class MembersController extends Controller
 
             $User = new User();
             if(auth()->user()->role_id == 2){
-                $User->auther_id = null;
                 $User->parent_id = auth()->user()->id;
+                $User->auther_id = null;
                 $password = 123456;
                 $User->password = Hash::make($password);
                 $code = 'DEAFX15700';
@@ -91,7 +91,6 @@ class MembersController extends Controller
             }
             $User->name = $request->name;
             $User->parent_id = $request->name;
-            $User->auther_id = $request->name;
             $User->label_name = $request->label_name;
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
@@ -105,7 +104,9 @@ class MembersController extends Controller
             $User->role_id = 2;
             $User->date = date('d-m-Y');
             $User->date_member = date('d-m-Y');
-            $User->code =$code.(int)substr($code,1) + 1;
+            $User->save();
+            $User = User::find($User->id);
+            $User->code = $code.$User->id;
             // $User = User::create($User);
             Mail::send('email.registermail', ['password' => $password,'User' => $User], function($message) use ($request){
                 $message->to($request->email);
