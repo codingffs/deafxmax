@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Validation\ValidationException;
 use Auth;
-
+use App\Models\User;
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
@@ -31,7 +31,8 @@ class LoginController extends Controller
 
     public function index(){
         $pre_url= url()->previous();
-        return view('admin.login',compact('pre_url'));
+        $role_id = User::first()->role_id;
+        return view('admin.login',compact('pre_url','role_id'));
     }
 
     public function login_submit(Request $request){
@@ -69,7 +70,10 @@ class LoginController extends Controller
 
     public function logout(){
         $pre_url= url()->previous();
+        $role_id = User::first()->role_id;
         Auth::logout();
-        return view('admin.login',compact('pre_url'));
+        return view('admin.login',compact('pre_url','role_id'));
+
     }
+
 }

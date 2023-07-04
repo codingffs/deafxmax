@@ -116,7 +116,7 @@
               <a class="dropdown-item" href="{{ route('view_account') }}"><i class="fas fa-user mr-2"></i>My Acount</a>
               <a class="dropdown-item" href="{{ route('profile_edit') }}"><i class="fas fa-user-edit mr-2"></i>Edit Profile</a>
               <a class="dropdown-item" href="{{ route('change_password') }}"><i class="fas fa-key mr-2"></i>Change Password</a>
-              <a class="dropdown-item" href="{{ route('logout') }}"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                <a class="dropdown-item" href="{{ auth()->user()->role_id == 1 ? route('admin_logout') : route('member_logout') }}"><i class="fas fa-power-off mr-2"></i>Logout</a>
             </div>
           </li>
         </ul>

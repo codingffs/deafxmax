@@ -17,10 +17,13 @@
                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-users"></i>Members</a>
                 <div id="submenu-2" class="collapse submenu">
                   <ul class="nav flex-column">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
+                        <a class="nav-link " href="{{ route('members.create') }}">Add Member</a>
+                      </li> --}}
+                      @if(auth()->user()->role_id == 1)
+                       <li class="nav-item">
                         <a class="nav-link " href="{{ route('members.create') }}">Add Member</a>
                       </li>
-                      @if(auth()->user()->role_id == 1)
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('members.index') }}" aria-expanded="false">Members List</a>
                     </li>
@@ -31,7 +34,7 @@
                     @endif
                     @if(auth()->user()->role_id == 2)
                       <li class="nav-item">
-                        <a class="nav-link " href="{{ route('members.index') }}">Direct List</a>
+                        <a class="nav-link " href="{{ route('members.index') }}"> Members Direct List</a>
                       </li>
                       @endif
                   </ul>
@@ -83,7 +86,7 @@
               </li>
             @endif
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('logout') }}" aria-expanded="false">
+                <a class="nav-link " href="{{ auth()->user()->role_id == 1 ? route('admin_logout') : route('member_logout') }}" aria-expanded="false">
                     <i class="fas fa-power-off mr-2"></i>Logout
                 </a>
               </li>

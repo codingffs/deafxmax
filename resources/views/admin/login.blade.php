@@ -34,7 +34,7 @@
             @csrf
             <input class="form-control" id="role_id" type="hidden" name="role_id">
             <div class="form-group mb-2">
-                @if(str_contains($pre_url,'admin/login'))
+                @if(str_contains($pre_url,'admin/login') || str_contains($pre_url,'admin/logout'))
                     <input class="form-control" id="username" type="email" name="email" placeholder=" Admin Username" autocomplete="off" required>
                 @else
               <input class="form-control" id="username" type="email" name="email" placeholder="Member Username" autocomplete="off" required>
@@ -62,7 +62,7 @@
           {{-- <div class="card-footer-item card-footer-item-bordered border-right d-inline-block  ">
             <a href="sign-up.html" class="footer-link">Create An Account</a></div> --}}
           <div class="card-footer-item card-footer-item-bordered d-inline-block ">
-            <a href="{{ route('forgetpassword') }}" class="footer-link">Forgot Password</a>
+            <a href="{{ route('forgetpassword') }}" class="footer-link" style="margin-left: 93px;">Forgot Password</a>
            </div>
         </div>
       </div>
