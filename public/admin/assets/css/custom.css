@@ -101,7 +101,7 @@
     object-fit: cover;
     overflow: hidden;
     background-size: cover;
-    height: 1000px;
+    height: 100%;
 }
 .bg_gradiant1 {
   background-image: linear-gradient(to right, #fc5c7d, #6a82fb);

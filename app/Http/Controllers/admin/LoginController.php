@@ -70,9 +70,15 @@ class LoginController extends Controller
 
     public function logout(){
         $pre_url= url()->previous();
-        $role_id = User::first()->role_id;
-        Auth::logout();
-        return view('admin.login',compact('pre_url','role_id'));
+        $role_id = User::get();
+        if(auth()->user()->role_id == 1){
+            Auth::logout();
+            return redirect()->route('admin_login');
+        }
+        else{
+             Auth::logout();
+             return redirect()->route('member_login');
+        }
 
     }
 

@@ -55,15 +55,15 @@
                 <a class="nav-link" href="{{ route('bank_details') }}" aria-expanded="false"><i class="fa fa-bank"></i>My Bank Details
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{{ route('kyc.create') }}" aria-expanded="false">
+                    <i class="fas fa-user-check mr-2"></i>Support
+                </a>
+              </li>
               @if(getKycFlag() == 1)
               <li class="nav-item">
                 <a class="nav-link " href="{{ route('kyc.create') }}" aria-expanded="false">
                     <i class="fas fa-user-check mr-2"></i>Kyc Create
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="{{ route('kyc.create') }}" aria-expanded="false">
-                    <i class="fas fa-user-check mr-2"></i>Support
                 </a>
               </li>
               @endif
