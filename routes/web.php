@@ -26,8 +26,8 @@ use App\Http\Controllers\admin\WithdrawController;
 //     return view('index');
 // });
 
-Route::get('/', [LoginController::class, 'index'])->name('login');
-Route::get('login', [LoginController::class, 'index'])->name('login');
+// Route::get('/', [LoginController::class, 'index'])->name('login');
+// Route::get('login', [LoginController::class, 'index'])->name('login');
 
 Route::get('admin/login', [LoginController::class, 'index'])->name('admin_login');
 Route::get('member/login', [LoginController::class, 'index'])->name('member_login');

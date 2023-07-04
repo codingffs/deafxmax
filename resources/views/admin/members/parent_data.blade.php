@@ -59,6 +59,7 @@
                                         <td>
                                             <a href="{{ route('members.edit',$User->id) }}" data-id="{{ $User->id}}" class="table-action-btn edit btn btn-primary m-1" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                             <a href="javascript:void(0)" data-url="{{ route('members_destroy',$User->id) }}" class="table-action-btn btn btn-danger m-1 delete_btn" data-id="{{ $User->id}}   "><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                            <a href="{{ route('view_parent_data',$User->id) }}" data-id="{{ $User->id}}" class="table-action-btn btn btn-success m-1 emp_view" ><i class="fa fa-users" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
