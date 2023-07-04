@@ -21,7 +21,7 @@ class MembersController extends Controller
         try {
             if ($request->ajax()) {
                 if(auth()->user()->role_id == 1){
-                    $User = User::where('parent_id',null)->orderBy('created_at','desc')->get();
+                    $User = User::where('parent_id',1)->orderBy('created_at','desc')->get();
                 }
                 else{
                     $User = User::where('parent_id',auth()->user()->id)->orderBy('created_at','desc')->get();
@@ -79,13 +79,13 @@ class MembersController extends Controller
                 $User->parent_id = auth()->user()->id;
                 $password = 123456;
                 $User->password = Hash::make($password);
-                $code = 'cd3007';
+                $code = 'DEAFX15700';
             }
             else{
                 $User->parent_id = 1;
                 $password = 123456;
                 $User->password = Hash::make($password);
-                $code = 'cd3007';
+                $code = 'DEAFX15700';
             }
             $User->name = $request->name;
             $User->label_name = $request->label_name;
@@ -101,10 +101,8 @@ class MembersController extends Controller
             $User->role_id = 2;
             $User->date = date('d-m-Y');
             $User->date_member = date('d-m-Y');
+            $User->code =$code.(int)substr($code,1) + 1;
             // $User = User::create($User);
-            $User->save();
-            $User = User::find($User->id);
-            $User->code = $code.$User->id;
             Mail::send('email.registermail', ['password' => $password,'User' => $User], function($message) use ($request){
                 $message->to($request->email);
                 $message->subject('New User Register');
