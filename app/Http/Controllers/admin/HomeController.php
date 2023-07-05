@@ -11,7 +11,7 @@ use Mail;
 class HomeController extends Controller
 {
    public function forgetpassword (){
-    $pre_url= url()->previous();
+        $pre_url= url()->previous();
         return view('admin.forgot-password',compact('pre_url'));
     }
     public function postForgetpassword(Request $request)
@@ -24,7 +24,7 @@ class HomeController extends Controller
     $user = User::where('email',$request->email)->first();
     $user->password = Hash::make($password);
     $user->save();
-     Mail::send('email.forgotpassword', ['password' => $password], function($message) use($request){
+    Mail::send('email.forgotpassword', ['password' => $password], function($message) use($request){
         $message->to($request->email);
         $message->subject('Reset Password');
     });
