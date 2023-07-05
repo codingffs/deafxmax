@@ -21,10 +21,11 @@ class HomeController extends Controller
     ]);
 
     $password = rand(000000,999999);
+    $pre_url= url()->previous();
     $user = User::where('email',$request->email)->first();
     $user->password = Hash::make($password);
     $user->save();
-    Mail::send('email.forgotpassword', ['password' => $password], function($message) use($request){
+    Mail::send('email.forgotpassword', ['password' => $password , 'pre_url' => $pre_url], function($message) use($request){
         $message->to($request->email);
         $message->subject('Reset Password');
     });
