@@ -232,7 +232,7 @@ text-align: center;
   }
 }
 @media (max-width:767px) {
-  .view_parenttable {
+  .view_parenttable , .view_data_tbl {
 display: block;
 width: 100%;
 overflow-x: auto;
