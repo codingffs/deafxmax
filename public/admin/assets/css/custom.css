@@ -96,7 +96,7 @@
     object-fit: cover;
     overflow: hidden;
     background-size: cover;
-    height: 1000px;
+    height: 100%;
 }
 .bg_gradiant1 {
   background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
@@ -170,18 +170,11 @@ table.table-bordered.dataTable td:last-child {
 .docu_kyc {
   padding: 0;
 }
-table.table-striped.table-bordered.data_table.dataTable.no-footer tbody tr td.dataTables_empty {
-  display: table-cell;
+table.table-bordered.dataTable td.dataTables_empty:last-child {
+    display: table-cell !important;
 }
-table.parent_data_table tbody tr td:last-child {
-  display: flex;
-}
-.card-body , .card{
-  overflow: hidden;
-}
-.img_deposit {
-  width: 50px;
-  height: 50px;
+.card.login_card {
+height: 440px;
 }
 @media (max-width:991px) {
     .main_depositbtn {
@@ -215,6 +208,9 @@ text-align: center;
   .main_depositbtn a img.logo-img {
     width: 200px !important;
   }
+  .card {
+    height: 120px;
+  }
   .btn {
     font-size: 12px;
   }
@@ -228,7 +224,7 @@ text-align: center;
   .withdraw_select .select2 .selection .select2-selection--single {
   width: 98%;
   border-radius: 0 5px 5px 0;
-  } 
+  }
 }
 @media (max-width:375px) {
   .input_select2 .select2-container {

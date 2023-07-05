@@ -13,31 +13,33 @@
                 <i class="fa fa-fw fa-user-circle"></i>Dashboard
               </a>
             </li>
-            {{-- <li class="nav-item">
-              <a class="nav-link {{ routeActive('consultant.index') }}{{ routeActive('consultant.create') }}{{ routeActive('consultant.edit') }}" href="{{ route('consultant.index') }}"  aria-expanded="false">
-                <i class="fas fa-users"></i>Consultant
-              </a>
-            </li> --}}
-            @if(auth()->user()->role_id == 1)
-            <li class="nav-item">
-              <a class="nav-link {{ routeActive('setting.index') }}{{ routeActive('setting.create') }}{{ routeActive('setting.edit') }}" href="{{ route('setting.index') }}"  aria-expanded="false">
-                <i class="fa fa-cog"></i>Setting
-              </a>
-            </li>
-            @endif
-            @if(auth()->user()->role_id == 2)
-            <li class="nav-item">
-              <a class="nav-link {{ routeActive('members.index') }}{{ routeActive('members.create') }}{{ routeActive('members.edit') }}{{ routeActive('members.destroy') }}" href="{{ route('members.index') }}" aria-expanded="false">
-                <i class="fa fa-users"></i>Members List
-              </a>
-            </li>
-            @else
-            <li class="nav-item">
-                <a class="nav-link {{ routeActive('members.index') }}{{ routeActive('members.create') }}{{ routeActive('members.edit') }}{{ routeActive('members.destroy') }}" href="{{ route('members.index') }}" aria-expanded="false">
-                  <i class="fa fa-users"></i>Members
-                </a>
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-users"></i>Members</a>
+                <div id="submenu-2" class="collapse submenu">
+                  <ul class="nav flex-column">
+                    {{-- <li class="nav-item">
+                        <a class="nav-link " href="{{ route('members.create') }}">Add Member</a>
+                      </li> --}}
+                      @if(auth()->user()->role_id == 1)
+                       <li class="nav-item">
+                        <a class="nav-link " href="{{ route('members.create') }}">Add Member</a>
+                      </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('members.index') }}" aria-expanded="false">Members List</a>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('members.index') }}" aria-expanded="false">Members List</a>
+                    </li>
+                    @endif
+                    @if(auth()->user()->role_id == 2)
+                      <li class="nav-item">
+                        <a class="nav-link " href="{{ route('direct_list_data') }}"> Members Direct List</a>
+                      </li>
+                      @endif
+                  </ul>
+                </div>
               </li>
-            @endif
             <li class="nav-item">
                 <a class="nav-link {{ routeActive('depositdetails.index') }}{{ routeActive('depositdetails.create') }}" href="{{ route('depositdetails.index') }}" aria-expanded="false">
                     <i class="fas fa-hand-holding-usd"></i>Deposit Details
@@ -51,6 +53,11 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('bank_details') }}" aria-expanded="false"><i class="fa fa-bank"></i>My Bank Details
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{{ route('kyc.create') }}" aria-expanded="false">
+                    <i class="fas fa-user-check mr-2"></i>Support
                 </a>
               </li>
               @if(getKycFlag() == 1)
@@ -72,9 +79,14 @@
                     <i class="fas fa-user-check mr-2"></i>Complete Kyc
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link {{ routeActive('setting.index') }}{{ routeActive('setting.create') }}{{ routeActive('setting.edit') }}" href="{{ route('setting.index') }}"  aria-expanded="false">
+                  <i class="fa fa-cog"></i>Setting
+                </a>
+              </li>
             @endif
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('logout') }}" aria-expanded="false">
+                <a class="nav-link " href="{{ auth()->user()->role_id == 1 ? route('admin_logout') : route('member_logout') }}" aria-expanded="false">
                     <i class="fas fa-power-off mr-2"></i>Logout
                 </a>
               </li>

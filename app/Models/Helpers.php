@@ -2,6 +2,7 @@
 use App\Models\Setting;
 use App\Models\Kyc;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 if(! function_exists('routeActive')){
 	function routeActive($routeName)
@@ -47,4 +48,36 @@ function get_principal_amount_count(){
     $count = User::where('id',auth()->user()->id)->sum('principal_amount');
     return $count;
 }
+function get_employe_count(){
+    $count = User::where('role_id',2)->count();
+    return $count;
+}
 
+function get_amount_count(){
+    $count = User::where('role_id',2)->sum('principal_amount');
+    return $count;
+}
+function get_mydirect_count(){
+    $count = User::where('auther_id',1)->where('name',auth()->user()->id)->count();
+    return $count;
+}
+function get_myteam_count(){
+    $count = User::where('parent_id',auth()->user()->id)->count();
+    return $count;
+}
+function get_member_code_count(){
+    $count = User::where('id',auth()->user()->id)->first();
+    $data = $count->code;
+    $data1 = $count->label_name;
+    return $data;
+}
+function get_member_data_count(){
+    $count = User::where('id',auth()->user()->id)->first();
+    $data1 = $count->label_name;
+    return $data1;
+}
+function get_date_of_join_count(){
+    $count = User::where('parent_id',1)->first();
+    $data = $count->date;
+    return $data;
+}

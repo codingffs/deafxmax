@@ -2,8 +2,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-          {{ date('Y') }} © DeafxMax - Designed and Developed by<a href="https://shaktiwebsolutions.com"
-            target="_blank" class="ml-1">shaktiwebsolutions</a>.
+          {{ date('Y') }} © DeafxMax.
         </div>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
           <div class="text-md-right footer-links d-none d-sm-block">

@@ -23,14 +23,22 @@ use App\Http\Controllers\admin\WithdrawController;
 */
 
 // Route::get('/', function () {
-//     return view('welcome');
+//     return view('index');
 // });
-Route::group(['prefix' => 'admin'], function(){
-    Route::get('login', [LoginController::class, 'index'])->name('login');
-    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::get('login', [LoginController::class, 'index'])->name('login');
+
+Route::get('admin/login', [LoginController::class, 'index'])->name('admin_login');
+Route::get('member/login', [LoginController::class, 'index'])->name('member_login');
+
+    Route::get('admin/logout', [LoginController::class, 'logout'])->name('admin_logout');
+    Route::get('member/logout', [LoginController::class, 'logout'])->name('member_logout');
     Route::post('login_submit', [LoginController::class, 'login_submit'])->name('login_submit');
 
-    Route::get('forgot-password', [HomeController::class, 'forgot_password'])->name('forgot_password');
+
+    Route::get('forgetpassword', [HomeController::class, 'forgetpassword'])->name('forgetpassword');
+    Route::post('post-forgetpassword', [HomeController::class, 'postForgetpassword'])->name('forgetpassword.post');
 
     Route::group(['middleware' => ['auth']], function(){
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -57,6 +65,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('view_member_data/{id?}', [MembersController::class, 'view_member_data'])->name('view_member_data');
         Route::get('view_parent_data/{id?}', [MembersController::class, 'view_parent_data'])->name('view_parent_data');
         Route::get('kyc_approve/{id?}', [MembersController::class, 'kyc_approve'])->name('kyc_approve');
+        Route::get('direct_list_data/{id?}', [MembersController::class, 'direct_list_data'])->name('direct_list_data');
 
         Route::resource('kyc',KycController::class);
 
@@ -67,4 +76,3 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('approve/{id?}', [WithdrawController::class, 'approve'])->name('approve');
 
     });
-});

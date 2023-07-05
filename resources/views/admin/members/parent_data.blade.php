@@ -35,8 +35,10 @@
                               <th>Name</th>
                               <th>Email</th>
                               <th>Mobile Number</th>
+                              @if(auth()->user()->role_id == 1)
                               <th>Profit Income</th>
                               <th>Team Income</th>
+                              @endif
                               <th>Pancard Number</th>
                               <th>Bank Account Number</th>
                               <th>Created Date</th>
@@ -51,14 +53,19 @@
                                         <td>{{$User->label_name}}</td>
                                         <td>{{$User->email}}</td>
                                         <td>{{$User->mobile_no}}</td>
+                                        @if(auth()->user()->role_id == 1)
                                         <td>{{$User->profit_income}}</td>
                                         <td>{{$User->team_income}}</td>
+                                        @endif
                                         <td>{{$User->pancard_no}}</td>
                                         <td>{{$User->bank_act_no}}</td>
                                         <td>{{$User->date_member}}</td>
                                         <td>
                                             <a href="{{ route('members.edit',$User->id) }}" data-id="{{ $User->id}}" class="table-action-btn edit btn btn-primary m-1" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                             <a href="javascript:void(0)" data-url="{{ route('members_destroy',$User->id) }}" class="table-action-btn btn btn-danger m-1 delete_btn" data-id="{{ $User->id}}   "><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                            @if(auth()->user()->role_id == 1)
+                                            <a href="{{ route('view_parent_data',$User->id) }}" data-id="{{ $User->id}}" class="table-action-btn btn btn-success m-1 emp_view" ><i class="fa fa-users" aria-hidden="true"></i></a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

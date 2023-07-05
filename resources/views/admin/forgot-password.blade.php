@@ -21,26 +21,35 @@
   <!-- ============================================================== -->
   <!-- forgot password  -->
   <!-- ============================================================== -->
+  <img class="login-img" src="{{url('admin_images/login/login-image.jpg')}}" width="100%" alt="login_img">
   <div class="min-vh-100 d-flex align-items-center">
     <div class="splash-container">
-      <div class="card shadow-sm">
-        <div class="card-header text-center"><img class="logo-img" src="{{ url('admin/assets/images/logo.png') }}" alt="logo"><span
+      <div class="card login_card shadow-sm">
+        <div class="card-header text-center">
+          <a href="https://deafxmax.co.in/index.php"><img class="logo-img" src="{{ url('admin/assets/images/logo1.png') }}" width="100%" alt="logo"></a><span
             class="splash-description">Please enter your user information.</span></div>
         <div class="card-body">
-          <form method="post" id="forgot_pass_form">
-            @csrf
+            <form action="{{ route('forgetpassword.post') }}" method="post" id="forgot_pass_form">
+                @csrf
             <p>Don't worry, we'll send you an email to reset your password.</p>
             <div class="form-group mb-2">
               <input class="form-control" type="email" name="email" required="" placeholder="Your Email"
-                autocomplete="off">
+                autocomplete="off" required>
             </div>
+            @error('email')
+            <p class="text-danger">{{ $message }}</p>
+           @enderror
             {{-- <a class="btn btn-block btn-primary btn-xl" href="../index-2.html">Reset Password</a> --}}
             <button type="submit" class="btn btn-block btn-primary btn-x">Reset Password</button>
           </form>
         </div>
-        {{-- <div class="card-footer text-center">
-          <span>Don't have an account? <a href="3">Sign Up</a></span>
-        </div> --}}
+        <div class="card-footer text-center">
+            @if(str_contains($pre_url,'admin/login'))
+          <span> <a href="{{ str_contains($pre_url,'admin/login') ? route('admin_login') : route('member_login') }}">Back To Login</a></span>
+            @else
+            <span> <a href="{{ route('member_login') }}">Back To Login</a></span>
+            @endif
+        </div>
       </div>
     </div>
   </div>

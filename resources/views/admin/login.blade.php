@@ -22,9 +22,9 @@
   <img class="login-img" src="{{url('admin_images/login/login-image.jpg')}}" width="100%" alt="login_img">
   <div class="min-vh-100 d-flex align-items-center">
     <div class="splash-container">
-      <div class="card shadow-sm">
+      <div class="card login_card shadow-sm">
         <div class="card-header text-center">
-          <a href="../index-2.html"><img class="logo-img" src="{{ getlogo('logo') != null ? getlogo('logo') : url('admin/assets/images/logo1.png')}}" width="100%" alt="logo"></a><span
+          <a href="https://deafxmax.co.in/index.php"><img class="logo-img" src="{{ getlogo('logo') != null ? getlogo('logo') : url('admin/assets/images/logo1.png')}}" width="100%" alt="logo"></a><span
             class="splash-description">Please enter your user information.</span></div>
         <div class="card-body">
                 @error('error')
@@ -32,8 +32,13 @@
                 @enderror
           <form action="{{ route('login_submit') }}" method="post" id="login_form">
             @csrf
+            <input class="form-control" id="role_id" type="hidden" name="role_id">
             <div class="form-group mb-2">
-              <input class="form-control" id="username" type="email" name="email" placeholder="Username" autocomplete="off" required>
+                @if(str_contains($pre_url,'admin/login') || str_contains($pre_url,'admin/logout'))
+                    <input class="form-control" id="username" type="email" name="email" placeholder=" Admin Username" autocomplete="off" required>
+                @else
+              <input class="form-control" id="username" type="email" name="email" placeholder="Member Username" autocomplete="off" required>
+                @endif
             </div>
                 @error('email')
                     <p class="text-danger">{{ $message }}</p>
@@ -57,7 +62,7 @@
           {{-- <div class="card-footer-item card-footer-item-bordered border-right d-inline-block  ">
             <a href="sign-up.html" class="footer-link">Create An Account</a></div> --}}
           <div class="card-footer-item card-footer-item-bordered d-inline-block ">
-            <a href="{{ route('forgot_password') }}" class="footer-link">Forgot Password</a>
+            <a href="{{ route('forgetpassword') }}" class="footer-link" style="margin-left: 93px;">Forgot Password</a>
            </div>
         </div>
       </div>

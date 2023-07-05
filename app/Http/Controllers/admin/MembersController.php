@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\auth;
 use App\Models\User;
 use App\Models\Members;
 use App\Models\Kyc;
@@ -20,10 +21,10 @@ class MembersController extends Controller
         try {
             if ($request->ajax()) {
                 if(auth()->user()->role_id == 1){
-                    $User = User::where('parent_id',null)->orderBy('created_at','desc')->get();
+                    $User = User::where('parent_id',1)->where('name',null)->orderBy('created_at','desc')->get();
                 }
                 else{
-                    $User = User::where('parent_id',auth()->user()->id)->orderBy('created_at','desc')->get();
+                    $User = User::where('auther_id',1)->where('name',auth()->user()->id)->orderBy('created_at','desc')->get();
 
                 }
                 return DataTables::of($User)
@@ -56,37 +57,41 @@ class MembersController extends Controller
 
     public function create()
     {
-        $User = User::where('parent_id',null)->orderBy('created_at','desc')->get();
+        $User = User::where('role_id',2)->orderBy('created_at','desc')->get();
         return view('admin.members.create',compact('User'));
     }
     #store members
     public function store(Request $request)
     {
-        $request->validate([
-            'mobile_no' => 'required',
-            'email' => 'required',
-            'pancard_no' => 'required',
-            'bank_act_no' => 'required',
-            'profit_income' => 'required',
-            'team_income' => 'required',
-            'member_code' => 'required',
-            'principal_amount' => 'required',
-            'referal_code' => 'required',
-        ]);
-
+        // $request->validate([
+        //     'mobile_no' => 'required',
+        //     'email' => 'required',
+        //     'pancard_no' => 'required',
+        //     'bank_act_no' => 'required',
+        //     'profit_income' => 'required',
+        //     'team_income' => 'required',
+        //     'member_code' => 'required',
+        //     'principal_amount' => 'required',
+        // ]);
             $User = new User();
             if(auth()->user()->role_id == 2){
                 $User->parent_id = auth()->user()->id;
+                $password = 123456;
+                $User->password = Hash::make($password);
+                $code = 'DEAFX15700';
             }
             else{
                 $password = 123456;
                 $User->password = Hash::make($password);
+                $code = 'DEAFX15700';
+                $User->auther_id = 1;
+
             }
             $User->name = $request->name;
             $User->label_name = $request->label_name;
-            $User->parent_id = $request->name;
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
+            $User->parent_id = auth()->user()->id;
             $User->pancard_no = $request->pancard_no;
             $User->bank_act_no = $request->bank_act_no;
             $User->profit_income = $request->profit_income;
@@ -97,6 +102,9 @@ class MembersController extends Controller
             $User->role_id = 2;
             $User->date = date('d-m-Y');
             $User->date_member = date('d-m-Y');
+            $User->save();
+            $User = User::find($User->id);
+            $User->code = $code.$User->id;
             // $User = User::create($User);
             Mail::send('email.registermail', ['password' => $password,'User' => $User], function($message) use ($request){
                 $message->to($request->email);
@@ -129,7 +137,6 @@ class MembersController extends Controller
             'team_income' => 'required',
             'member_code' => 'required',
             'principal_amount' => 'required',
-            'referal_code' => 'required',
         ]);
 
             $User = User::find($id);
@@ -162,15 +169,28 @@ class MembersController extends Controller
     public function destroy($id)
     {
         $User = User::find($id);
-        $parent_id = isset($User->parent_id) ? $User->parent_id : null;
-        if ($User->parent_id == null) {
-            User::where('parent_id', $id)->delete();
-            $User->delete();
-            return response()->json(["status" => 1]);
-        } else {
-            $User->delete();
-            return response()->json(["status" => 0,"parent_id" => $parent_id]);
-        }
+        // $parent_id = isset($User->parent_id) ? $User->parent_id : null;
+        // if ($User->parent_id == null) {
+            // return response()->json(["status" => 2]);
+        //     User::where('parent_id', $id)->delete();
+        //     $User->delete();
+        //     return response()->json(["status" => 1]);
+        // } else {
+        //     $User->delete();
+        //     return response()->json(["status" => 0,"parent_id" => $parent_id]);
+        // }
+        if(User::where('parent_id',$id)->exists()){
+            return response()->json(["status" => 2]);
+       }
+       else{
+
+           if(User::whereId($id)->delete()){
+               return response()->json(["status" => 1]);
+           }
+           else{
+               return response()->json(["status" => 0]);
+           }
+       }
     }
 
     public function members_destroy($id){
@@ -202,9 +222,16 @@ class MembersController extends Controller
 
     public function view_parent_data($id)
     {
-        $kyc = User::where('parent_id',$id)->get();
+        $kyc = User::where('auther_id',1)->where('name',$id)->get();
          return view('admin.members.parent_data',compact('kyc'));
     }
+
+    public function direct_list_data()
+    {
+        $kyc = User::where('auther_id',null)->where('parent_id',auth()->user()->id)->get();
+         return view('admin.members.parent_data',compact('kyc'));
+    }
+
 
 
 }

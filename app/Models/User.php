@@ -40,6 +40,8 @@ class User extends Authenticatable
         "label_name",
         "date",
         "date_member",
+        "code",
+        "auther_id",
 
     ];
 

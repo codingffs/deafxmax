@@ -45,7 +45,7 @@
                         <tbody>
                           @foreach($kyc as $User)
                               <tr>
-                                  <td>{{$User->name}}</td>
+                                  <td>{{$User->label_name}}</td>
                                   <td>{{$User->email}}</td>
                                   <td>{{$User->mobile_no}}</td>
                                   <td>{{$User->profit_income}}</td>

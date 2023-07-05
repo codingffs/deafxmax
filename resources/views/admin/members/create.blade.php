@@ -31,6 +31,7 @@
                 <div class="card-body">
                   <form method="post" action="{{ route('members.store') }}" id="add_members" enctype="multipart/form-data">
                     @csrf
+                    @if(auth()->user()->role_id == 1)
                     <div class="col-sm-15">
                         <div class="form-group fill">
                             <label class="floating-label" for="value">Member</label>
@@ -42,6 +43,7 @@
                             </select>
                         </div>
                     </div>
+                    @endif
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
                         <input id="label_name" type="text" class="form-control" name="label_name" placeholder="Name*" value="{{ old('label_name') }}"required>
@@ -64,6 +66,7 @@
                         @error('mobile_no')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
+                    @if(auth()->user()->role_id == 1)
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-money"></i></span></div>
                         <input id="profit_income" type="text" name="profit_income" class="form-control" placeholder="Profit Sharing Income*" pattern="[0-9]+" maxlength="20" minlength="0" value="{{ old('profit_income') }}" required>
@@ -78,6 +81,7 @@
                         @error('team_income')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
+                    @endif
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-id-card-o"></i></span></div>
                           <input id="pancard_no" type="text" name="pancard_no" class="form-control" placeholder="Pan Card Number*" maxlength="10" minlength="0" value="{{ old('pancard_no') }}" required>
@@ -108,11 +112,8 @@
                         @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-code"></i></span></div>
-                          <input id="referal_code" type="number" name="referal_code" class="form-control" placeholder="Referal Code*" maxlength="20" minlength="0"value="{{ old('referal_code') }}"required>
+                          <input id="referal_code" type="number" name="referal_code" class="form-control" placeholder="Referal Code" maxlength="20" minlength="0"value="{{ old('referal_code') }}">
                     </div>
-                        @error('referal_code')
-                        <p class="text-danger">{{ $message }}</p>
-                        @enderror
                     <br>
                     <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     <a href="{{ route('members.index') }}" class="btn btn-secondary mt-2">Cancel</a>

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Validation\ValidationException;
 use Auth;
-
+use App\Models\User;
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
@@ -17,7 +17,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/dashboard';
+    protected $redirectTo = '/dashboard';
 
      /**
      * Create a new controller instance.
@@ -30,7 +30,9 @@ class LoginController extends Controller
     }
 
     public function index(){
-        return view('admin.login');
+        $pre_url= url()->previous();
+        $role_id = User::first()->role_id;
+        return view('admin.login',compact('pre_url','role_id'));
     }
 
     public function login_submit(Request $request){
@@ -47,7 +49,14 @@ class LoginController extends Controller
                 setcookie('email',$request->email,100);
                 setcookie('password',bcrypt($request->password),100);
             }
-            if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            $pre_url= url()->previous();
+            if(str_contains($pre_url,'admin/login')){
+                $role_id = 1;
+            }
+            else{
+                $role_id = 2;
+            }
+            if(Auth::attempt(['email' => $request->email, 'password' => $request->password , 'role_id' => $role_id])) {
                 return redirect()->route('dashboard');
 
             } else {
@@ -60,7 +69,17 @@ class LoginController extends Controller
     }
 
     public function logout(){
-        Auth::logout();
-        return view('admin.login');
+        $pre_url= url()->previous();
+        $role_id = User::get();
+        if(auth()->user()->role_id == 1){
+            Auth::logout();
+            return redirect()->route('admin_login');
+        }
+        else{
+             Auth::logout();
+             return redirect()->route('member_login');
+        }
+
     }
+
 }
