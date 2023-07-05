@@ -136,7 +136,7 @@
                   </div>
                   @if (auth()->user()->role_id == 2)
                   <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
-                    <i class="fas fa-hand-holding-usd fa-fw fa-sm text-info font-24"></i>
+                    <i class="fas fa-hand-holding-usd fa-fw fa-sm text-warning font-24"></i>
                   </div>
                     @else
                     <div class="float-right icon-shape icon-xl rounded-circle  bg-primary-light mt-1">
@@ -170,7 +170,7 @@
                   </div>
                   @else
                   <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
-                    <i class="fas fa-hand-holding-usd fa-fw fa-sm text-info font-24"></i>
+                    <i class="fas fa-hand-holding-usd fa-fw fa-sm text-warning font-24"></i>
                   </div>
                   @endif
                 </div>
@@ -185,7 +185,7 @@
                       <h2 class="mb-0 text-white">{{ get_principal_amount_count() }}</h2>
                     </div>
                     <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
-                      <i class="fas fa-inr fa-fw fa-sm text-info font-24"></i>
+                      <i class="fas fa-inr fa-fw fa-sm text-black font-24"></i>
                     </div>
                   </div>
                 </div>
@@ -198,7 +198,7 @@
                               <h2 class="mb-0 text-white">{{ get_mydirect_count() }}</h2>
                             </div>
                             <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
-                                <i class="fa fa-group fa-fw fa-sm text-primary font-24"></i>
+                                <i class="fa fa-group fa-fw fa-sm text-danger font-24"></i>
                             </div>
                         </div>
                     </div>
@@ -256,7 +256,7 @@
                     <h2 class="mb-0 text-white">{{ get_myteam_count() }}</h2>
                   </div>
                   <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
-                    <i class="fas fa-user-friends fa-fw fa-sm text-primary font-24"></i>
+                    <i class="fas fa-user-friends fa-fw fa-sm text-blue font-24"></i>
                   </div>
                 </div>
               </div>
@@ -270,7 +270,7 @@
                                 <br>{{ get_member_data_count() }}</h2>
                           </div>
                           <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
-                              <i class="fas fa-code fa-fw fa-sm text-primary font-24"></i>
+                              <i class="fas fa-code fa-fw fa-sm text-danger font-24"></i>
                           </div>
                       </div>
                   </div>
@@ -283,7 +283,7 @@
                       <h2 class="mb-0 text-white">{{ get_date_of_join_count() }}</h2>
                     </div>
                     <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
-                      <i class="fas fa-file-signature fa-fw fa-sm text-primary font-24"></i>
+                      <i class="fas fa-file-signature fa-fw fa-sm text-warning font-24"></i>
                     </div>
                   </div>
                 </div>
@@ -296,7 +296,7 @@
                             <h2 class="mb-0 text-white">Active</h2>
                           </div>
                           <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
-                              <i class="fas fa-check fa-fw fa-sm text-primary font-24"></i>
+                              <i class="fas fa-check fa-fw fa-sm text-success font-24"></i>
                           </div>
                       </div>
                   </div>
