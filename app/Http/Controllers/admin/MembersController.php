@@ -57,7 +57,7 @@ class MembersController extends Controller
 
     public function create()
     {
-            $User = User::where('parent_id',1)->where('auther_id',1)->orderBy('created_at','desc')->get();
+        $User = User::where('role_id',2)->orderBy('created_at','desc')->get();
         return view('admin.members.create',compact('User'));
     }
     #store members

@@ -17,13 +17,13 @@
                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-users"></i>Members</a>
                 <div id="submenu-2" class="collapse submenu">
                   <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link " href="{{ route('members.create') }}">Add Member</a>
-                      </li>
-                      @if(auth()->user()->role_id == 1)
-                       {{-- <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link " href="{{ route('members.create') }}">Add Member</a>
                       </li> --}}
+                      @if(auth()->user()->role_id == 1)
+                       <li class="nav-item">
+                        <a class="nav-link " href="{{ route('members.create') }}">Add Member</a>
+                      </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('members.index') }}" aria-expanded="false">Members List</a>
                     </li>
