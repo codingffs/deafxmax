@@ -11,7 +11,8 @@ use Mail;
 class HomeController extends Controller
 {
    public function forgetpassword (){
-        return view('admin.forgot-password');
+    $pre_url= url()->previous();
+        return view('admin.forgot-password',compact('pre_url'));
     }
     public function postForgetpassword(Request $request)
     {

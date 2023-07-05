@@ -21,6 +21,7 @@
   <!-- ============================================================== -->
   <!-- forgot password  -->
   <!-- ============================================================== -->
+  <img class="login-img" src="{{url('admin_images/login/login-image.jpg')}}" width="100%" alt="login_img">
   <div class="min-vh-100 d-flex align-items-center">
     <div class="splash-container">
       <div class="card login_card shadow-sm">
@@ -43,7 +44,11 @@
           </form>
         </div>
         <div class="card-footer text-center">
-          <span> <a href="{{ route('login') }}">Back To Login</a></span>
+            @if(str_contains($pre_url,'admin/login'))
+          <span> <a href="{{ str_contains($pre_url,'admin/login') ? route('admin_login') : route('member_login') }}">Back To Login</a></span>
+            @else
+            <span> <a href="{{ route('member_login') }}">Back To Login</a></span>
+            @endif
         </div>
       </div>
     </div>
