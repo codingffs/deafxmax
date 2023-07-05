@@ -123,7 +123,7 @@
             <!-- total views   -->
             <!-- ============================================================== -->
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-              <div class="card mb-5 shadow-sm">
+              <div class="card card_box mb-5 shadow-sm">
                 <div class="card-body box__card bg_gradiant1">
                   <div class="d-inline-block">
                     @if (auth()->user()->role_id == 2)
