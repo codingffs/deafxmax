@@ -29,7 +29,7 @@
                 <h5 class="card-header">View Parent Member</h5>
                 <div class="card-body">
                     @csrf
-                    <table id="datatable1"class="view_parenttable table table-hover mb-0">
+                    <table id="datatable1"class="view_parenttable table table-hover mb-0 parent_data_table">
                         <thead>
                             <tr>
                               <th>Name</th>

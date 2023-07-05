@@ -144,12 +144,12 @@
             <!-- end total views   -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
-            <!-- total followers   -->
+            <!-- total followers   -->                                                             
             <!-- ============================================================== -->
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-              <div class="card  mb-5 shadow-sm">
-                <div class="card-body bg_gradiant2">
-                  <div class="d-inline-block">
+              <div class="card  mb-5 shadow-sm">     
+                <div class="card-body bg_gradiant2">     
+                  <div class="d-inline-block">        
                     @if (auth()->user()->role_id == 2)
                     <h5 class="text-white mb-3">Team Income</h5>
                     <h2 class="mb-0 text-white">${{ get_team_income_count() }}</h2>
@@ -166,7 +166,7 @@
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card mb-5 shadow-sm">
-                  <div class="card-body bg_gradiant1">
+                  <div class="card-body bg_gradiant3">
                     <div class="d-inline-block">
                       @if (auth()->user()->role_id == 2)
                       <h5 class="text-white mb-3">Principal Amount</h5>

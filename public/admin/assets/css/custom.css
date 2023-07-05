@@ -25,7 +25,6 @@
     width: 0;
     height: 0;
   }
-
   .slider {
     position: absolute;
     cursor: pointer;
@@ -37,7 +36,6 @@
     -webkit-transition: .4s;
     transition: .4s;
   }
-
   .slider:before {
     position: absolute;
     content: "";
@@ -49,15 +47,12 @@
     -webkit-transition: .4s;
     transition: .4s;
   }
-
   input:checked + .slider {
     background-color: #2196F3;
   }
-
   input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
   }
-
   input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
@@ -110,6 +105,9 @@
 .bg_gradiant2 {
   background-image: linear-gradient(to right, #434343 0%, black 100%);
 }
+.bg_gradiant3 {
+  background-image: linear-gradient(to right, #ff512f, #f09819);
+}
 .bg_gradiant1::after {
   position: absolute;
     content: "";
@@ -138,6 +136,21 @@
     background: linear-gradient(to right, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26ffffff', endColorstr='#00ffffff',GradientType=1 );
 }
+.bg_gradiant3::after {
+  position: absolute;
+  content: "";
+  height: 140px;
+  width: 170px;
+  transform: rotate(40deg);
+  top: -35px;
+  right: 0px;
+  left: 0;
+  border-radius: 1.75rem;
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26ffffff', endColorstr='#00ffffff',GradientType=1 );
+}
 .shadow-sm .card-header .col-md-4 {
   padding: 0;
 }
@@ -156,6 +169,19 @@ table.table-bordered.dataTable td:last-child {
 }
 .docu_kyc {
   padding: 0;
+}
+table.table-striped.table-bordered.data_table.dataTable.no-footer tbody tr td.dataTables_empty {
+  display: table-cell;
+}
+table.parent_data_table tbody tr td:last-child {
+  display: flex;
+}
+.card-body , .card{
+  overflow: hidden;
+}
+.img_deposit {
+  width: 50px;
+  height: 50px;
 }
 @media (max-width:991px) {
     .main_depositbtn {
@@ -183,6 +209,9 @@ text-align: center;
   .input_select2 .select2-container {
     width: 86% !important;
   }
+  .card {
+    margin-bottom: 50px !important;
+  }
   .main_depositbtn a img.logo-img {
     width: 200px !important;
   }
@@ -205,6 +234,9 @@ text-align: center;
   .input_select2 .select2-container {
     width: 85% !important;
   }
+  .card {
+    margin-bottom: 20px !important;
+  }
 }
 @media (max-width:767px) {
   .view_parenttable {
@@ -215,5 +247,5 @@ overflow-x: auto;
   .dataTables_wrapper.no-footer .row .col-sm-12.col-md-6 {
     width: auto;
   }
-}
+} 
 
