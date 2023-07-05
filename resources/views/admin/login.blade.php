@@ -22,7 +22,7 @@
   <img class="login-img" src="{{url('admin_images/login/login-image.jpg')}}" width="100%" alt="login_img">
   <div class="min-vh-100 d-flex align-items-center">
     <div class="splash-container">
-      <div class="card shadow-sm">
+      <div class="card login_card shadow-sm">
         <div class="card-header text-center">
           <a href="https://deafxmax.co.in/index.php"><img class="logo-img" src="{{ getlogo('logo') != null ? getlogo('logo') : url('admin/assets/images/logo1.png')}}" width="100%" alt="logo"></a><span
             class="splash-description">Please enter your user information.</span></div>

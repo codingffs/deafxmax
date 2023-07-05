@@ -160,7 +160,9 @@ table.table-bordered.dataTable td:last-child {
 table.table-bordered.dataTable td.dataTables_empty:last-child {
     display: table-cell !important;
 }
-
+.card.login_card {
+height: 440px;
+}
 @media (max-width:991px) {
     .main_depositbtn {
       display: block !important;

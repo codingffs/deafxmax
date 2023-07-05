@@ -47950,8 +47950,7 @@ textarea.parsley-error {
 code[class*=language-] {
     color: #e6e6f2;
     background: 0 0;
-    font-family: "Open Sans", "sans-serif;
-    ";
+    font-family: "Open Sans", "sans-serif;";
     font-size: 14px;
     text-align: left;
     white-space: pre;
@@ -47970,8 +47969,7 @@ code[class*=language-] {
 pre[class*=language-] {
     color: #e6e6f2;
     background: 0 0;
-    font-family: "Open Sans", "sans-serif;
-    ";
+    font-family: "Open Sans", "sans-serif;";
     font-size: 14px;
     text-align: left;
     white-space: pre;
@@ -48174,7 +48172,7 @@ not(pre)>code[class*=language-] {
     border: none;
     height:150px
 }
-.card .card-body {
+.card .card-body.box__card {
     display: flex;
     align-items: center;
     justify-content: space-between;

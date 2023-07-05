@@ -124,7 +124,7 @@
             <!-- ============================================================== -->
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
-                <div class="card-body bg_gradiant1">
+                <div class="card-body box__card bg_gradiant1">
                   <div class="d-inline-block">
                     @if (auth()->user()->role_id == 2)
                     <h5 class="text-white mb-3">Profit Sharing Income</h5>
@@ -154,7 +154,7 @@
             <!-- ============================================================== -->
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="card  mb-5 shadow-sm">
-                <div class="card-body bg_gradiant2">
+                <div class="card-body box__card bg_gradiant2">
                   <div class="d-inline-block">
                     @if (auth()->user()->role_id == 2)
                     <h5 class="text-white mb-3">Team Income</h5>
@@ -179,7 +179,7 @@
             @if (auth()->user()->role_id == 2)
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card mb-5 shadow-sm">
-                  <div class="card-body bg_gradiant1">
+                  <div class="card-body box__card bg_gradiant1">
                     <div class="d-inline-block">
                       <h5 class="text-white mb-3">Principal Amount</h5>
                       <h2 class="mb-0 text-white">{{ get_principal_amount_count() }}</h2>
@@ -192,7 +192,7 @@
               </div>
               <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="card  mb-5 shadow-sm">
-                      <div class="card-body bg_gradiant2">
+                      <div class="card-body box__card bg_gradiant2">
                           <div class="d-inline-block">
                               <h5 class="text-white mb-3">My Direct</h5>
                               <h2 class="mb-0 text-white">{{ get_mydirect_count() }}</h2>
@@ -250,7 +250,7 @@
           @if (auth()->user()->role_id == 2)
           <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="card mb-5 shadow-sm">
-                <div class="card-body bg_gradiant1">
+                <div class="card-body box__card bg_gradiant1">
                   <div class="d-inline-block">
                     <h5 class="text-white mb-3">My Team</h5>
                     <h2 class="mb-0 text-white">{{ get_myteam_count() }}</h2>
@@ -263,7 +263,7 @@
             </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card  mb-5 shadow-sm">
-                    <div class="card-body bg_gradiant2">
+                    <div class="card-body box__card bg_gradiant2">
                         <div class="d-inline-block">
                             <h5 class="text-white mb-3">Member Code</h5>
                             <h2 class="mb-0 text-white">{{ get_member_code_count() }}
@@ -277,7 +277,7 @@
               </div>
               <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card mb-5 shadow-sm">
-                  <div class="card-body bg_gradiant1">
+                  <div class="card-body box__card bg_gradiant1">
                     <div class="d-inline-block">
                       <h5 class="text-white mb-3">Date Of Joining</h5>
                       <h2 class="mb-0 text-white">{{ get_date_of_join_count() }}</h2>
