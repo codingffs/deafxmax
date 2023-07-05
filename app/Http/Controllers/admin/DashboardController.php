@@ -26,7 +26,7 @@ class DashboardController extends Controller
 
     public function profile_update(Request $request,$id){
         $request->validate([
-            'name' => 'required',
+            'label_name' => 'required',
             'email' => 'required',
             'mobile_no' => 'required',
             'address' => 'required',
@@ -35,7 +35,7 @@ class DashboardController extends Controller
             $profile = User::find($id);
 
             $User = array(
-                "name" => $request->name,
+                "label_name" => $request->label_name,
                 "email" => $request->email,
                 "mobile_no" => $request->mobile_no,
                 "address" => $request->address,

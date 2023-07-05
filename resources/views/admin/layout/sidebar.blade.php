@@ -57,7 +57,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="{{ route('kyc.create') }}" aria-expanded="false">
-                    <i class="fas fa-user-check mr-2"></i>Support
+                    <i class="fas fa-handshake fa-fw"></i>Support
                 </a>
               </li>
               @if(getKycFlag() == 1)
