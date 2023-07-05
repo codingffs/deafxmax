@@ -77,7 +77,7 @@ function get_member_data_count(){
     return $data1;
 }
 function get_date_of_join_count(){
-    $count = User::where('parent_id',1)->first();
-    $data = $count->date;
+    $count = User::where('parent_id',1)->where('name',null)->first();
+    $data = isset($count->date) ? $count->date : date('Y-m-d');
     return $data;
 }
