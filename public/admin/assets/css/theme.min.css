@@ -48413,6 +48413,9 @@ not(pre)>code[class*=language-] {
     color: #404040;
 }
 }@media only screen and (max-width:480px) {
+    .edit_profile_main {
+margin-bottom: 35px;
+    }
     .nav-left-sidebar {
     width: 100%;
     position: relative;
