@@ -60,7 +60,7 @@
                                         <td>{{$User->pancard_no}}</td>
                                         <td>{{$User->bank_act_no}}</td>
                                         <td>{{$User->date_member}}</td>
-                                        <td>
+                                        <td class="view_parent_btn">
                                             <a href="{{ route('members.edit',$User->id) }}" data-id="{{ $User->id}}" class="table-action-btn edit btn btn-primary m-1" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                             <a href="javascript:void(0)" data-url="{{ route('members_destroy',$User->id) }}" class="table-action-btn btn btn-danger m-1 delete_btn" data-id="{{ $User->id}}   "><i class="fa fa-trash" aria-hidden="true"></i></a>
                                             @if(auth()->user()->role_id == 1)
