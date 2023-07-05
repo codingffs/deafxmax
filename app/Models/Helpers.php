@@ -58,7 +58,7 @@ function get_amount_count(){
     return $count;
 }
 function get_mydirect_count(){
-    $count = User::where('auther_id',1)->count();
+    $count = User::where('auther_id',1)->where('name',auth()->user()->id)->count();
     return $count;
 }
 function get_myteam_count(){
