@@ -21,10 +21,10 @@ class MembersController extends Controller
         try {
             if ($request->ajax()) {
                 if(auth()->user()->role_id == 1){
-                    $User = User::where('parent_id',null)->where('auther_id',null)->orderBy('created_at','desc')->get();
+                    $User = User::where('parent_id',1)->where('name',null)->orderBy('created_at','desc')->get();
                 }
                 else{
-                    $User = User::where('auther_id',1)->orderBy('created_at','desc')->get();
+                    $User = User::where('auther_id',1)->where('name',auth()->user()->id)->orderBy('created_at','desc')->get();
 
                 }
                 return DataTables::of($User)
@@ -57,7 +57,7 @@ class MembersController extends Controller
 
     public function create()
     {
-            $User = User::orderBy('created_at','desc')->get();
+            $User = User::where('parent_id',1)->where('auther_id',1)->orderBy('created_at','desc')->get();
         return view('admin.members.create',compact('User'));
     }
     #store members
@@ -91,6 +91,7 @@ class MembersController extends Controller
             $User->label_name = $request->label_name;
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
+            $User->parent_id = auth()->user()->id;
             $User->pancard_no = $request->pancard_no;
             $User->bank_act_no = $request->bank_act_no;
             $User->profit_income = $request->profit_income;
@@ -221,7 +222,7 @@ class MembersController extends Controller
 
     public function view_parent_data($id)
     {
-        $kyc = User::where('auther_id',1)->get();
+        $kyc = User::where('auther_id',1)->where('name',$id)->get();
          return view('admin.members.parent_data',compact('kyc'));
     }
 

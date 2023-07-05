@@ -58,7 +58,7 @@ function get_amount_count(){
     return $count;
 }
 function get_mydirect_count(){
-    $count = User::where('parent_id',1)->count();
+    $count = User::where('auther_id',1)->count();
     return $count;
 }
 function get_myteam_count(){
@@ -77,7 +77,7 @@ function get_member_data_count(){
     return $data1;
 }
 function get_date_of_join_count(){
-    $count = User::where('parent_id',null)->first();
+    $count = User::where('parent_id',1)->first();
     $data = $count->date;
     return $data;
 }
