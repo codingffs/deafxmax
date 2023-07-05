@@ -256,7 +256,7 @@
                     <h2 class="mb-0 text-white">{{ get_myteam_count() }}</h2>
                   </div>
                   <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
-                    <i class="fa fa-group fa-fw fa-sm text-primary font-24"></i>
+                    <i class="fas fa-user-friends fa-fw fa-sm text-primary font-24"></i>
                   </div>
                 </div>
               </div>
@@ -270,7 +270,7 @@
                                 <br>{{ get_member_data_count() }}</h2>
                           </div>
                           <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
-                              <i class="fa fa-group fa-fw fa-sm text-primary font-24"></i>
+                              <i class="fas fa-code fa-fw fa-sm text-primary font-24"></i>
                           </div>
                       </div>
                   </div>
@@ -283,10 +283,23 @@
                       <h2 class="mb-0 text-white">{{ get_date_of_join_count() }}</h2>
                     </div>
                     <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
-                      <i class="fa fa-group fa-fw fa-sm text-primary font-24"></i>
+                      <i class="fas fa-file-signature fa-fw fa-sm text-primary font-24"></i>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="card card_box  mb-5 shadow-sm">
+                    <div class="card-body box__card bg_gradiant2">
+                        <div class="d-inline-block">
+                            <h5 class="text-white mb-3">Status</h5>
+                            <h2 class="mb-0 text-white">Active</h2>
+                          </div>
+                          <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
+                              <i class="fas fa-check fa-fw fa-sm text-primary font-24"></i>
+                          </div>
+                      </div>
+                  </div>
               </div>
             @endif
         </div>
