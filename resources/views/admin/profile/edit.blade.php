@@ -32,9 +32,9 @@
                     @csrf
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                        <input id="name" type="text" class="form-control" name="name" placeholder="Name*" maxlength="50" minlength="0" value="{{ old('name',$user->name) }}" required>
+                        <input id="label_name" type="text" class="form-control" name="label_name" placeholder="Name*" maxlength="50" minlength="0" value="{{ old('label_name',$user->label_name) }}" required>
                     </div>
-                        @error('name')
+                        @error('label_name')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     <div class="input-group mb-2">
