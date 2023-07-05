@@ -29,7 +29,7 @@
                         <a href="{{route('depositdetails.create')}}" class="btn btn-primary mb-2">Add Deposit</a>
                         @endif
                     </div>
-                </div>
+                </div>                                                                        
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -61,7 +61,7 @@
           </div>
           <div class="modal-body body-margin" id="employee-view"></div>
           <div class="row mt-3 modal-margin">
-            <div class="col-lg-9 col-md-8" style="margin-left: 44px;"><img src="" width="400" height="400" id="image"></div>
+            <div class="col-lg-9 col-md-8 image_depositdetail" style="margin-left: 44px;"><img src="" width="400" height="400" id="image"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>

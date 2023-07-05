@@ -29,7 +29,7 @@
                 <h5 class="card-header">View Kyc</h5>
                 <div class="card-body">
                     @csrf
-                    <table id="datatable1"class="table table-hover mb-0">
+                    <table id="datatable1"class="table table-hover mb-0 view_data_tbl">
                         <thead>
                             <tr>
                               <th>Bank Name</th>

@@ -52,7 +52,7 @@
                     </div>
                         @error('confirm_password')
                             <p class="text-danger">{{ $message }}</p>
-                        @enderror
+                        @enderror                                    
                     <div class="col-12 changepass_btn">
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <a href="{{ route('dashboard') }}" class="btn btn-secondary">Cancel</a>
