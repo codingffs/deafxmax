@@ -153,7 +153,7 @@
             <!-- total followers   -->
             <!-- ============================================================== -->
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-              <div class="card  mb-5 shadow-sm">
+              <div class="card card_box  mb-5 shadow-sm">
                 <div class="card-body box__card bg_gradiant2">
                   <div class="d-inline-block">
                     @if (auth()->user()->role_id == 2)
@@ -178,7 +178,7 @@
             </div>
             @if (auth()->user()->role_id == 2)
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                <div class="card mb-5 shadow-sm">
+                <div class="card card_box mb-5 shadow-sm">
                   <div class="card-body box__card bg_gradiant1">
                     <div class="d-inline-block">
                       <h5 class="text-white mb-3">Principal Amount</h5>
@@ -191,7 +191,7 @@
                 </div>
               </div>
               <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div class="card  mb-5 shadow-sm">
+                  <div class="card card_box  mb-5 shadow-sm">
                       <div class="card-body box__card bg_gradiant2">
                           <div class="d-inline-block">
                               <h5 class="text-white mb-3">My Direct</h5>
@@ -249,7 +249,7 @@
 
           @if (auth()->user()->role_id == 2)
           <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-              <div class="card mb-5 shadow-sm">
+              <div class="card card_box mb-5 shadow-sm">
                 <div class="card-body box__card bg_gradiant1">
                   <div class="d-inline-block">
                     <h5 class="text-white mb-3">My Team</h5>
@@ -262,7 +262,7 @@
               </div>
             </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                <div class="card  mb-5 shadow-sm">
+                <div class="card card_box  mb-5 shadow-sm">
                     <div class="card-body box__card bg_gradiant2">
                         <div class="d-inline-block">
                             <h5 class="text-white mb-3">Member Code</h5>
@@ -276,7 +276,7 @@
                   </div>
               </div>
               <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                <div class="card mb-5 shadow-sm">
+                <div class="card card_box mb-5 shadow-sm">
                   <div class="card-body box__card bg_gradiant1">
                     <div class="d-inline-block">
                       <h5 class="text-white mb-3">Date Of Joining</h5>

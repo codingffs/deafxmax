@@ -35,8 +35,10 @@
                               <th>Name</th>
                               <th>Email</th>
                               <th>Mobile Number</th>
+                              @if(auth()->user()->role_id == 1)
                               <th>Profit Income</th>
                               <th>Team Income</th>
+                              @endif
                               <th>Pancard Number</th>
                               <th>Bank Account Number</th>
                               <th>Created Date</th>
@@ -51,8 +53,10 @@
                                         <td>{{$User->label_name}}</td>
                                         <td>{{$User->email}}</td>
                                         <td>{{$User->mobile_no}}</td>
+                                        @if(auth()->user()->role_id == 1)
                                         <td>{{$User->profit_income}}</td>
                                         <td>{{$User->team_income}}</td>
+                                        @endif
                                         <td>{{$User->pancard_no}}</td>
                                         <td>{{$User->bank_act_no}}</td>
                                         <td>{{$User->date_member}}</td>

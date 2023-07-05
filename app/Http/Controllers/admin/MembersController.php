@@ -21,10 +21,10 @@ class MembersController extends Controller
         try {
             if ($request->ajax()) {
                 if(auth()->user()->role_id == 1){
-                    $User = User::where('parent_id',null)->orderBy('created_at','desc')->get();
+                    $User = User::where('parent_id',null)->where('auther_id',null)->orderBy('created_at','desc')->get();
                 }
                 else{
-                    $User = User::where('parent_id',auth()->user()->id)->where('auther_id',auth()->user()->id)->orderBy('created_at','desc')->get();
+                    $User = User::where('auther_id',1)->orderBy('created_at','desc')->get();
 
                 }
                 return DataTables::of($User)
@@ -63,21 +63,19 @@ class MembersController extends Controller
     #store members
     public function store(Request $request)
     {
-        $request->validate([
-            'mobile_no' => 'required',
-            'email' => 'required',
-            'pancard_no' => 'required',
-            'bank_act_no' => 'required',
-            'profit_income' => 'required',
-            'team_income' => 'required',
-            'member_code' => 'required',
-            'principal_amount' => 'required',
-        ]);
-
+        // $request->validate([
+        //     'mobile_no' => 'required',
+        //     'email' => 'required',
+        //     'pancard_no' => 'required',
+        //     'bank_act_no' => 'required',
+        //     'profit_income' => 'required',
+        //     'team_income' => 'required',
+        //     'member_code' => 'required',
+        //     'principal_amount' => 'required',
+        // ]);
             $User = new User();
             if(auth()->user()->role_id == 2){
                 $User->parent_id = auth()->user()->id;
-                $User->auther_id = null;
                 $password = 123456;
                 $User->password = Hash::make($password);
                 $code = 'DEAFX15700';
@@ -90,7 +88,6 @@ class MembersController extends Controller
 
             }
             $User->name = $request->name;
-            $User->parent_id = $request->name;
             $User->label_name = $request->label_name;
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
@@ -224,7 +221,7 @@ class MembersController extends Controller
 
     public function view_parent_data($id)
     {
-        $kyc = User::where('parent_id',$id)->get();
+        $kyc = User::where('auther_id',1)->get();
          return view('admin.members.parent_data',compact('kyc'));
     }
 

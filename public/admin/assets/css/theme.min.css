@@ -48170,8 +48170,10 @@ not(pre)>code[class*=language-] {
 }
 .card {
     border: none;
-    height:150px
 }
+ .card.card_box {
+    height: 120px;
+ }
 .card .card-body.box__card {
     display: flex;
     align-items: center;
