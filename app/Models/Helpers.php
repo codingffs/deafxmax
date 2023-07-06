@@ -35,17 +35,17 @@ if(! function_exists('getKycFlag')){
 	}
 }
 function get_profit_income_count(){
-    $count = User::where('id',auth()->user()->id)->sum('profit_income');
+    $count = User::where('name',auth()->user()->id)->sum('profit_income');
     return $count;
 }
 
 function get_team_income_count(){
-    $count = User::where('id',auth()->user()->id)->sum('team_income');
+    $count = User::where('name',auth()->user()->id)->sum('team_income');
     return $count;
 }
 
 function get_principal_amount_count(){
-    $count = User::where('id',auth()->user()->id)->sum('principal_amount');
+    $count = User::where('parent_id',auth()->user()->id)->sum('principal_amount');
     return $count;
 }
 function get_employe_count(){
