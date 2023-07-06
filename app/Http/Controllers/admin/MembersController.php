@@ -187,7 +187,7 @@ class MembersController extends Controller
         //     $User->delete();
         //     return response()->json(["status" => 0,"parent_id" => $parent_id]);
         // }
-        if(User::where('parent_id',$id)->exists()){
+        if(User::where('name',null)->exists()){
             return response()->json(["status" => 2]);
        }
        else{
