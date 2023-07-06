@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\State;
-use DataTables;
-use Hash;
-
+use Illuminate\Support\Facades\Hash;
+use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Validator;
 class ConsultantController extends Controller
 {
     /**
@@ -46,13 +46,11 @@ class ConsultantController extends Controller
                         ->rawColumns(['action','image','active_toggle'])
                         ->make(true);
                     }
-
             return view('admin.consultant.index');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error',$th->getMessage());
         }
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -61,7 +59,6 @@ class ConsultantController extends Controller
       $State =  State::get();
       return view('admin.consultant.create',compact('State'));
     }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -87,7 +84,6 @@ class ConsultantController extends Controller
                 "password" => Hash::make($request->password),
                 "role_id" => 2,
             );
-
             if(isset($request->image) && !empty($request->image)){
                 $imagename = rand(0000,9999) . time().'.'.$request->image->extension();
                 $request->image->move(public_path('admin_images/my_profile'), $imagename);
@@ -100,7 +96,6 @@ class ConsultantController extends Controller
             return redirect()->back()->with('error',$th->getMessage());
         }
     }
-
     /**
      * Display the specified resource.
      */
@@ -108,7 +103,6 @@ class ConsultantController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -118,7 +112,6 @@ class ConsultantController extends Controller
         $State =  State::get();
         return view('admin.consultant.edit',compact('State','user'));
     }
-
     /**
      * Update the specified resource in storage.
      */
@@ -158,7 +151,6 @@ class ConsultantController extends Controller
                  return redirect()->back()->with('error',$th->getMessage());
             }
     }
-
     /**
      * Remove the specified resource from storage.
      */
@@ -180,19 +172,17 @@ class ConsultantController extends Controller
         }
 
     }
-
     public function unique_user_email(Request $request){
         $rules = [
             'email'=> 'required|unique:users,email',
         ];
-        $validator = \Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), $rules);
         if ($validator->fails())
         {
             return response()->json(['status' => '1','message' => 'Email Already Exists!']);
         }
         return response()->json(['status' => '0']);
     }
-
     public function consultant_status_change(Request $request){
         if(isset($request->id) && $request->id != null){
             $consultant = User::find($request->id);

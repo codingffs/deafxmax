@@ -12,7 +12,6 @@ class KycController extends Controller
 
         return view('admin.dashboard.index');
     }
-
     public function create()
     {
         if(getKycFlag() == 0){
@@ -31,7 +30,6 @@ class KycController extends Controller
             'name_of_holder' => 'required',
             'document2' => 'required',
         ]);
-
             $kyc = array(
                 "bank_name" => $request->bank_name,
                 "user_id" => auth()->user()->id,

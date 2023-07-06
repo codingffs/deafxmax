@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Models\History;
 use Illuminate\Support\Str;
-use DataTables;
-
+use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Validator;
 class SettingController extends Controller
 {
     /**
@@ -39,7 +39,6 @@ class SettingController extends Controller
                 }
                 return view('admin.setting.index');
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -47,7 +46,6 @@ class SettingController extends Controller
     {
         return view('admin.setting.create');
     }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -70,7 +68,6 @@ class SettingController extends Controller
                 "type" => $request->type,
                 "value" => $value
             );
-
             $setting = Setting::create($setting);
             return redirect()->route("setting.index")->with("success", "Setting created Successfully.");
         } catch (\Throwable $th) {
@@ -83,7 +80,6 @@ class SettingController extends Controller
             return redirect()->back()->with('error',$th->getMessage());
         }
     }
-
     /**
      * Display the specified resource.
      */
@@ -91,7 +87,6 @@ class SettingController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -100,7 +95,6 @@ class SettingController extends Controller
         $Setting = Setting::find($id);
         return view('admin.setting.edit',compact('Setting'));
     }
-
     /**
      * Update the specified resource in storage.
      */
@@ -144,7 +138,6 @@ class SettingController extends Controller
             return redirect()->back()->with('error',$th->getMessage());
         }
     }
-
     /**
      * Remove the specified resource from storage.
      */
@@ -152,14 +145,13 @@ class SettingController extends Controller
     {
         //
     }
-
     public function setting_unique_name(Request $request)
     {
         try{
             $rules = [
                 'name'=> 'required|unique:settings,name',
             ];
-            $validator = \Validator::make($request->all(), $rules);
+            $validator = Validator::make($request->all(), $rules);
             if ($validator->fails())
             {
                 return response()->json(['status' => '1','message' => 'Name Already Exists!']);
@@ -171,14 +163,13 @@ class SettingController extends Controller
             return redirect()->back()->with('error',$th->getMessage());
         }
     }
-
     public function setting_unique_name_update(Request $request)
     {
         try{
             $rules = [
                 'name'=> 'required|unique:settings,name,'.$request->id,
             ];
-            $validator = \Validator::make($request->all(), $rules);
+            $validator = Validator::make($request->all(), $rules);
             if ($validator->fails())
             {
                 return response()->json(['status' => '1','message' => 'Name Already Exists!']);
