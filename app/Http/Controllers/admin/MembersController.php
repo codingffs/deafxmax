@@ -111,9 +111,17 @@ class MembersController extends Controller
                 $message->subject('New User Register');
             });
             $User->save();
-            if($User->parent_id == null ){
+            if($User->parent_id == 1 && $User->name == null){
 
                 return redirect()->route('members.index')->with('success','Members create successfully');
+            }
+            elseif($User->parent_id == 1 && $User->name != null){
+
+                return redirect()->route('view_parent_data',$User->name)->with('success',' Parent Members create successfully');
+            }
+            elseif($User->parent_id == auth()->user()->id && $User->auther_id == null){
+                return redirect()->route('direct_list_data',$User->parent_id)->with('success','Members create successfully');
+
             }
             else{
                 return redirect()->route('view_parent_data',$User->parent_id)->with('success',' Parent Members create successfully');
