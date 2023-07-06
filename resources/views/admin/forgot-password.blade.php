@@ -62,6 +62,12 @@
         $(document).ready(function() {
             $("#forgot_pass_form").validate();
         });
+         toastr.options.timeOut = 10000;
+          @if (Session::has('error'))
+              toastr.error('{{ Session::get('error') }}');
+          @elseif(Session::has('success'))
+              toastr.success('{{ Session::get('success') }}');
+          @endif
     </script>
 </body>
 <!-- Mirrored from preview.easetemplate.com/influence/html/influence/pages/forgot-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 27 Mar 2023 06:16:51 GMT -->
