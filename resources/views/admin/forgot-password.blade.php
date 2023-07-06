@@ -13,7 +13,7 @@
 
   <!-- Libs CSS -->
   @includeIf('admin.layout.css')
-  <title>Forgot Password - Influence Bootstrap Admin Dashboard Template</title>
+  <title>Forgot Password</title>
 
 </head>
 
