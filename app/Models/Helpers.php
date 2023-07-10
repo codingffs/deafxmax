@@ -45,7 +45,7 @@ function get_team_income_count(){
 }
 
 function get_principal_amount_count(){
-    $count = User::where('parent_id',auth()->user()->id)->sum('principal_amount');
+    $count = User::where('id',auth()->user()->id)->where('parent_id',1)->where('name',null)->sum('principal_amount');
     return $count;
 }
 function get_employe_count(){
