@@ -84,6 +84,11 @@
                   <i class="fa fa-cog"></i>Setting
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link {{ routeActive('news.index') }}{{ routeActive('news.create') }}{{ routeActive('news.edit') }}" href="{{ route('news.index') }}"  aria-expanded="false">
+                  <i class="fa fa-cog"></i>News
+                </a>
+              </li>
             @endif
             <li class="nav-item">
                 <a class="nav-link " href="{{ auth()->user()->role_id == 1 ? route('admin_logout') : route('member_logout') }}" aria-expanded="false">

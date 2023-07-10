@@ -7,15 +7,19 @@ use App\Models\BankDetails;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\State;
+use App\Models\News;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use App\Models\Kyc;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
     public function index(){
         $kyc = Kyc::first();
-        return view('admin.dashboard.index',compact('kyc'));
+        $desiredDate = News::first('date');
+        $news = News::whereDate('created_at', '>=', $desiredDate)->get();
+        return view('admin.dashboard.index',compact('kyc','news','desiredDate'));
     }
     public function profile_edit(){
         $user = User::find(auth()->user()->id);
