@@ -39,7 +39,6 @@
                         <th class="rounded-0">Name</th>
                         <th class="rounded-0">Mobile</th>
                         <th class="rounded-0">Email</th>
-                        <th class="rounded-0">Member Code</th>
                         @if(auth()->user()->role_id == 1)
                         <th class="rounded-0">Created Date</th>
                         @else
@@ -86,10 +85,6 @@
                         {
                             data: 'email',
                             name: 'email'
-                        },
-                        {
-                            data: 'member_code',
-                            name: 'member_code'
                         },
                         @if(auth()->user()->role_id == 1)
                         {

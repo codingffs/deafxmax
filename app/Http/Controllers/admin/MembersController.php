@@ -111,16 +111,16 @@ class MembersController extends Controller
 
                 return redirect()->route('members.index')->with('success','Members create successfully');
             }
-            elseif($User->parent_id == 1 && $User->name != null){
+            elseif($User->parent_id == auth()->user()->id  && $User->name ==  auth()->user()->id && $User->auther_id == 1){
 
-                return redirect()->route('view_parent_data',$User->name)->with('success',' Parent Members create successfully');
+                return redirect()->route('view_parent_data',$User->name)->with('success','Members create successfully');
             }
             elseif($User->parent_id == auth()->user()->id && $User->auther_id == null){
                 return redirect()->route('direct_list_data',$User->parent_id)->with('success','Members create successfully');
 
             }
             else{
-                return redirect()->route('view_parent_data',$User->parent_id)->with('success',' Parent Members create successfully');
+                return redirect()->route('view_parent_data',$User->name)->with('success',' Parent Members create successfully');
 
             }
     }
@@ -131,23 +131,28 @@ class MembersController extends Controller
     }
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'mobile_no' => 'required',
-            'email' => 'required',
-            'pancard_no' => 'required',
-            'bank_act_no' => 'required',
-            'profit_income' => 'required',
-            'team_income' => 'required',
-            'member_code' => 'required',
-            'principal_amount' => 'required',
-        ]);
+        // $request->validate([
+        //     'mobile_no' => 'required',
+        //     'email' => 'required',
+        //     'pancard_no' => 'required',
+        //     'bank_act_no' => 'required',
+        //     'profit_income' => 'required',
+        //     'team_income' => 'required',
+        //     'member_code' => 'required',
+        //     'principal_amount' => 'required',
+        // ]);
             $User = User::find($id);
             // if(auth()->user()->role_id == 2){
             //     $User->parent_id = auth()->user()->id;
             // }
-            $User->name = $request->name;
+            // $User->name = $request->name;
             $User->label_name = $request->label_name;
-            // $User->parent_id = $request->name;
+            if(auth()->user()->role_id == 1){
+                $User->parent_id = 1;
+            }
+            else{
+                $User->parent_id = auth()->user()->id;
+            }
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
             $User->pancard_no = $request->pancard_no;
@@ -159,13 +164,24 @@ class MembersController extends Controller
             $User->referal_code = $request->referal_code;
             $User->role_id = 2;
             $User->save();
-            if($User->parent_id == null ){
-
-                return redirect()->route('members.index')->with('success','Members updated successfully');
+            if(auth()->user()->role_id == 1){
+                if($User->parent_id == 1 && $User->name == null){
+                    return redirect()->route('members.index')->with('success','Members updated successfully');
+                }
+                else{
+                    return redirect()->route('view_parent_data',$User->name)->with('success','Parent Members updated successfully');
+                }
             }
             else{
-                return redirect()->route('view_parent_data',$User->parent_id)->with('success',' Parent Members updated successfully');
-
+                if($User->parent_id == auth()->user()->id && $User->auther_id == null){
+                    return redirect()->route('direct_list_data',$User->parent_id)->with('success',' Parent Members updated successfully');
+                }
+                elseif($User->parent_id == auth()->user()->id && $User->name != null){
+                    return redirect()->route('members.index')->with('success','Members updated successfully');
+                }
+                else{
+                    return redirect()->route('view_parent_data',$User->name)->with('success','Parent Members updated successfully');
+                }
             }
     }
     public function destroy($id)
