@@ -96,13 +96,13 @@
                         @error('bank_act_no')
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
-                    <div class="input-group mb-2">
+                    {{-- <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-code"></i></span></div>
                           <input id="member_code" type="number" name="member_code" class="form-control" placeholder="Member Code*" maxlength="20" minlength="0"value="{{ old('member_code') }}"required>
                     </div>
                         @error('member_code')
                         <p class="text-danger">{{ $message }}</p>
-                        @enderror
+                        @enderror --}}
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-inr"></i></span></div>
                           <input id="principal_amount" type="number" name="principal_amount" class="form-control" placeholder="Principal Amount*"maxlength="10" minlength="0" value="{{ old('principal_amount') }}"required>
