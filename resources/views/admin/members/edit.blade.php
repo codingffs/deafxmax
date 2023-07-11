@@ -62,11 +62,8 @@
                             @enderror
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-group"></i></span></div>
-                        <input id="team_income" type="number" name="team_income" class="form-control" placeholder="Team Income*" pattern="[0-9]+" maxlength="20" minlength="0" value="{{ old('team_income',$User->team_income) }}" required>
+                        <input id="team_income" type="number" name="team_income" class="form-control" placeholder="Team Income*" pattern="[0-9]+" maxlength="20" minlength="0" value="{{ old('team_income',$User->team_income) }}">
                     </div>
-                            @error('team_income')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
                     @endif
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-id-card-o"></i></span></div>

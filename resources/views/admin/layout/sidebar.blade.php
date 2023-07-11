@@ -86,7 +86,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link {{ routeActive('news.index') }}{{ routeActive('news.create') }}{{ routeActive('news.edit') }}" href="{{ route('news.index') }}"  aria-expanded="false">
-                  <i class="fa fa-cog"></i>News
+                    <i class="fas fa-newspaper"></i>News
                 </a>
               </li>
             @endif
