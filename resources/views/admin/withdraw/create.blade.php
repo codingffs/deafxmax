@@ -37,7 +37,7 @@
                             <option selected disabled>-- Select Withdraw --</option>
                             <option>Principle</option>
                             <option>Profit</option>
-                            <option>Team</option>
+                            <option>Team</option> 
                         </select>
                     </div>
                     @error('withdraw_type')
@@ -45,7 +45,7 @@
                      @enderror
                      <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-inr"></i></span></div>
-                        <input id="amount" type="text" class="form-control" name="amount" placeholder="Amount*" value="{{ old('amount') }}" pattern="[0-9]+" maxlength="20" minlength="0" required>
+                        <input id="amount" type="number" class="form-control" name="amount" placeholder="Amount*" value="{{ old('amount') }}" pattern="[0-9]+" maxlength="20" minlength="0" required>
                     </div>
                         @error('amount')
                             <p class="text-danger">{{ $message }}</p>

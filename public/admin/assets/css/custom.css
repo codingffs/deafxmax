@@ -108,6 +108,9 @@
 .bg_gradiant3 {
   background-image: linear-gradient(to right, #ff512f, #f09819);
 }
+.bg_gradiant1 , .bg_gradiant2 , .bg_gradiant3 {
+  overflow: hidden;
+}
 .bg_gradiant1::after {
   position: absolute;
     content: "";
@@ -211,7 +214,7 @@ text-align: center;
 @media (max-width:480px) {
   .input_select2 .select2-container {
     width: 86% !important;
-  }
+  } 
   .card {
     margin-bottom: 50px !important;
   }
@@ -249,6 +252,6 @@ overflow-x: auto;
   }
   .dataTables_wrapper.no-footer .row .col-sm-12.col-md-6 {
     width: auto;
-  }
+  } 
 } 
 

@@ -267,7 +267,7 @@
                         <div class="d-inline-block">
                             <h5 class="text-white mb-3">Member Code</h5>
                             <h2 class="mb-0 text-white">{{ get_member_code_count() }}
-                                <br>{{ get_member_data_count() }}</h2>
+                                {{ get_member_data_count() }}</h2>
                           </div>
                           <div class="float-right icon-shape icon-xl rounded-circle  bg-info-light mt-1">
                               <i class="fas fa-code fa-fw fa-sm text-danger font-24"></i>
