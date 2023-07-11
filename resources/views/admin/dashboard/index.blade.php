@@ -141,7 +141,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 edit_profile_main">
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card card_box  mb-5 shadow-sm">
                     <div class="card-body box__card bg_gradiant2">
                         <div class="d-inline-block">
@@ -155,14 +155,12 @@
                   </div>
               </div>
             @endif
-        </div>
-        <br>
-        @if(auth()->user()->role_id == 2)
+            @if(auth()->user()->role_id == 2)
          <!-- [ Main Content ] start -->
-<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-    <div class="card card_box mb-5 shadow-sm">
-      <div class="card-body box__card bg_gradiant1">
-        <div class="d-inline-block">
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="card card_box mb-5 shadow-sm news_box">
+      <div class="card-body box__card bg_gradiant1 bg_gradiants3">
+        <div class="w-100">
           <h5 class="text-white mb-3">News</h5>
           @foreach($news as $data)
           <h2 class="mb-0 text-white">{{ $data->description }}</h2>
@@ -176,4 +174,7 @@
     </div>
   </div>
 @endif
+        </div>
+        <br>
+       
 @endsection

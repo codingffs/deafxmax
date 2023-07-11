@@ -154,6 +154,10 @@
   background: linear-gradient(to right, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26ffffff', endColorstr='#00ffffff',GradientType=1 );
 }
+.bg_gradiant1.bg_gradiants3 {
+  background-image: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+  align-items: baseline !important;
+} 
 .shadow-sm .card-header .col-md-4 {
   padding: 0;
 }
@@ -181,6 +185,9 @@ height: 440px;
 }
 .view_parent_btn {
   display: flex;
+}
+.card.card_box.news_box {
+  height: 170px;
 }
 @media (max-width:991px) {
     .main_depositbtn {
