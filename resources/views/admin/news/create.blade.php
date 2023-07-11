@@ -31,14 +31,14 @@
                   <form method="post" action="{{ route('news.store') }}" id="add_members" enctype="multipart/form-data">
                     @csrf
                     <div class="input-group mb-2">
-                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-id-card-o"></i></span></div>
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-calendar"></i></span></div>
                           <input id="date" type="date" name="date" class="form-control" placeholder="Date*"  value="{{ old('date') }}" required>
                     </div>
                         @error('date')
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
                     <div class="input-group mb-2">
-                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-info"></i></span></div>
                         <textarea id="description" type="text" name="description" class="form-control" placeholder="Description*" value="{{ old('description') }}" required></textarea>
                     </div>
                         @error('description')

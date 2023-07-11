@@ -64,6 +64,10 @@ class NewsController extends Controller
             News::whereId($id)->update($news);
             return redirect()->route("news.index")->with("success", "News Updated Successfully.");
     }
+    public function show($id)
+    {
+        //
+    }
 
     public function destroy($id)
     {

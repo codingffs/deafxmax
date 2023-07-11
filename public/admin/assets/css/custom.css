@@ -157,7 +157,7 @@
 .bg_gradiant1.bg_gradiants3 {
   background-image: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
   align-items: baseline !important;
-} 
+}
 .shadow-sm .card-header .col-md-4 {
   padding: 0;
 }
@@ -186,8 +186,14 @@ height: 440px;
 .view_parent_btn {
   display: flex;
 }
+.title_box {
+  font-size: 22px;
+}
+.dec_box {
+    font-size: 18px;
+}
 .card.card_box.news_box {
-  height: 170px;
+  height: auto;
 }
 @media (max-width:991px) {
     .main_depositbtn {
@@ -221,7 +227,7 @@ text-align: center;
 @media (max-width:480px) {
   .input_select2 .select2-container {
     width: 86% !important;
-  } 
+  }
   .card {
     margin-bottom: 50px !important;
   }
@@ -259,6 +265,6 @@ overflow-x: auto;
   }
   .dataTables_wrapper.no-footer .row .col-sm-12.col-md-6 {
     width: auto;
-  } 
-} 
+  }
+}
 
