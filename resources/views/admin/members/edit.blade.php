@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 edit_profile_main">
               <div class="card mb-5 shadow-sm">
                 <h5 class="card-header">Edit Members</h5>
                 <div class="card-body">
@@ -52,6 +52,7 @@
                             @error('mobile_no')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
+                    @if(auth()->user()->role_id == 1)
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-money"></i></span></div>
                         <input id="profit_income" type="number" name="profit_income" class="form-control" placeholder="Profit Sheering Income*" pattern="[0-9]+" maxlength="20" minlength="0" value="{{ old('profit_income',$User->profit_income) }}" required>
@@ -66,6 +67,7 @@
                             @error('team_income')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
+                    @endif
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-id-card-o"></i></span></div>
                           <input id="pancard_no" type="text" name="pancard_no" class="form-control" placeholder="Pan Card Number" maxlength="10" minlength="0" value="{{ old('pancard_no',$User->pancard_no) }}">
@@ -80,13 +82,13 @@
                             @error('bank_act_no')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
-                    <div class="input-group mb-2">
+                    {{-- <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-code"></i></span></div>
                           <input id="member_code" type="number" name="member_code" class="form-control" placeholder="Member Code" maxlength="20" minlength="0"value="{{ old('member_code',$User->member_code) }}">
                     </div>
                             @error('member_code')
                             <p class="text-danger">{{ $message }}</p>
-                            @enderror
+                            @enderror --}}
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-inr"></i></span></div>
                           <input id="principal_amount" type="number" name="principal_amount" class="form-control" placeholder="Principal Amount"maxlength="10" minlength="0" value="{{ old('principal_amount',$User->principal_amount) }}">

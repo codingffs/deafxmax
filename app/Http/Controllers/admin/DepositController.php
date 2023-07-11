@@ -5,8 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DepositDetails;
-use DataTables;
-
+use Yajra\DataTables\DataTables;
 class DepositController extends Controller
 {
     public function index(Request $request)
@@ -29,9 +28,7 @@ class DepositController extends Controller
                       ->rawColumns(['image','user_id'])
                       ->make(true);
                     }
-
             return view('admin.depositdetails.index');
-
     }
     public function create()
     {
@@ -44,7 +41,6 @@ class DepositController extends Controller
             'amount' => 'required',
             'deposit_type' => 'required',
         ]);
-
             $depositdetails = array(
                 "bank_acc_no" => $request->bank_acc_no,
                 "user_id" => auth()->user()->id,

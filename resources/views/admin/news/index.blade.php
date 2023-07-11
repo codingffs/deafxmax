@@ -4,12 +4,12 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
           <div class="page-header">
-            <h2 class="pageheader-title">Members</h2>
+            <h2 class="pageheader-title">News</h2>
                 <div class="page-breadcrumb">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}" class="breadcrumb-link">Home</a></li>
-                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Members</a></li>
+                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">News</a></li>
                 </ol>
               </nav>
             </div>
@@ -20,14 +20,12 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
           <div class="card shadow-sm mb-5">
             <div class="card-header d-flex pb-0 justify-content-between">
-                <div class="col-md-4 d-flex  align-items-center"><h5>Members
+                <div class="col-md-4 d-flex  align-items-center"><h5>News
                     </h5>
                 </div>
                 <div class="col-md-4">
                     <div class="csv-button float-right">
-                        {{-- @if(auth()->user()->role_id == 1)
-                        <a href="{{route('members.create')}}" class="btn btn-primary mb-2">Add Members</a>
-                        @endif --}}
+                        <a href="{{route('news.create')}}" class="btn btn-primary mb-2">Add News</a>
                     </div>
                 </div>
             </div>
@@ -36,15 +34,9 @@
                 <table class="table table-striped table-bordered data_table">
                   <thead>
                     <tr>
-                        <th class="rounded-0">Name</th>
-                        <th class="rounded-0">Mobile</th>
-                        <th class="rounded-0">Email</th>
-                        @if(auth()->user()->role_id == 1)
-                        <th class="rounded-0">Created Date</th>
-                        @else
-                        <th class="rounded-0">Principal Amount</th>
-                        @endif
-                        <th class="rounded-0">Action</th>
+                        <th class="rounded-0">DATE</th>
+                        <th class="rounded-0">DESCRIPTION</th>
+                        <th class="rounded-0">ACTION</th>
                     </tr>
                   </thead>
                 </table>
@@ -72,39 +64,20 @@
                         previous: '<i class="fa fa-angle-left">'
                         }
                     },
-                    ajax: "{{ route('members.index') }}",
+                    ajax: "{{ route('news.index') }}",
                     columns: [
-                        {
-                            data: 'label_name',
-                            name: 'label_name'
-                        },
-                        {
-                            data: 'mobile_no',
-                            name: 'mobile_no'
-                        },
-                        {
-                            data: 'email',
-                            name: 'email'
-                        },
-                        @if(auth()->user()->role_id == 1)
                         {
                             data: 'date',
                             name: 'date'
                         },
-
-                        @else
                         {
-                            data: 'principal_amount',
-                            name: 'principal_amount'
+                            data: 'description',
+                            name: 'description'
                         },
-                        @endif
                         {
                             data: 'action',
-                            name: 'action',
-                            orderable: false,
-                            searchable: false
+                            name: 'action'
                         },
-
                     ],
                     order:[],
                 });
@@ -115,7 +88,7 @@
                       text: "You won't be able to revert this!",
                       icon: 'warning',
                       showCancelButton: true,
-                      confirmButtonClass: "btn btn-danger mr-2",
+                      confirmButtonClass: "btn btn-danger",
                       cancelButtonClass: "btn btn-primary",
                       confirmButtonText: 'Yes, delete it!',
                       inputValidator: (value) => {
@@ -137,12 +110,7 @@
                               success: function(data) {
                                   if (data.status == 1) {
                                       table.draw();
-                                      toastr_success("Member Deleted Successfully!");
-                                  }  else if (data.status == 2) {
-                                      Swal.fire({
-                                        icon: 'error',
-                                        text: 'Please Remove Child Entry First!'
-                                    });
+                                      toastr_success(" News Deleted Successfully!");
                                   } else {
                                     toastr_error("Some Thing Went Wrong!");
                                       return false;
@@ -153,33 +121,7 @@
                     });
                 });
 
-                $(document).on('change', "#consultant_switch", function() {
-                var mode= $(this).prop('checked');
-                var id= $(this).attr('data-id');
-                if(mode == true){
-                    status = 0;
-                }else{
-                    status = 1;
-                }
-                $.ajax({
-                        type: "GET",
-                        url: "{{ route('consultant_status_change') }}",
-                        data: {
-                                'status': status,
-                                'id': id,
-                        },
-                        success: function(data) {
-                            if(data.status == 1){
-                                    table.draw();
-                                    toastr_success("Consultant status change successfully!");
-                            }
-                            else{
-                                toastr_error("Some Thing Went Wrong!");
-                            }
-                        }
-                    });
-                });
-            });
 
+            });
      </script>
 @endsection

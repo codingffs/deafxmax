@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\MembersController;
 use App\Http\Controllers\admin\KycController;
 use App\Http\Controllers\admin\DepositController;
 use App\Http\Controllers\admin\WithdrawController;
+use App\Http\Controllers\admin\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +69,8 @@ Route::get('member/login', [LoginController::class, 'index'])->name('member_logi
         Route::get('direct_list_data/{id?}', [MembersController::class, 'direct_list_data'])->name('direct_list_data');
 
         Route::resource('kyc',KycController::class);
+
+        Route::resource('news',NewsController::class);
 
         Route::resource('depositdetails',DepositController::class);
 

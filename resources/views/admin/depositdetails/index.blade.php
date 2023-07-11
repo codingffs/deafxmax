@@ -29,7 +29,7 @@
                         <a href="{{route('depositdetails.create')}}" class="btn btn-primary mb-2">Add Deposit</a>
                         @endif
                     </div>
-                </div>                                                                        
+                </div>
             </div>
             <div class="card-body">
               <div class="table-responsive">

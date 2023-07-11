@@ -6,19 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Validation\ValidationException;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
-
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
     protected $redirectTo = '/dashboard';
-
      /**
      * Create a new controller instance.
      *
@@ -28,15 +26,12 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
     public function index(){
         $pre_url= url()->previous();
         $role_id = User::first()->role_id;
         return view('admin.login',compact('pre_url','role_id'));
     }
-
     public function login_submit(Request $request){
-
             $this->validate($request, [
                 'email' => 'required',
                 'password' => 'required',
@@ -65,9 +60,7 @@ class LoginController extends Controller
                 ]);
                 return back()->withInput($request->only('email', 'remember'));
             }
-
     }
-
     public function logout(){
         $pre_url= url()->previous();
         $role_id = User::get();
@@ -79,7 +72,5 @@ class LoginController extends Controller
              Auth::logout();
              return redirect()->route('member_login');
         }
-
     }
-
 }

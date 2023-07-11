@@ -4,9 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -19,7 +19,6 @@ class HomeController extends Controller
       $request->validate([
         'email' => 'required|email|exists:users',
     ]);
-
     $password = rand(000000,999999);
     $pre_url= url()->previous();
     $user = User::where('email',$request->email)->first();

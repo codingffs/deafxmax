@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12">
+            <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 edit_profile_main">
               <div class="card mb-5 shadow-sm">
                 <h5 class="card-header">Create Deposit</h5>
                 <div class="card-body">

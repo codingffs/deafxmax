@@ -7,23 +7,25 @@ use App\Models\BankDetails;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\State;
-use Hash;
+use App\Models\News;
+use Illuminate\Support\Facades\Hash;
 use Auth;
 use App\Models\Kyc;
-
+use Illuminate\Support\Carbon;
 class DashboardController extends Controller
 {
     public function index(){
         $kyc = Kyc::first();
-        return view('admin.dashboard.index',compact('kyc'));
+        $date = Carbon::now();
+        $formatedDate = $date->format('Y-m-d');
+        $news = News::whereDate('date', '>=', $formatedDate)->get();
+        return view('admin.dashboard.index',compact('kyc','news','formatedDate','date'));
     }
-
     public function profile_edit(){
         $user = User::find(auth()->user()->id);
         $State =  State::get();
         return view('admin.profile.edit',compact('user','State'));
     }
-
     public function profile_update(Request $request,$id){
         $request->validate([
             'label_name' => 'required',
@@ -33,7 +35,6 @@ class DashboardController extends Controller
         ]);
         try {
             $profile = User::find($id);
-
             $User = array(
                 "label_name" => $request->label_name,
                 "email" => $request->email,
@@ -56,16 +57,13 @@ class DashboardController extends Controller
             }
             User::whereId($id)->update($User);
             return redirect()->route("profile_edit")->with("success", "Profile Updated Successfully.");
-
         } catch (\Throwable $th) {
             return redirect()->back()->with('error',$th->getMessage());
         }
     }
-
     public function change_password(){
         return view('admin.profile.change-password');
     }
-
     public function current_auth_password(Request $request)
     {
         if (!(Hash::check($request->current_password, Auth::user()->password))) {
@@ -75,7 +73,6 @@ class DashboardController extends Controller
             return response()->json(['status' => 0]);
         }
     }
-
     public function change_password_post(Request $request){
         $request->validate([
             'current_password' => 'required',
@@ -97,14 +94,12 @@ class DashboardController extends Controller
         $user = User::find(auth()->user()->id);
         $State =  State::get();
          return view('admin.profile.view-account',compact('user','State'));
-        // return response()->json(['html' => $html]);
     }
 
-        public function bank_details() {
-            $bank_details = BankDetails::where('user_id',auth()->user()->id)->first();
-            return view('admin.profile.bank_details',compact('bank_details'));
-      }
-
+    public function bank_details() {
+        $bank_details = BankDetails::where('user_id',auth()->user()->id)->first();
+        return view('admin.profile.bank_details',compact('bank_details'));
+    }
     public function bank_details_update(Request $request) {
         $request->validate([
             'bank_name'=>'required',
@@ -127,6 +122,4 @@ class DashboardController extends Controller
         }
      return redirect()->back()->with("success", "Bank Details Updated Successfully.");
         }
-
-
 }

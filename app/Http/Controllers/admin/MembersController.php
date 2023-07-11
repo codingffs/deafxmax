@@ -7,15 +7,14 @@ use App\Http\Middleware\auth;
 use App\Models\User;
 use App\Models\Members;
 use App\Models\Kyc;
-use DataTables;
-use Hash;
+use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
 
 class MembersController extends Controller
 {
-
     public function index(Request $request)
     {
         try {
@@ -44,17 +43,14 @@ class MembersController extends Controller
                         })
                         ->make(true);
                     }
-
             return view('admin.members.index');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error',$th->getMessage());
         }
     }
-
     public function show($id){
         //
     }
-
     public function create()
     {
         $User = User::where('role_id',2)->orderBy('created_at','desc')->get();
@@ -111,15 +107,22 @@ class MembersController extends Controller
                 $message->subject('New User Register');
             });
             $User->save();
-            if($User->parent_id == null ){
+            if($User->parent_id == 1 && $User->name == null){
 
                 return redirect()->route('members.index')->with('success','Members create successfully');
             }
-            else{
-                return redirect()->route('view_parent_data',$User->parent_id)->with('success',' Parent Members create successfully');
+            elseif($User->parent_id == auth()->user()->id  && $User->name ==  auth()->user()->id && $User->auther_id == 1){
+
+                return redirect()->route('view_parent_data',$User->name)->with('success','Members create successfully');
+            }
+            elseif($User->parent_id == auth()->user()->id && $User->auther_id == null){
+                return redirect()->route('direct_list_data',$User->parent_id)->with('success','Members create successfully');
 
             }
+            else{
+                return redirect()->route('view_parent_data',$User->name)->with('success',' Parent Members create successfully');
 
+            }
     }
         public function edit(string $id)
     {
@@ -128,24 +131,28 @@ class MembersController extends Controller
     }
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'mobile_no' => 'required',
-            'email' => 'required',
-            'pancard_no' => 'required',
-            'bank_act_no' => 'required',
-            'profit_income' => 'required',
-            'team_income' => 'required',
-            'member_code' => 'required',
-            'principal_amount' => 'required',
-        ]);
-
+        // $request->validate([
+        //     'mobile_no' => 'required',
+        //     'email' => 'required',
+        //     'pancard_no' => 'required',
+        //     'bank_act_no' => 'required',
+        //     'profit_income' => 'required',
+        //     'team_income' => 'required',
+        //     'member_code' => 'required',
+        //     'principal_amount' => 'required',
+        // ]);
             $User = User::find($id);
             // if(auth()->user()->role_id == 2){
             //     $User->parent_id = auth()->user()->id;
             // }
-            $User->name = $request->name;
+            // $User->name = $request->name;
             $User->label_name = $request->label_name;
-            // $User->parent_id = $request->name;
+            if(auth()->user()->role_id == 1){
+                $User->parent_id = 1;
+            }
+            else{
+                $User->parent_id = auth()->user()->id;
+            }
             $User->mobile_no = $request->mobile_no;
             $User->email = $request->email;
             $User->pancard_no = $request->pancard_no;
@@ -157,13 +164,24 @@ class MembersController extends Controller
             $User->referal_code = $request->referal_code;
             $User->role_id = 2;
             $User->save();
-            if($User->parent_id == null ){
-
-                return redirect()->route('members.index')->with('success','Members updated successfully');
+            if(auth()->user()->role_id == 1){
+                if($User->parent_id == 1 && $User->name == null){
+                    return redirect()->route('members.index')->with('success','Members updated successfully');
+                }
+                else{
+                    return redirect()->route('view_parent_data',$User->name)->with('success','Parent Members updated successfully');
+                }
             }
             else{
-                return redirect()->route('view_parent_data',$User->parent_id)->with('success',' Parent Members updated successfully');
-
+                if($User->parent_id == auth()->user()->id && $User->auther_id == null){
+                    return redirect()->route('direct_list_data',$User->parent_id)->with('success',' Parent Members updated successfully');
+                }
+                elseif($User->parent_id == auth()->user()->id && $User->name != null){
+                    return redirect()->route('members.index')->with('success','Members updated successfully');
+                }
+                else{
+                    return redirect()->route('view_parent_data',$User->name)->with('success','Parent Members updated successfully');
+                }
             }
     }
     public function destroy($id)
@@ -179,7 +197,7 @@ class MembersController extends Controller
         //     $User->delete();
         //     return response()->json(["status" => 0,"parent_id" => $parent_id]);
         // }
-        if(User::where('parent_id',$id)->exists()){
+        if(User::where('name',null)->exists()){
             return response()->json(["status" => 2]);
        }
        else{
@@ -192,7 +210,6 @@ class MembersController extends Controller
            }
        }
     }
-
     public function members_destroy($id){
         $User = User::find($id);
         $User->delete();
@@ -204,7 +221,6 @@ class MembersController extends Controller
          $kyc = Kyc::where('user_id',$id)->get();
          return view('admin.members.view_data',compact('user','kyc'));
     }
-
     public function view_member_data($id)
     {
          $user_data = User::find($id);
@@ -219,19 +235,14 @@ class MembersController extends Controller
         $kyc->save();
        return response()->json(['status'=> 1]);
     }
-
     public function view_parent_data($id)
     {
         $kyc = User::where('auther_id',1)->where('name',$id)->get();
          return view('admin.members.parent_data',compact('kyc'));
     }
-
     public function direct_list_data()
     {
         $kyc = User::where('auther_id',null)->where('parent_id',auth()->user()->id)->get();
          return view('admin.members.parent_data',compact('kyc'));
     }
-
-
-
 }
