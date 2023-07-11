@@ -106,7 +106,7 @@
           </li> --}}
           <li class="nav-item dropdown nav-user order-lg-4 ">
             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false"><img src="{{ auth()->user()->image }}" alt=""
+              aria-haspopup="true" aria-expanded="false">{{ auth()->user()->label_name }} <img src="{{ auth()->user()->image }}" alt=""
                 class="avatar-xs rounded-circle"></a>
             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
               <div class="nav-user-info">

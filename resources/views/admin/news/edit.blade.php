@@ -31,14 +31,14 @@
                     @method('PATCH')
                     <input type="hidden" name="id" id="id" value="{{ $news->id }}"/>
                     <div class="input-group mb-2">
-                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-calendar"></i></span></div>
                         <input type="text" class="form-control" name="date" id="datepicker"  placeholder="Date" value="{{ old('date',$news->date) }}">
                     </div>
                         @error('date')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     <div class="input-group mb-2">
-                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-info"></i></span></div>
                         <textarea class="form-control" id="description" placeholder="Description*"  name="description" rows="3" required>{{ $news->description }}</textarea>
                     </div>
                         @error('description')
