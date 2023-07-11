@@ -159,35 +159,21 @@
         <br>
         @if(auth()->user()->role_id == 2)
          <!-- [ Main Content ] start -->
-   <div  class="row">
-    <div class="card table-card col-12" style="margin-top: -24px;">
-                <div class="card-header">
-               <h5>News</h5>
-                   </div>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table id="datatable1" class="table table-hover mb-0">
-                            <tbody>
-                            @foreach($news as $data)
-                                <tr>
-                                    <td>{{ $data->description }}</td>
-                                 </tr>
-                                 @endforeach
-                                 @if($news == '[]')
-                             @endif
-                             @csrf
-                                @method('DELETE')
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-         </div>
+<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+    <div class="card card_box mb-5 shadow-sm">
+      <div class="card-body box__card bg_gradiant1">
+        <div class="d-inline-block">
+          <h5 class="text-white mb-3">News</h5>
+          @foreach($news as $data)
+          <h2 class="mb-0 text-white">{{ $data->description }}</h2>
+          @endforeach
+          @if($news == '[]')
+          @endif
+          @csrf
+             @method('DELETE')
+        </div>
       </div>
     </div>
-</div>
-</div>
-</div>
-</div>
+  </div>
 @endif
 @endsection

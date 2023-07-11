@@ -11,15 +11,15 @@ use App\Models\News;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use App\Models\Kyc;
-use Carbon\Carbon;
-
+use Illuminate\Support\Carbon;
 class DashboardController extends Controller
 {
     public function index(){
         $kyc = Kyc::first();
-        $desiredDate = News::first('date');
-        $news = News::whereDate('created_at', '>=', $desiredDate)->get();
-        return view('admin.dashboard.index',compact('kyc','news','desiredDate'));
+        $date = Carbon::now();
+        $formatedDate = $date->format('Y-m-d');
+        $news = News::whereDate('date', '>=', $formatedDate)->get();
+        return view('admin.dashboard.index',compact('kyc','news','formatedDate','date'));
     }
     public function profile_edit(){
         $user = User::find(auth()->user()->id);
