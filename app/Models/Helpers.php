@@ -35,7 +35,7 @@ if(! function_exists('getKycFlag')){
 	}
 }
 function get_profit_income_count(){
-    $count = User::where('id',auth()->user()->id)->where('parent_id',1)->where('name',null)->sum('profit_income');
+    $count = User::where('id',auth()->user()->id)->where('role_id',2)->sum('profit_income');
     return $count;
 }
 
@@ -45,7 +45,7 @@ function get_team_income_count(){
 }
 
 function get_principal_amount_count(){
-    $count = User::where('id',auth()->user()->id)->where('parent_id',1)->where('name',null)->sum('principal_amount');
+    $count = User::where('id',auth()->user()->id)->where('role_id',2)->sum('principal_amount');
     return $count;
 }
 function get_employe_count(){

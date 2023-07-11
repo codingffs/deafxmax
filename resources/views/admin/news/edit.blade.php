@@ -32,7 +32,7 @@
                     <input type="hidden" name="id" id="id" value="{{ $news->id }}"/>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                        <input type="date" class="form-control" name="date" id="date"  placeholder="Date" value="{{ old('date',$news->date) }}">
+                        <input type="text" class="form-control" name="date" id="date"  placeholder="Date" value="{{ old('date',$news->date) }}">
                     </div>
                         @error('date')
                             <p class="text-danger">{{ $message }}</p>
@@ -63,10 +63,10 @@
             },
         });
     });
-    $(document).ready(function() {
-    $("#date").datepicker({
-        dateFormat: "dd-mm-yy",
-    });
-});
+//     $(document).ready(function() {
+//     $("#date").datepicker({
+//         dateFormat: "dd-mm-yyyy",
+//     });
+// });
 </script>
 @endsection
